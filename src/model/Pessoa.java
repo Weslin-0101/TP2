@@ -1,4 +1,4 @@
-package cinema;
+package model;
 
 import java.util.Date;
 import java.util.List;

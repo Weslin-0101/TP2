@@ -1,11 +1,33 @@
-package cinema;
+package model;
 
 import java.util.Date;
 
-public class Administracao extends Pessoa{
+public class Cliente extends Pessoa {
 
-    public Administracao(Integer id, String nome, Date dataDeNascimento, String cpf, String email, String senha) {
+    private String estado;
+    private String cidade;
+    
+    public Cliente(Integer id, String nome, Date dataDeNascimento, String cpf, String email, String senha,
+            String estado, String cidade) {
         super(id, nome, dataDeNascimento, cpf, email, senha);
+        this.estado = estado;
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     @Override
@@ -53,6 +75,6 @@ public class Administracao extends Pessoa{
         
         super.editar();
     }
-    
+
     
 }

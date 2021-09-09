@@ -9,7 +9,7 @@ public class Localidade {
     private String cep;
     private String pontoDeReferencia;
 
-    private List<Localidade> localidades = new ArrayList<>();
+    private Cinema cinema;
 
 
 public Localidade() {} //default
@@ -46,10 +46,26 @@ public void setPontoDeReferencia(String pontoDeReferencia) {
     this.pontoDeReferencia = pontoDeReferencia;
 }
 
+public String getEndereco() {
+    return endereco;
+}
+
+public void setEndereco(String endereco) {
+    this.endereco = endereco;
+}
+
+public Cinema getCinema() {
+    return cinema;
+}
+
+public void setCinema(Cinema cinema) {
+    this.cinema = cinema;
+}
+
 //métodos da classe
 @Override
 public String toString(){
-    return "Endereco: "+getendereco()+" Cep: "+getCep()+" Ponto de referencia: "+getPontoDeReferencia()+"\n";
+    return "Cinema: " + getCinema() + "Endereco: " +getendereco()+ " Cep: " +getCep()+ " Ponto de referencia: " +getPontoDeReferencia()+ "\n";
 }
 
 }

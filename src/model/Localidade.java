@@ -9,7 +9,7 @@ public class Localidade {
     private String cep;
     private String pontoDeReferencia;
 
-    List<Localidade> localidades = new ArrayList<>();
+    private List<Localidade> localidades = new ArrayList<>();
 
 
 public Localidade() {} //default

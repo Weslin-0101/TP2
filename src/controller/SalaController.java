@@ -22,7 +22,7 @@ public class SalaController {
             salas.add(sala);
         } else {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Sala já cadastrada!");
             System.out.println("=============================");
         }
     }

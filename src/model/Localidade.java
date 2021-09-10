@@ -15,7 +15,8 @@ public class Localidade {
 public Localidade() {} //default
 
 //construtor sobrecarregado
-public Localidade(String endereco, String cep, String pontoDeReferencia){
+public Localidade(Cinema cinema ,String endereco, String cep, String pontoDeReferencia){
+    this.cinema = cinema;
     this.endereco = endereco;
     this.cep = cep;
     this.pontoDeReferencia = pontoDeReferencia;
@@ -65,7 +66,10 @@ public void setCinema(Cinema cinema) {
 //métodos da classe
 @Override
 public String toString(){
-    return "Cinema: " + getCinema() + "Endereco: " +getendereco()+ " Cep: " +getCep()+ " Ponto de referencia: " +getPontoDeReferencia()+ "\n";
+    return "Cinema: " + getCinema().getNome() + "\n" + 
+        "Endereco: " + getendereco() + "\n" + 
+        " Cep: " + getCep() + "\n" +
+        " Ponto de referencia: " + getPontoDeReferencia()+ "\n";
 }
 
 }

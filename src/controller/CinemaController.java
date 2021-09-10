@@ -29,7 +29,7 @@ public class CinemaController {
             cinemas.add(cinema);
         } else {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Cinema já existente!");
             System.out.println("=============================");
         }
     }
@@ -47,7 +47,7 @@ public class CinemaController {
 
         if (!found) {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Localidade não encontrada!");
             System.out.println("=============================");
         }
     }

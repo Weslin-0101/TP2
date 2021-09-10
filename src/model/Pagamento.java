@@ -6,13 +6,13 @@ public class Pagamento {
     
     private String numeroDoCartao;
     private String nomeImpresso;
-    private Date dataDeValidade;
+    private String dataDeValidade;
     private String codigoDeSeguranca;
     private String cpf;
     private String pix;
     private Double dinheiro;
     
-    public Pagamento(String numeroDoCartao, String nomeImpresso, Date dataDeValidade, String codigoDeSeguranca,
+    public Pagamento(String numeroDoCartao, String nomeImpresso, String dataDeValidade, String codigoDeSeguranca,
             String cpf) {
         this.numeroDoCartao = numeroDoCartao;
         this.nomeImpresso = nomeImpresso;
@@ -48,11 +48,11 @@ public class Pagamento {
         this.nomeImpresso = nomeImpresso;
     }
 
-    public Date getDataDeValidade() {
+    public String getDataDeValidade() {
         return dataDeValidade;
     }
 
-    public void setDataDeValidade(Date dataDeValidade) {
+    public void setDataDeValidade(String dataDeValidade) {
         this.dataDeValidade = dataDeValidade;
     }
 

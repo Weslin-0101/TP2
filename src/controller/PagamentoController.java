@@ -18,6 +18,14 @@ public class PagamentoController {
         return pagamentos;
     }
 
+
+    public void addPagamento(Pagamento pagamento) {
+        if (!pagamentos.contains(pagamento)) {
+            pagamentos.add(pagamento);
+        } else {
+            System.out.println("Método de pagamento já existente");
+        }
+    }
     // Precisa ser refatorado (manutenção urgente)
     public boolean validacaoDaEscolha(boolean escolha) {
 

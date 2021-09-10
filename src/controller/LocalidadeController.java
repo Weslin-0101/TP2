@@ -23,7 +23,7 @@ public class LocalidadeController {
             localidades.add(localidade);
         } else {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Localidade já cadastrada!");
             System.out.println("=============================");
         }
     }
@@ -50,5 +50,11 @@ public class LocalidadeController {
 
     public void deletar(Localidade localidade) {
         localidades.remove(localidade);
+    }
+
+    public void listar(Localidade localidade) {
+        for (Localidade lugares : localidades) {
+            System.out.println(lugares);
+        }
     }
 }

@@ -15,7 +15,7 @@ public class FilmeController {
             filmes.add(f);
         } else {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Filme já cadastrado!");
             System.out.println("=============================");
         }
     }
@@ -24,14 +24,11 @@ public class FilmeController {
     public void buscar(String procura) {
         boolean found = false;
 
-        System.out.println("Digite o nome do filme/gênero/ator/diretor ou se está em cartaz: ");
-        procura = Sc.nextLine();
-
         for (Filme value : filmes) {
             Filme f = value;
-            if ((f.getTitulo().equals(procura)) && (f.getGenero().equals(procura))
-                && (f.getAtores().equals(procura)) && (f.getDiretor().equals(procura))
-                && (f.getEmCartaz().equals(procura))) {
+            if ((f.getTitulo().equals(procura)) || (f.getGenero().equals(procura))
+                || (f.getAtores().equals(procura)) || (f.getDiretor().equals(procura))
+                || (f.getEmCartaz().equals(procura))) {
                 
                 System.out.println(f);
                 found = true;
@@ -40,7 +37,7 @@ public class FilmeController {
 
         if (!found) {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Filme não encontrado!");
             System.out.println("=============================");
         }
     }
@@ -57,6 +54,16 @@ public class FilmeController {
     // Método para confirmar a seleção do filme
     public boolean confirmarFilmes(String confirm) { 
         
-        return (confirm.equals("Sim"));
+        boolean verificar = false;
+        for (Filme valores : filmes) {
+            Filme escolha = valores;
+            if (escolha.getTitulo().equals(confirm)) {
+                verificar = true;
+                System.out.println("Escolha confirmada do filme " + confirm);
+                String guardar = confirm;
+            }
+        }
+
+        return verificar;
     }
 }

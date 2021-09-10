@@ -84,7 +84,7 @@ public class Alimento{
     //métodos da classe
     @Override
     public String toString(){
-        return "Nome: "+getNome()+"/"+" Combos: "+getCombos()+"/"+" Pipocas: "+getPipocas()+"/"+" Bebidas: "
-        +getBebidas()+"/"+" Doces: "+getDoces()+"/"+" Preco: "+getPreco()+"/"+" Descricao: "+getDescricao()+"\n";
+        return "Nome: "+getNome()+" /"+" Combos: "+getCombos()+" /"+" Pipocas: "+getPipocas()+" /"+" Bebidas: "
+        +getBebidas()+" /"+" Doces: "+getDoces()+" /"+" Preco: "+getPreco()+" /"+" Descricao: "+getDescricao()+"\n";
     }
 }

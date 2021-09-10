@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Cinema{
     private String nome;
+    private Localidade localidade;
 
     public Cinema() {} //default
 

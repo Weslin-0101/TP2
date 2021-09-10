@@ -38,7 +38,7 @@ public class SessaoController {
             sessoes.add(sessao);
         } else {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Sessão já cadastrada!");
             System.out.println("=============================");
         }
     }
@@ -55,7 +55,7 @@ public class SessaoController {
 
         if (!found) {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("Sessão não encontrada!");
             System.out.println("=============================");
         }
     }

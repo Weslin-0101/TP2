@@ -12,8 +12,12 @@ public class Ingresso {
     private Integer quantidade;
 
     private Filme filme;
+    private Sala sala;
 
-    
+    public Ingresso() {
+
+    }
+
     public Ingresso(Double valor, String tipo, Integer numeroDaPoltrona, Double taxa, Integer quantidade) {
         this.valor = valor;
         this.tipo = tipo;
@@ -70,7 +74,22 @@ public class Ingresso {
         this.filme = filme;
     }
 
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    @Override
     public String toString() {
-        return filme.getTitulo();
+        return 
+            // "Título: " + getFilme().getTitulo() + "\n" +
+            " Tipo: " + getTipo() + "\n" + 
+            " Valor: R$ " + getValor() + "\n" +
+            // " Sala: " + getSala().getNumeroDaSala() + "\n" +
+            " Poltrona: " + getNumeroDaPoltrona() + "\n" +
+            " Taxa: " + getTaxa() + "%" + "\n";  
     }
 }

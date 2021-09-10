@@ -45,5 +45,5 @@ public class Sala {
     public void setTecnologia(String tecnologia) {
         this.tecnologia = tecnologia;
     }
-
+    
 }

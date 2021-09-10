@@ -83,4 +83,10 @@ public class Filme {
         this.diretor = diretor;
     }
 
+    @Override
+    public String toString() {
+        return "Título: " + getTitulo() +" | " + " Sinopse: " + getSinopse() +" | " + " Gênero: " + getGenero()
+            + " | " + " Duração: " + getDuracao() + " | "+" Atores: " + getAtores() + " | " + " Diretor: " + getDiretor()
+            +" | " + " Está em cartaz: " + getEmCartaz()+ "\n";
+    }
 }

@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Localidade {
+    
     private String endereco;
     private String cep;
     private String pontoDeReferencia;
-
     private Cinema cinema;
 
 

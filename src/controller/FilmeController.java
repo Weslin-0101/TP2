@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import utils.Sc;
 
 import model.Filme;
 
@@ -20,13 +21,17 @@ public class FilmeController {
     }
 
     // Busca será feita a partir do título, genero, atores, diretor e no caso se está em cartaz
-    public void buscar(String titulo, String genero, String atores, String diretor, String cartaz) {
+    public void buscar(String procura) {
         boolean found = false;
+
+        System.out.println("Digite o nome do filme/gênero/ator/diretor ou se está em cartaz: ");
+        procura = Sc.nextLine();
+
         for (Filme value : filmes) {
             Filme f = value;
-            if ((f.getTitulo().equals(titulo)) && (f.getGenero().equals(genero))
-                && (f.getAtores().equals(atores)) && (f.getDiretor().equals(diretor))
-                && (f.getEmCartaz().equals(cartaz))) {
+            if ((f.getTitulo().equals(procura)) && (f.getGenero().equals(procura))
+                && (f.getAtores().equals(procura)) && (f.getDiretor().equals(procura))
+                && (f.getEmCartaz().equals(procura))) {
                 
                 System.out.println(f);
                 found = true;

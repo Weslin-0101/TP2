@@ -22,7 +22,8 @@ public class IngressoController {
     // Método para selecionar a poltrona
     public boolean selecionarPoltrona(boolean selec) {
 
-        return (selec == true);
+        boolean valida = true;
+        return (selec == valida);
     }
 
 }

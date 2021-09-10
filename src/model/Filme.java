@@ -13,9 +13,6 @@ public class Filme {
     private String emCartaz;
     private String atores;
     private String diretor;
-
-    // Criando uma lista e arraylist para que possamos completar os nossos métodos
-    List<Filme> filmes = new ArrayList<>();
     
     public Filme(String titulo, String duracao, String sinopse, String genero, String emCartaz, String atores,
             String diretor) {

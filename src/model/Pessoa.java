@@ -8,14 +8,14 @@ public abstract class Pessoa {
     
     private Integer id;
     private String nome;
-    private Date dataDeNascimento;
+    private String dataDeNascimento;
     private String cpf;
     private String email;
     private String senha;
 
     List<Pessoa> pessoas = new ArrayList<>();
     
-    protected Pessoa(Integer id, String nome, Date dataDeNascimento, String cpf, String email, String senha) {
+    protected Pessoa(Integer id, String nome, String dataDeNascimento, String cpf, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
@@ -40,11 +40,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public Date getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 

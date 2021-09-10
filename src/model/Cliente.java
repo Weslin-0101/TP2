@@ -1,17 +1,21 @@
 package model;
 
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Cliente extends Pessoa {
 
     private String estado;
     private String cidade;
+
+    private ArrayList<Cliente> clientes;
     
-    public Cliente(Integer id, String nome, Date dataDeNascimento, String cpf, String email, String senha,
+    public Cliente(Integer id, String nome, String data, String cpf, String email, String senha,
             String estado, String cidade) {
-        super(id, nome, dataDeNascimento, cpf, email, senha);
+        super(id, nome, data, cpf, email, senha);
         this.estado = estado;
         this.cidade = cidade;
+        this.clientes = new ArrayList<>();
     }
 
     public String getEstado() {
@@ -56,7 +60,7 @@ public class Cliente extends Pessoa {
             pessoas.add(p);
         } else {
             System.out.println("=============================");
-            System.out.println();
+            System.out.println("AVISO: Usuário já cadastrado!!");
             System.out.println("=============================");
         }
 

@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Administracao extends Pessoa{
 
-    public Administracao(Integer id, String nome, Date dataDeNascimento, String cpf, String email, String senha) {
-        super(id, nome, dataDeNascimento, cpf, email, senha);
+    public Administracao(Integer id, String nome, String data, String cpf, String email, String senha) {
+        super(id, nome, data, cpf, email, senha);
     }
 
     @Override

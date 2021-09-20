@@ -61,10 +61,12 @@ public class Login implements ActionListener {
         Object src = e.getSource();
         if (src == loginBtn) {
             if (username.equals("admin") && (password.equals("admin"))) {
-                JOptionPane.showMessageDialog(null, "PASSA A BUCETINHA");
-            } else {
-                passwordLabel.setText("AAAAAAAAAAAAAAA");
+                JOptionPane.showMessageDialog(null, "Deu certo");
             }
+        }
+
+        if (src == registerBtn) {
+            // Chamar a view do registro
         }
     }
 }

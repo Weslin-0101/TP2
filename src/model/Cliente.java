@@ -10,9 +10,9 @@ public class Cliente extends Pessoa {
 
     private ArrayList<Cliente> clientes;
     
-    public Cliente(Integer id, String nome, String data, String cpf, String email, String senha,
+    public Cliente(String nome, String data, String cpf, String email, String senha,
             String estado, String cidade) {
-        super(id, nome, data, cpf, email, senha);
+        super(nome, data, cpf, email, senha);
         this.estado = estado;
         this.cidade = cidade;
         this.clientes = new ArrayList<>();

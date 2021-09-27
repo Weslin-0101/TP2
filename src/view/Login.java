@@ -3,70 +3,86 @@ package view;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-import model.Cliente;
+public class Login extends JFrame implements ActionListener{
 
-public class Login implements ActionListener {
-    
-    private static JFrame janela = new JFrame("Cinema");
-    private static JLabel userLabel = new JLabel("Usuário");
-    private static JLabel passwordLabel = new JLabel("Senha");
-    private static JTextField userText = new JTextField(20);
-    private static JPasswordField passwordText = new JPasswordField(20);
-    private static JButton loginBtn = new JButton("Login");
-    private static JButton registerBtn = new JButton("Registrar");
+    private final JLabel usernameJLabel;
+    private final JTextField username;
+    private final JLabel passwrodJLabel;
+    private final JPasswordField password;
+    private final JButton loginBtn;
+    private final JButton registerBtn;
 
-    private Cliente cliente;
 
     public Login() {
 
-        userLabel.setBounds(40, 175, 80, 25);
-        userText.setBounds(60, 200, 160, 25);
-        passwordLabel.setBounds(30, 225, 80, 25);
-        passwordText.setBounds(60, 250, 160, 25);
-        loginBtn.setBounds(10, 290, 80, 25);
-        registerBtn.setBounds(150, 290, 80, 25);
+        this.setSize(425, 325);
+        setLayout(null);
+        setResizable(false);
+        setTitle("Cinema");
 
-        janela.setLayout(null);
-        janela.add(userLabel);
-        janela.add(userText);
-        janela.add(passwordLabel);
-        janela.add(passwordText);
-        janela.add(loginBtn);
-        janela.add(registerBtn);
+        usernameJLabel = new JLabel("Usuário");
+        usernameJLabel.setBounds(110, 98, 80, 25);
+        add(usernameJLabel);
 
-        janela.setSize(264, 400);
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        janela.setVisible(true);
-    }
+        username = new JTextField(20);
+        username.setBounds(162, 98, 100, 25);
+        add(username);
 
-    public static void main(String[] args) {
-        Login login = new Login();
+        passwrodJLabel = new JLabel("Senha");
+        passwrodJLabel.setBounds(115, 136, 80, 25);
+        add(passwrodJLabel);
 
-        loginBtn.addActionListener(login);
+        password = new JPasswordField(20);
+        password.setBounds(162, 136, 100, 25);
+        add(password);
+
+        loginBtn = new JButton("Entrar");
+        loginBtn.setBounds(85, 176, 105, 28);
+        add(loginBtn);
+
+        registerBtn = new JButton("Registrar-se");
+        registerBtn.setBounds(210, 176, 105, 28);
+        add(registerBtn);
+
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        String username = userText.getText();
-        String password = passwordText.getText();
-
-        Object src = e.getSource();
-        if (src == loginBtn) {
-            if (username.equals("admin") && (password.equals("admin"))) {
-                JOptionPane.showMessageDialog(null, "Deu certo");
-            }
-        }
-
-        if (src == registerBtn) {
-            // Chamar a view do registro
-        }
+        // TODO Auto-generated method stub
+        
     }
+
+    public JLabel getUsernameJLabel() {
+        return usernameJLabel;
+    }
+
+    public JTextField getUsername() {
+        return username;
+    }
+
+    public JLabel getPasswrodJLabel() {
+        return passwrodJLabel;
+    }
+
+    public JPasswordField getPassword() {
+        return password;
+    }
+
+    public JButton getLoginBtn() {
+        return loginBtn;
+    }
+
+    public JButton getRegisterBtn() {
+        return registerBtn;
+    }
+
+    
 }

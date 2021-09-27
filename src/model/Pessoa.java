@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public abstract class Pessoa {
     
-    private Integer id;
     private String nome;
     private String dataDeNascimento;
     private String cpf;
@@ -15,21 +14,12 @@ public abstract class Pessoa {
 
     List<Pessoa> pessoas = new ArrayList<>();
     
-    protected Pessoa(Integer id, String nome, String dataDeNascimento, String cpf, String email, String senha) {
-        this.id = id;
+    protected Pessoa(String nome, String dataDeNascimento, String cpf, String email, String senha) {
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNome() {

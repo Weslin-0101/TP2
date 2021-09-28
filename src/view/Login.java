@@ -7,6 +7,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import controller.LoginController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -18,9 +20,19 @@ public class Login extends JFrame implements ActionListener{
     private final JPasswordField password;
     private final JButton loginBtn;
     private final JButton registerBtn;
+    private final LoginController controller;
 
 
+    /* 
+    Classe Login para logar e se registrar
+
+    Conta Master cadastrada para ADMIN:
+
+    
+    */
     public Login() {
+
+        controller = new LoginController(this);
 
         this.setSize(425, 325);
         setLayout(null);
@@ -45,10 +57,12 @@ public class Login extends JFrame implements ActionListener{
 
         loginBtn = new JButton("Entrar");
         loginBtn.setBounds(85, 176, 105, 28);
+        loginBtn.addActionListener(this);
         add(loginBtn);
 
         registerBtn = new JButton("Registrar-se");
         registerBtn.setBounds(210, 176, 105, 28);
+        registerBtn.addActionListener(this);
         add(registerBtn);
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +70,8 @@ public class Login extends JFrame implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+        
+        this.controller.executarBotao(e);
         
     }
 
@@ -83,6 +98,4 @@ public class Login extends JFrame implements ActionListener{
     public JButton getRegisterBtn() {
         return registerBtn;
     }
-
-    
 }

@@ -39,8 +39,8 @@ public class CinemaController {
         
         for (Localidade valor : localidades) {
             Localidade local = valor;
-            if ((local.getCinema().getNome().equals(nome) || (local.getendereco().equals(localidade)))) {
-                System.out.println(local);
+            if ((((Cinema) local.getCinema()).getNome().equals(nome) || (local.getendereco().equals(localidade)))) {
+                System.out.println(local);  
                 found = true;
             }
         }

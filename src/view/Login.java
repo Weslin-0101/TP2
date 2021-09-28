@@ -1,10 +1,14 @@
 package view;
 
+import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import controller.LoginController;
@@ -31,42 +35,49 @@ public class Login extends JFrame implements ActionListener{
     
     */
     public Login() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/view/images/favicon.png")));
 
-        controller = new LoginController(this);
+		controller = new LoginController(this);
 
-        this.setSize(425, 325);
-        setLayout(null);
-        setResizable(false);
-        setTitle("Cinema");
+		this.setSize(425, 340);
+		getContentPane().setLayout(null);
+		setResizable(false);
+		setTitle("Cinema");
 
-        usernameJLabel = new JLabel("Usuário");
-        usernameJLabel.setBounds(110, 98, 80, 25);
-        add(usernameJLabel);
+		usernameJLabel = new JLabel("Usuario");
+		usernameJLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		usernameJLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		usernameJLabel.setBounds(10, 83, 143, 25);
+		getContentPane().add(usernameJLabel);
 
-        username = new JTextField(20);
-        username.setBounds(162, 98, 100, 25);
-        add(username);
+		username = new JTextField(20);
+		username.setBounds(162, 84, 100, 25);
+		getContentPane().add(username);
 
-        passwrodJLabel = new JLabel("Senha");
-        passwrodJLabel.setBounds(115, 136, 80, 25);
-        add(passwrodJLabel);
+		passwrodJLabel = new JLabel("Senha");
+		passwrodJLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		passwrodJLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		passwrodJLabel.setBounds(10, 119, 143, 25);
+		getContentPane().add(passwrodJLabel);
 
-        password = new JPasswordField(20);
-        password.setBounds(162, 136, 100, 25);
-        add(password);
+		password = new JPasswordField(20);
+		password.setBounds(162, 120, 100, 25);
+		getContentPane().add(password);
 
-        loginBtn = new JButton("Entrar");
-        loginBtn.setBounds(85, 176, 105, 28);
-        loginBtn.addActionListener(this);
-        add(loginBtn);
+		loginBtn = new JButton("Entrar");
+		loginBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		loginBtn.setBounds(69, 172, 105, 28);
+		loginBtn.addActionListener(this);
+		getContentPane().add(loginBtn);
 
-        registerBtn = new JButton("Registrar-se");
-        registerBtn.setBounds(210, 176, 105, 28);
-        registerBtn.addActionListener(this);
-        add(registerBtn);
+		registerBtn = new JButton("Registrar-se");
+		registerBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		registerBtn.setBounds(215, 172, 105, 28);
+		registerBtn.addActionListener(this);
+		getContentPane().add(registerBtn);
 
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    }
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	}
     
     @Override
     public void actionPerformed(ActionEvent e) {

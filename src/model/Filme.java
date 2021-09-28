@@ -13,6 +13,7 @@ public class Filme {
     private String emCartaz;
     private String atores;
     private String diretor;
+    private List<Ingresso> ingressos;
     
     public Filme(String titulo, String duracao, String sinopse, String genero, String emCartaz, String atores,
             String diretor) {
@@ -81,6 +82,10 @@ public class Filme {
 
     public void setDiretor(String diretor) {
         this.diretor = diretor;
+    }
+
+    public List<Ingresso> getIngressos() {
+        return ingressos;
     }
 
     @Override

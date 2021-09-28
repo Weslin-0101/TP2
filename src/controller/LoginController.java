@@ -23,7 +23,8 @@ public class LoginController {
         if (botao == view.getLoginBtn()) {
             this.printOlaMundo();
         } else {
-            
+            new CadastrarCliente().setVisible(true);
+            this.view.dispose();
         }
     }
 

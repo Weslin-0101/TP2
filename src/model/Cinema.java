@@ -1,16 +1,17 @@
 package model;
 
-import java.util.Date;
+import java.util.List;
 
 public class Cinema{
     private String nome;
-    private Localidade localidade;
+    private List<Sala> salas;
 
     public Cinema() {} //default
 
     //construtor sobrecarregado
-    public Cinema(String nome){
+    public Cinema(String nome, List<Sala> salas){
         this.nome = nome;
+        this.salas = salas;
     }
 
     //metodos de acesso - getters - setter
@@ -21,7 +22,15 @@ public class Cinema{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
+    public List<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
+    }
+
     //métodos da classe
     @Override
     public String toString(){

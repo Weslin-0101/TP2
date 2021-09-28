@@ -1,18 +1,19 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Sessao {
     
     private Date dataDaSessao;
     private Date horario;
 
-    private Sala sala;
+    private List<Sala> salas;
     
-    public Sessao(Date dataDaSessao, Date horario, Sala sala) {
+    public Sessao(Date dataDaSessao, Date horario, List<Sala> salas) {
         this.dataDaSessao = dataDaSessao;
         this.horario = horario;
-        this.sala = sala;
+        this.salas = salas;
     }
 
     public Date getDataDaSessao() {
@@ -31,13 +32,11 @@ public class Sessao {
         this.horario = horario;
     }
 
-    public Sala getSala() {
-        return sala;
+    public List<Sala> getSalas() {
+        return salas;
     }
 
-    public void setSala(Sala sala) {
-        this.sala = sala;
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
     }
-
-    
 }

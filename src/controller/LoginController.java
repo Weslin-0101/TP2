@@ -8,6 +8,7 @@ import model.Cliente;
 import model.Dados;
 import view.CadastrarCliente;
 import view.Login;
+import view.Menu;
 
 /* 
 *
@@ -18,12 +19,11 @@ import view.Login;
 public class LoginController {
     
     private final Login view;
-    private CadastrarCliente client;
+
 
     public LoginController(Login view) {
         super();
         this.view = view;
-        client = new CadastrarCliente();
     }
 
     /**
@@ -37,6 +37,8 @@ public class LoginController {
 
         if (botao == view.getLoginBtn()) {
             validarUsuario();
+            new Menu().setVisible(true);
+            this.view.dispose();
         } else {
             new CadastrarCliente().setVisible(true);
             this.view.dispose();

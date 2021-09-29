@@ -6,12 +6,14 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import controller.LoginController;
+import model.Dados;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,12 +34,21 @@ public class Login extends JFrame implements ActionListener{
 
     Conta Master cadastrada para ADMIN:
 
-    
+    Foi adicionado um ícone na janela dessa View.
+
     */
     public Login() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/view/images/favicon.png")));
 
+        /**
+         * A classe View se comunica com o Controller dela mesma
+         * e com o método iniciar() da classe Dados, para que possa
+         * adicionar os dados pré-cadastrados ou aqueles que serão
+         * ainda cadastrados.
+         * 
+         */
 		controller = new LoginController(this);
+        Dados.iniciar();
 
 		this.setSize(425, 340);
 		getContentPane().setLayout(null);
@@ -77,6 +88,7 @@ public class Login extends JFrame implements ActionListener{
 		getContentPane().add(registerBtn);
 
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 	}
     
     @Override
@@ -84,6 +96,14 @@ public class Login extends JFrame implements ActionListener{
         
         this.controller.executarBotao(e);
         
+    }
+
+    public void mostrarMensagemLoginInvalido(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    public void mostrarMensagemLoginValido(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
     }
 
     public JLabel getUsernameJLabel() {

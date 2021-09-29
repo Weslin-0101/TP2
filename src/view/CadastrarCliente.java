@@ -9,62 +9,79 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class CadastrarCliente extends JFrame {
+import controller.CadastrarClienteController;
 
-	private JPanel contentPane;
-	private JTextField nameField;
-	private JTextField dateField;
-	private JTextField cpfField;
-	private JTextField emailField;
-	private JTextField senhaField;
+public class CadastrarCliente extends JFrame implements ActionListener{
+
+	private final JPanel contentPane;
+	private final JLabel nameLabel;
+	private final JLabel dateLabel;
+	private final JLabel cpfLabel;
+	private final JLabel emailLabel;
+	private final JLabel senhaLabel;
+	private final JTextField nameField;
+	private final JTextField dateField;
+	private final JTextField cpfField;
+	private final JTextField emailField;
+	private final JPasswordField senhaField;
+	private final JButton confirmarBtn;
+	private final JButton voltarBtn;
+	private final CadastrarClienteController controller;
+
 
 	/**
-	 * Create the frame.
+	 * Classe responsável pela View de CadastrarCliente
+	 * 
+	 * Foi adicoinado um ícone na janela do Frame desta classe.
 	 */
 	public CadastrarCliente() {
+		
+		controller = new CadastrarClienteController(this);
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarCliente.class.getResource("/view/images/favicon.png")));
-
 		setResizable(false);
-
 		setTitle("Cadastrar");
 		this.setSize(425, 340);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 425, 340);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel nameLabel = new JLabel("Nome");
+		nameLabel = new JLabel("Nome");
 		nameLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setBounds(30, 11, 152, 35);
 		contentPane.add(nameLabel);
 
-		JLabel dateLabel = new JLabel("Data de nascimento");
+		dateLabel = new JLabel("Data de nascimento");
 		dateLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dateLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		dateLabel.setBounds(30, 57, 152, 35);
 		contentPane.add(dateLabel);
 
-		JLabel cpfLabel = new JLabel("CPF");
+		cpfLabel = new JLabel("CPF");
 		cpfLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		cpfLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		cpfLabel.setBounds(30, 103, 152, 35);
 		contentPane.add(cpfLabel);
 
-		JLabel emailLabel = new JLabel("Email");
+		emailLabel = new JLabel("Email");
 		emailLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		emailLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		emailLabel.setBounds(33, 149, 152, 35);
 		contentPane.add(emailLabel);
 
-		JLabel senhaLabel = new JLabel("Senha");
+		senhaLabel = new JLabel("Senha");
 		senhaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		senhaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		senhaLabel.setBounds(33, 198, 152, 35);
@@ -90,27 +107,83 @@ public class CadastrarCliente extends JFrame {
 		emailField.setBounds(215, 152, 157, 27);
 		contentPane.add(emailField);
 
-		senhaField = new JTextField();
+		senhaField = new JPasswordField(20);
 		senhaField.setColumns(10);
 		senhaField.setBounds(215, 198, 157, 27);
 		contentPane.add(senhaField);
 
-		JButton confirmarBtn = new JButton("Confirmar");
-		confirmarBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		confirmarBtn = new JButton("Confirmar");
 		confirmarBtn.setBounds(61, 244, 109, 41);
+		confirmarBtn.addActionListener(this);
 		contentPane.add(confirmarBtn);
 
-		JButton voltarBtn = new JButton("Voltar");
-		voltarBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		voltarBtn = new JButton("Voltar");
 		voltarBtn.setBounds(247, 244, 109, 41);
+		voltarBtn.addActionListener(this);
 		contentPane.add(voltarBtn);
+
+		setLocationRelativeTo(null);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		this.controller.executarBotao(e);
+	}
+
+	public void mensagemConfirmarCadastro(String mensagem) {
+		JOptionPane.showMessageDialog(null, mensagem);
+	}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public JLabel getNameLabel() {
+		return nameLabel;
+	}
+
+	public JLabel getDateLabel() {
+		return dateLabel;
+	}
+
+	public JLabel getCpfLabel() {
+		return cpfLabel;
+	}
+
+	public JLabel getEmailLabel() {
+		return emailLabel;
+	}
+
+	public JLabel getSenhaLabel() {
+		return senhaLabel;
+	}
+
+	public JTextField getNameField() {
+		return nameField;
+	}
+
+	public JTextField getDateField() {
+		return dateField;
+	}
+
+	public JTextField getCpfField() {
+		return cpfField;
+	}
+
+	public JTextField getEmailField() {
+		return emailField;
+	}
+
+	public JTextField getSenhaField() {
+		return senhaField;
+	}
+
+	public JButton getConfirmarBtn() {
+		return confirmarBtn;
+	}
+
+	public JButton getVoltarBtn() {
+		return voltarBtn;
 	}
 }

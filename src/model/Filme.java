@@ -24,6 +24,7 @@ public class Filme {
         this.emCartaz = emCartaz;
         this.atores = atores;
         this.diretor = diretor;
+        this.ingressos = new ArrayList<>();
     }
 
     // Getters e Settes dos atributos

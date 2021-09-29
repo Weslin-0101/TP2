@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 import java.util.ArrayList;
 
 public class Cliente extends Pessoa {
@@ -8,14 +9,15 @@ public class Cliente extends Pessoa {
     private String estado;
     private String cidade;
 
-    private ArrayList<Cliente> clientes;
     
-    public Cliente(String nome, String data, String cpf, String email, String senha,
-            String estado, String cidade) {
+    public Cliente(String nome, String data, String cpf, String email, String senha) {
         super(nome, data, cpf, email, senha);
         this.estado = estado;
         this.cidade = cidade;
-        this.clientes = new ArrayList<>();
+    }
+
+    public Cliente(String nome, String senha) {
+        super(nome, senha);
     }
 
     public String getEstado() {

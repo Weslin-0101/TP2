@@ -21,6 +21,11 @@ public abstract class Pessoa {
         this.senha = senha;
     }
 
+    protected Pessoa(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+
     public String getNome() {
         return nome;
     }

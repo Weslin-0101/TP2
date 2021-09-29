@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,10 +11,10 @@ public class Sessao {
 
     private List<Sala> salas;
     
-    public Sessao(Date dataDaSessao, Date horario, List<Sala> salas) {
+    public Sessao(Date dataDaSessao, Date horario) {
         this.dataDaSessao = dataDaSessao;
         this.horario = horario;
-        this.salas = salas;
+        this.salas = new ArrayList<>();
     }
 
     public Date getDataDaSessao() {
@@ -34,9 +35,5 @@ public class Sessao {
 
     public List<Sala> getSalas() {
         return salas;
-    }
-
-    public void setSalas(List<Sala> salas) {
-        this.salas = salas;
     }
 }

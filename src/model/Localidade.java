@@ -9,28 +9,20 @@ public class Localidade {
     private String endereco;
     private String cep;
     private String pontoDeReferencia;
-    private List<Cinema> cinema;
+    private List<Cinema> cinemas;
 
 
 public Localidade() {} //default
 
 //construtor sobrecarregado
-public Localidade(List<Cinema> cinema ,String endereco, String cep, String pontoDeReferencia){
-    this.cinema = cinema;
+public Localidade(String endereco, String cep, String pontoDeReferencia){
+    this.cinemas = new ArrayList<>();
     this.endereco = endereco;
     this.cep = cep;
     this.pontoDeReferencia = pontoDeReferencia;
 }
 
 //metodos de acesso - getters - setter
-public String getendereco() {
-    return endereco;
-}
-
-public void setendereco(String endereco) {
-    this.endereco = endereco;
-}
-
 public String getCep() {
     return cep;
 }
@@ -56,14 +48,14 @@ public void setEndereco(String endereco) {
 }
 
 public List<Cinema> getCinema() {
-    return cinema;
+    return cinemas;
 }
 
 //métodos da classe
 @Override
 public String toString(){
     return "Cinema: " + getCinema() + "\n" + 
-        "Endereco: " + getendereco() + "\n" + 
+        "Endereco: " + getEndereco() + "\n" + 
         " Cep: " + getCep() + "\n" +
         " Ponto de referencia: " + getPontoDeReferencia()+ "\n";
 }

@@ -8,6 +8,10 @@ public class Administracao extends Pessoa{
         super(nome, data, cpf, email, senha);
     }
 
+    public Administracao(String nome, String senha) {
+        super(nome, senha);
+    }
+
     @Override
     public void buscar(String name) {
         boolean found = false;

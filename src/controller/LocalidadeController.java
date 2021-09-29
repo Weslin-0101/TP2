@@ -32,7 +32,7 @@ public class LocalidadeController {
         boolean found = false;
         for (Localidade valor : localidades) {
             Localidade local = valor;
-            if (local.getendereco().equals(endereco)) {
+            if (local.getEndereco().equals(endereco)) {
                 System.out.println(local);
                 found = true;
             }

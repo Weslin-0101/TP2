@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cinema{
@@ -9,9 +10,9 @@ public class Cinema{
     public Cinema() {} //default
 
     //construtor sobrecarregado
-    public Cinema(String nome, List<Sala> salas){
+    public Cinema(String nome){
         this.nome = nome;
-        this.salas = salas;
+        this.salas = new ArrayList<>();
     }
 
     //metodos de acesso - getters - setter
@@ -25,10 +26,6 @@ public class Cinema{
 
     public List<Sala> getSalas() {
         return salas;
-    }
-
-    public void setSalas(List<Sala> salas) {
-        this.salas = salas;
     }
 
     //métodos da classe

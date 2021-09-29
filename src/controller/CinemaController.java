@@ -16,14 +16,6 @@ public class CinemaController {
         this.localidades = new ArrayList<>();
     }
 
-    public List<Cinema> getCinemas() {
-        return cinemas;
-    }
-
-    public List<Localidade> getLocalidades() {
-        return localidades;
-    }
-
     public void cadastrar(Cinema cinema) {
         if (!cinemas.contains(cinema)) {
             cinemas.add(cinema);
@@ -39,7 +31,7 @@ public class CinemaController {
         
         for (Localidade valor : localidades) {
             Localidade local = valor;
-            if ((((Cinema) local.getCinema()).getNome().equals(nome) || (local.getendereco().equals(localidade)))) {
+            if ((((Cinema) local.getCinema()).getNome().equals(nome) || (local.getEndereco().equals(localidade)))) {
                 System.out.println(local);  
                 found = true;
             }

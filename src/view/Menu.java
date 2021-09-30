@@ -27,7 +27,7 @@ public class Menu extends JFrame implements ActionListener{
 	private final JMenuItem cadastrarIngressoItemMenu;
 	private final JMenuItem cadastrarSessaoItemMenu;
 	private final JMenuItem cadastrarAlimentosItemMenu;
-	private final JButton vizualizarFilmesBtn;
+	private final JButton visualizarFilmesBtn;
 	private final JButton minhaContaBtn;
 	private final JButton opcao3Btn;
 	private final JButton sairBtn;
@@ -59,29 +59,36 @@ public class Menu extends JFrame implements ActionListener{
 		cadastroMenu.add(cadastrarFilmesItemMenu);
 
 		cadastrarCinemaItemMenu = new JMenuItem("Cadastrar Cinema");
+		cadastrarCinemaItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarCinemaItemMenu);
 
 		cadastrarIngressoItemMenu = new JMenuItem("Cadastrar Ingresso");
+		cadastrarIngressoItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarIngressoItemMenu);
 
 		cadastrarSessaoItemMenu = new JMenuItem("Cadastrar Sessoes");
+		cadastrarSessaoItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarSessaoItemMenu);
 
 		cadastrarAlimentosItemMenu = new JMenuItem("Cadastrar Alimentos");
+		cadastrarAlimentosItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarAlimentosItemMenu);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		vizualizarFilmesBtn = new JButton("Vizualizar filmes");
-		vizualizarFilmesBtn.setBounds(114, 38, 214, 49);
-		vizualizarFilmesBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
-		contentPane.add(vizualizarFilmesBtn);
+		visualizarFilmesBtn = new JButton("Visualizar filmes");
+		visualizarFilmesBtn.setBounds(114, 38, 214, 49);
+		visualizarFilmesBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		visualizarFilmesBtn.addActionListener(this);
+		contentPane.add(visualizarFilmesBtn);
 
 		minhaContaBtn = new JButton("Minha conta");
 		minhaContaBtn.setBounds(114, 115, 214, 49);
 		minhaContaBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		minhaContaBtn.addActionListener(this);
 		contentPane.add(minhaContaBtn);
 
 		opcao3Btn = new JButton("Opcao 3");
@@ -133,8 +140,8 @@ public class Menu extends JFrame implements ActionListener{
 		return cadastrarAlimentosItemMenu;
 	}
 
-	public JButton getVizualizarFilmesBtn() {
-		return vizualizarFilmesBtn;
+	public JButton getVisualizarFilmesBtn() {
+		return visualizarFilmesBtn;
 	}
 
 	public JButton getMinhaContaBtn() {

@@ -39,6 +39,9 @@ public abstract class Dados {
 
         Administracao admin = new Administracao("admin", "admin");
         admins.add(admin);
+
+        Filme filme = new Filme("Guerra do amanha", "120min", "Brabo demais", "Ação, Aventura", "Sim", "Brad Pitt | Agostinha Carrara", "Tarantino");
+        filmes.add(filme);
     }
 
     public static List<Administracao> getAdmin() {

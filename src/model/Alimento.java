@@ -24,6 +24,12 @@ public class Alimento{
         this.descricao = descricao;
     }
 
+    public Alimento(String nome, Double preco, String descricao) {
+        this.nome = nome;
+        this.preco = preco;
+        this.descricao = descricao;
+    }
+
     //metodos de acesso - getters - setter
     public String getNome() {
         return nome;

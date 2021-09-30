@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -9,17 +8,25 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class CadastrarCinema extends JFrame {
+import controller.CadastrarCinemaController;
+import model.Dados;
+
+public class CadastrarCinema extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
 	private final JLabel enderecoLabel;
 	private final JLabel cepLabel;
 	private final JLabel referenciaLabel;
+	private final JLabel nomeCinemaLabel;
+	private final JLabel numeroSalaLabel;
+	private final JLabel capacidadeLabel;
+	private final JLabel tecnologiaLabel;
 	private final JTextField enderecoField;
 	private final JTextField cepField;
 	private final JTextField referenciaField;
@@ -27,30 +34,18 @@ public class CadastrarCinema extends JFrame {
 	private final JTextField numeroSalaField;
 	private final JTextField capacidadeField;
 	private final JTextField tecnologiaField;
-	private final JTextField mapaSalaField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					CadastrarCinema frame = new CadastrarCinema();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private final JButton confirmaCinemaBtn;
+	private final JButton voltarCinemaBtn;
+	private final CadastrarCinemaController controller;
 
 	/**
 	 * Create the frame.
 	 */
 	public CadastrarCinema() {
 		
+		this.controller	= new CadastrarCinemaController(this);
+		Dados.iniciar();
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarCinema.class.getResource("/view/images/favicon.png")));
 		this.setSize(525, 523);
 		setResizable(false);
@@ -95,20 +90,17 @@ public class CadastrarCinema extends JFrame {
 		contentPane.add(referenciaField);
 		referenciaField.setColumns(10);
 
-		JButton confirmaCinemaBtn = new JButton("Confirmar");
+		confirmaCinemaBtn = new JButton("Confirmar");
 		confirmaCinemaBtn.setBounds(40, 410, 130, 35);
-		confirmaCinemaBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		confirmaCinemaBtn.addActionListener(this);
 		contentPane.add(confirmaCinemaBtn);
 
-		JButton voltarCinemaBtn = new JButton("Voltar");
+		voltarCinemaBtn = new JButton("Voltar");
 		voltarCinemaBtn.setBounds(338, 410, 130, 35);
+		voltarCinemaBtn.addActionListener(this);
 		contentPane.add(voltarCinemaBtn);
 
-		JLabel nomeCinemaLabel = new JLabel("Nome");
+		nomeCinemaLabel = new JLabel("Nome");
 		nomeCinemaLabel.setBounds(10, 26, 168, 14);
 		nomeCinemaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeCinemaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
@@ -119,7 +111,7 @@ public class CadastrarCinema extends JFrame {
 		contentPane.add(nomeCinemaField);
 		nomeCinemaField.setColumns(10);
 
-		JLabel numeroSalaLabel = new JLabel("Numero da sala");
+		numeroSalaLabel = new JLabel("Numero da sala");
 		numeroSalaLabel.setBounds(10, 209, 168, 14);
 		numeroSalaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		numeroSalaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
@@ -130,7 +122,7 @@ public class CadastrarCinema extends JFrame {
 		numeroSalaField.setColumns(10);
 		contentPane.add(numeroSalaField);
 
-		JLabel capacidadeLabel = new JLabel("Capacidade");
+		capacidadeLabel = new JLabel("Capacidade");
 		capacidadeLabel.setBounds(10, 256, 168, 14);
 		capacidadeLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		capacidadeLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
@@ -141,7 +133,7 @@ public class CadastrarCinema extends JFrame {
 		capacidadeField.setColumns(10);
 		contentPane.add(capacidadeField);
 
-		JLabel tecnologiaLabel = new JLabel("Tecnologia");
+		tecnologiaLabel = new JLabel("Tecnologia");
 		tecnologiaLabel.setBounds(10, 304, 168, 14);
 		tecnologiaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		tecnologiaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
@@ -152,16 +144,80 @@ public class CadastrarCinema extends JFrame {
 		tecnologiaField.setColumns(10);
 		contentPane.add(tecnologiaField);
 
-		JLabel mapaSalaLabel = new JLabel("Mapa da sala");
-		mapaSalaLabel.setBounds(10, 351, 168, 14);
-		mapaSalaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		mapaSalaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
-		contentPane.add(mapaSalaLabel);
-
-		mapaSalaField = new JTextField();
-		mapaSalaField.setBounds(188, 349, 258, 20);
-		mapaSalaField.setColumns(10);
-		contentPane.add(mapaSalaField);
+		setLocationRelativeTo(null);
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		this.controller.executarBotao(e);
+	}
+
+	public void mostrarMensagemCadastroCinema(String mensagem) {
+		JOptionPane.showMessageDialog(null, mensagem);
+	}
+
+	public JLabel getEnderecoLabel() {
+		return enderecoLabel;
+	}
+
+	public JLabel getCepLabel() {
+		return cepLabel;
+	}
+
+	public JLabel getReferenciaLabel() {
+		return referenciaLabel;
+	}
+
+	public JLabel getNomeCinemaLabel() {
+		return nomeCinemaLabel;
+	}
+
+	public JLabel getNumeroSalaLabel() {
+		return numeroSalaLabel;
+	}
+
+	public JLabel getCapacidadeLabel() {
+		return capacidadeLabel;
+	}
+
+	public JLabel getTecnologiaLabel() {
+		return tecnologiaLabel;
+	}
+
+	public JTextField getEnderecoField() {
+		return enderecoField;
+	}
+
+	public JTextField getCepField() {
+		return cepField;
+	}
+
+	public JTextField getReferenciaField() {
+		return referenciaField;
+	}
+
+	public JTextField getNomeCinemaField() {
+		return nomeCinemaField;
+	}
+
+	public JTextField getNumeroSalaField() {
+		return numeroSalaField;
+	}
+
+	public JTextField getCapacidadeField() {
+		return capacidadeField;
+	}
+
+	public JTextField getTecnologiaField() {
+		return tecnologiaField;
+	}
+
+	public JButton getConfirmaCinemaBtn() {
+		return confirmaCinemaBtn;
+	}
+
+	public JButton getVoltarCinemaBtn() {
+		return voltarCinemaBtn;
+	}
 }

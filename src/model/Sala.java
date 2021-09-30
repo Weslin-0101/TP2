@@ -4,13 +4,11 @@ public class Sala {
     
     private Integer numeroDaSala;
     private Integer capacidade;
-    private String mapaDaSala;
     private String tecnologia;
     
-    public Sala(Integer numeroDaSala, Integer capacidade, String mapaDaSala, String tecnologia) {
+    public Sala(Integer numeroDaSala, Integer capacidade, String tecnologia) {
         this.numeroDaSala = numeroDaSala;
         this.capacidade = capacidade;
-        this.mapaDaSala = mapaDaSala;
         this.tecnologia = tecnologia;
     }
 
@@ -28,14 +26,6 @@ public class Sala {
 
     public void setCapacidade(Integer capacidade) {
         this.capacidade = capacidade;
-    }
-
-    public String getMapaDaSala() {
-        return mapaDaSala;
-    }
-
-    public void setMapaDaSala(String mapaDaSala) {
-        this.mapaDaSala = mapaDaSala;
     }
 
     public String getTecnologia() {

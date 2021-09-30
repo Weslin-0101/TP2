@@ -6,12 +6,14 @@ import java.util.List;
 public class Cinema{
     private String nome;
     private List<Sala> salas;
+    private Localidade localidade;
 
     public Cinema() {} //default
 
     //construtor sobrecarregado
-    public Cinema(String nome){
+    public Cinema(String nome, Localidade localidade, Sala sala){
         this.nome = nome;
+        this.localidade = localidade;
         this.salas = new ArrayList<>();
     }
 

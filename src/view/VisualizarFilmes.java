@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import controller.VisualizarFilmesController;
 import model.Dados;
+import model.Filme;
 
 public class VisualizarFilmes extends JFrame implements ActionListener{
 
@@ -24,7 +25,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	private final JComboBox<String> ingressoComboBox;
 	private final JComboBox<String> salaComboBox;
 	private final JComboBox<String> sessaoComboBox;
-	private final JTextArea areaText;
+	private JTextArea areaText;
 	private final JLabel ingressoLabel;
 	private final JLabel salaLabel;
 	private final JLabel sessaoLabel;
@@ -32,6 +33,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	private final JButton seguirAdianteBtn;
 	private final JButton voltarBtn;
 	private final VisualizarFilmesController controller;
+	private Filme filme;
 
 	/**
 	 * Classe responsável para que possa acontecer todo o processo da seguinte ordem:
@@ -47,6 +49,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	public VisualizarFilmes() {
 		
 		controller = new VisualizarFilmesController(this);
+		filme = new Filme("", "", "", "", "", "", "");
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VisualizarFilmes.class.getResource("/view/images/favicon.png")));
 		setTitle("Visualizar Filmes");
@@ -63,13 +66,16 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		selecionarFilmeComboBox.setModel(controller.atualizarCaixaFilmes());
 		contentPane.add(selecionarFilmeComboBox);
 		selecionarFilmeComboBox.addItem("Selecionar Filme");
+		selecionarFilmeComboBox.setSelectedIndex(5);
 		
 		okBtn = new JButton("OK");
 		okBtn.setBounds(465, 19, 59, 28);
+		okBtn.addActionListener(this);
 		contentPane.add(okBtn);
 
-		areaText = new JTextArea();
+		areaText = new JTextArea(filme.toString());
 		areaText.setBounds(20, 58, 540, 199);
+		areaText.setEditable(false);
 		contentPane.add(areaText);
 
 		ingressoComboBox = new JComboBox<>();
@@ -78,18 +84,21 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		ingressoComboBox.addItem("Selecione");
 		ingressoComboBox.addItem("Meia");
 		ingressoComboBox.addItem("Inteira");
+		ingressoComboBox.setSelectedIndex(0);
 
 		salaComboBox = new JComboBox<>();
 		salaComboBox.setBounds(232, 299, 101, 28);
 		salaComboBox.setModel(controller.atualizarSala());
 		contentPane.add(salaComboBox);
 		salaComboBox.addItem("Selecione");
+		salaComboBox.setSelectedIndex(4);
 
 		sessaoComboBox = new JComboBox<>();
 		sessaoComboBox.setBounds(409, 299, 101, 28);
 		sessaoComboBox.setModel(controller.atualizarSessao());
 		contentPane.add(sessaoComboBox);
 		sessaoComboBox.addItem("Selecione");
+		sessaoComboBox.setSelectedIndex(5);
 
 		ingressoLabel = new JLabel("Ingresso");
 		ingressoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
@@ -123,8 +132,13 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		this.controller.executarBotao(e);
+		Object botao = e.getSource();
+		if (botao == this.getOkBtn()) {
+            areaText.setText(((controller.buscarFilmeEscolhido((String)getSelecionarFilmeComboBox().getSelectedItem())).toString())); 
+			areaText.updateUI();
+        }else {
+			this.controller.executarBotao(e);
+		}
 		
 	}
 

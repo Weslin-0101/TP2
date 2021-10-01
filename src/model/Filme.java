@@ -27,6 +27,9 @@ public class Filme {
 
     // Getters e Settes dos atributos
 
+    public Filme() {
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -85,8 +88,8 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "Título: " + getTitulo() +" | " + " Sinopse: " + getSinopse() +" | " + " Gênero: " + getGenero()
-            + " | " + " Duração: " + getDuracao() + " | "+" Atores: " + getAtores() + " | " + " Diretor: " + getDiretor()
-            +" | " + " Está em cartaz: " + getEmCartaz()+ "\n";
+        return "Título: " + getTitulo() +"\n" + " Sinopse: " + getSinopse() + "\n" + " Gênero: " + getGenero()
+            + "\n" + " Duração: " + getDuracao() + "\n" + " Atores: " + getAtores() + "\n" + " Diretor: " + getDiretor()
+            + "\n" + " Está em cartaz: " + getEmCartaz() + "\n";
     }
 }

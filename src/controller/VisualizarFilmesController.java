@@ -38,7 +38,7 @@ public class VisualizarFilmesController {
         } else if (botao == view.getSeguirAdianteBtn()) {
             new CadastrarPagamento().setVisible(true);
             this.view.dispose();
-        } 
+        }  
         
         else {
             filmeEscolhido = buscarFilmeEscolhido(view.getSelecionarFilmeComboBox().getSelectedItem().toString());

@@ -36,7 +36,9 @@ public class LoginController {
         JButton botao = (JButton) e.getSource();
 
         if (botao == view.getLoginBtn()) {
-            validarUsuario();
+            do {
+                validarUsuario();
+            } while (obterModelo() == null);
             new Menu().setVisible(true);
             this.view.dispose();
         } else {
@@ -60,7 +62,7 @@ public class LoginController {
         Cliente cliente = obterModelo();
 
         Cliente clienteValidado = Dados.selecionarPorNomeESenha(cliente);
-        if (clienteValidado != null) {
+        if (clienteValidado != null && obterModelo() != null) {
             view.mostrarMensagemLoginValido("Login realizado com sucesso!");
         } else {
             view.mostrarMensagemLoginInvalido("Usuário e/ou senha inválidos!");
@@ -83,4 +85,5 @@ public class LoginController {
     public Login getView() {
         return view;
     }
+ 
 }

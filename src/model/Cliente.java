@@ -20,6 +20,9 @@ public class Cliente extends Pessoa {
         super(nome, senha);
     }
 
+    public Cliente() {
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -84,8 +87,7 @@ public class Cliente extends Pessoa {
 
     @Override
     public String toString() {
-        return getNome();
+        return "Cliente: " + getNome() + "\n" + "Data de nascimento: " + getDataDeNascimento() + "\n"
+        + "CPF: " + getCpf() + "\n" + "Email: " + getEmail() + "\n" + "Senha:" + getSenha() + "\n";
     }
-
-    
 }

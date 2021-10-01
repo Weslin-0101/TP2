@@ -12,27 +12,29 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controller.MinhaContaController;
+import model.Cliente;
 import model.Dados;
 
 public class MinhaConta extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
-	private final JTable informacoesTable;
+	private final JTextArea informacoesTable;
 	private final JButton excluirBtn;
 	private final JButton voltarBtn;
 	private final JButton editarBtn;
 	private final MinhaContaController controller;
-
+	private Cliente cliente;
 	/**
 	 * Nessa classe reside as informações do cliente que se logou
 	 * 
 	 */
 	public MinhaConta() {
-		
+		cliente = new Cliente("aa", "aa", "aa", "aa", "aaa");
 		controller = new MinhaContaController(this);
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MinhaConta.class.getResource("/view/images/favicon.png")));
@@ -45,8 +47,9 @@ public class MinhaConta extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		informacoesTable = new JTable();
+		informacoesTable = new JTextArea();
 		informacoesTable.setBounds(10, 11, 521, 204);
+		informacoesTable.setEditable(false);
 		contentPane.add(informacoesTable);
 
 		excluirBtn = new JButton("Excluir");
@@ -70,7 +73,7 @@ public class MinhaConta extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		this.controller.executaBotao(e.getSource());
 	}
 
@@ -82,7 +85,7 @@ public class MinhaConta extends JFrame implements ActionListener{
 		JOptionPane.showMessageDialog(null, mensagem);
 	}
 
-	public JTable getInformacoesTable() {
+	public JTextArea getInformacoesTable() {
 		return informacoesTable;
 	}
 

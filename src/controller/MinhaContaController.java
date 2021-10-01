@@ -55,4 +55,14 @@ public class MinhaContaController {
     private boolean saoIguais(Cliente cliente, Cliente clienteAComparar) {
         return cliente.getNome() == clienteAComparar.getNome();
     }
+
+    public Cliente buscarClienteEscolhido(String name) {
+        for (Cliente clienteAgora : Dados.getClientes()) {
+            if (clienteAgora.getNome().equals(name)) {
+                return clienteAgora;
+            }
+        }
+
+        return null;
+    }
 }

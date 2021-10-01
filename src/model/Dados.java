@@ -18,15 +18,13 @@ public abstract class Dados {
     private static final ArrayList<Sessao> sessoes = new ArrayList<>();
     private static final ArrayList<Alimento> alimentos = new ArrayList<>();
     private static final ArrayList<Pagamento> pagamentos = new ArrayList<>();
-    private int qntClientes;
-    private Cliente[] clientees;
     
     /*
         Construtor para que não seja possível herdar a classe
         ou instanciar
     */
 
-    public Dados() {
+    private Dados() {
     }
 
     /*
@@ -42,7 +40,7 @@ public abstract class Dados {
         Administracao admin = new Administracao("admin", "admin");
         admins.add(admin);
 
-        Filme filme = new Filme("Guerra do amanha", "120min", "Brabo demais", "Ação, Aventura", "Sim", "Brad Pitt | Agostinha Carrara", "Tarantino");
+        Filme filme = new Filme("Guerra", "120min", "Brabo demais", "Ação, Aventura", "Sim", "Brad Pitt | Agostinha Carrara", "Tarantino");
         filmes.add(filme);
     }
 
@@ -102,5 +100,9 @@ public abstract class Dados {
      */
     private static boolean nomeESenhaIguais(Cliente cliente, Cliente clienteProcura) {
         return cliente.getNome().equals(clienteProcura.getNome()) && cliente.getSenha().equals(clienteProcura.getSenha());
+    }
+
+    public static List<Cliente> selecionaTudo() {
+        return Dados.getClientes();
     }
 }

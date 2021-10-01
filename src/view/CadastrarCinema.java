@@ -6,8 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -26,14 +28,13 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 	private final JLabel nomeCinemaLabel;
 	private final JLabel numeroSalaLabel;
 	private final JLabel capacidadeLabel;
-	private final JLabel tecnologiaLabel;
+	private final JComboBox capacidadeComboBox;
 	private final JTextField enderecoField;
 	private final JTextField cepField;
 	private final JTextField referenciaField;
 	private final JTextField nomeCinemaField;
-	private final JTextField numeroSalaField;
+	private final JList<String> numeroSalaField;
 	private final JTextField capacidadeField;
-	private final JTextField tecnologiaField;
 	private final JButton confirmaCinemaBtn;
 	private final JButton voltarCinemaBtn;
 	private final CadastrarCinemaController controller;
@@ -117,9 +118,8 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		numeroSalaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		contentPane.add(numeroSalaLabel);
 
-		numeroSalaField = new JTextField();
+		numeroSalaField = new JList<>();
 		numeroSalaField.setBounds(188, 207, 258, 20);
-		numeroSalaField.setColumns(10);
 		contentPane.add(numeroSalaField);
 
 		capacidadeLabel = new JLabel("Capacidade");
@@ -133,16 +133,14 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		capacidadeField.setColumns(10);
 		contentPane.add(capacidadeField);
 
-		tecnologiaLabel = new JLabel("Tecnologia");
-		tecnologiaLabel.setBounds(10, 304, 168, 14);
-		tecnologiaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		tecnologiaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
-		contentPane.add(tecnologiaLabel);
-
-		tecnologiaField = new JTextField();
-		tecnologiaField.setBounds(188, 302, 258, 20);
-		tecnologiaField.setColumns(10);
-		contentPane.add(tecnologiaField);
+		capacidadeComboBox = new JComboBox();
+		capacidadeComboBox.setBounds(168, 300, 156, 31);
+		contentPane.add(capacidadeComboBox);
+		capacidadeComboBox.addItem("Tecnologia");
+		capacidadeComboBox.addItem("2D");
+		capacidadeComboBox.addItem("3D");
+		capacidadeComboBox.addItem("DUB");
+		capacidadeComboBox.addItem("DBOX");
 
 		setLocationRelativeTo(null);
 	}
@@ -181,10 +179,6 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		return capacidadeLabel;
 	}
 
-	public JLabel getTecnologiaLabel() {
-		return tecnologiaLabel;
-	}
-
 	public JTextField getEnderecoField() {
 		return enderecoField;
 	}
@@ -201,16 +195,12 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		return nomeCinemaField;
 	}
 
-	public JTextField getNumeroSalaField() {
+	public JList<String> getNumeroSalaField() {
 		return numeroSalaField;
 	}
 
 	public JTextField getCapacidadeField() {
 		return capacidadeField;
-	}
-
-	public JTextField getTecnologiaField() {
-		return tecnologiaField;
 	}
 
 	public JButton getConfirmaCinemaBtn() {
@@ -219,5 +209,9 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 
 	public JButton getVoltarCinemaBtn() {
 		return voltarCinemaBtn;
+	}
+
+	public JComboBox getCapacidadeComboBox() {
+		return capacidadeComboBox;
 	}
 }

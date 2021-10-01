@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -135,5 +136,9 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 
 	public JComboBox getEscolhaComboBox() {
 		return escolhaComboBox;
-	}	
+	}
+
+    public void mostrarMensagemAfirmativa(String mensagem) {
+		JOptionPane.showMessageDialog(null, mensagem);
+    }	
 }

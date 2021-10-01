@@ -13,7 +13,6 @@ public class Filme {
     private String emCartaz;
     private String atores;
     private String diretor;
-    private ArrayList<Ingresso> ingressos;
     
     public Filme(String titulo, String duracao, String sinopse, String genero, String emCartaz, String atores,
             String diretor) {
@@ -24,7 +23,6 @@ public class Filme {
         this.emCartaz = emCartaz;
         this.atores = atores;
         this.diretor = diretor;
-        this.ingressos = new ArrayList<>();
     }
 
     // Getters e Settes dos atributos
@@ -83,10 +81,6 @@ public class Filme {
 
     public void setDiretor(String diretor) {
         this.diretor = diretor;
-    }
-
-    public List<Ingresso> getIngressos() {
-        return ingressos;
     }
 
     @Override

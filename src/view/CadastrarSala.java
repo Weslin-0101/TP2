@@ -14,6 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controller.CadastrarSalaController;
+import model.Dados;
+
 public class CadastrarSala extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -25,12 +28,16 @@ public class CadastrarSala extends JFrame implements ActionListener{
 	private final JComboBox capacidadeComboBox;
 	private final JButton confirmarBtn;
 	private final JButton voltarBtn;
+	private final CadastrarSalaController controller;
 
 	/**
 	 * Create the frame.
 	 */
 	public CadastrarSala() {
 		
+		controller = new CadastrarSalaController(this);
+		Dados.iniciar();;
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarSala.class.getResource("/view/images/favicon.png")));
 		setResizable(false);
 		setTitle("Sala");
@@ -43,6 +50,7 @@ public class CadastrarSala extends JFrame implements ActionListener{
 
 		filmesComboBox = new JComboBox();
 		filmesComboBox.setBounds(36, 11, 418, 31);
+		filmesComboBox.addActionListener(this);
 		contentPane.add(filmesComboBox);
 		filmesComboBox.addItem("Filmes");
 
@@ -84,9 +92,9 @@ public class CadastrarSala extends JFrame implements ActionListener{
 		contentPane.add(confirmarBtn);
 
 		voltarBtn = new JButton("Voltar");
-		voltarBtn.addActionListener(this);
 		voltarBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		voltarBtn.setBounds(340, 307, 114, 41);
+		voltarBtn.addActionListener(this);
 		contentPane.add(voltarBtn);
 
 		setLocationRelativeTo(null);
@@ -94,8 +102,9 @@ public class CadastrarSala extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
+		this.controller.executarBotao(e.getSource());
+
 	}
 
 	public JTextField getNumeroSalaField() {

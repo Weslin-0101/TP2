@@ -1,10 +1,14 @@
 package controller;
 
+import view.Menu;
+import view.CadastrarPagamento;
 import view.VisualizarFilmes;
 
-import java.swing.DefaultComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.awt.event.ActionEvent;
 
 import model.Dados;
 import model.Filme;
@@ -12,9 +16,29 @@ import model.Filme;
 public class VisualizarFilmesController {
     
     private VisualizarFilmes view;
+    private Filme filmeEscolhido;
+    private CadastrarFilmeController telaFilme;
 
     public VisualizarFilmesController(VisualizarFilmes view) {
         this.view = view;
+    }
+
+    public void executarBotao(ActionEvent e) {
+        Object botao = e.getSource();
+
+        if (botao == view.getVoltarBtn()) {
+            new Menu().setVisible(true);
+            this.view.dispose();
+        } else if (botao == view.getSeguirAdianteBtn()) {
+            new CadastrarPagamento().setVisible(true);
+            this.view.dispose();
+        } 
+        
+        else {
+            filmeEscolhido = buscarFilmeEscolhido(view.getSelecionarFilmeComboBox().getSelectedItem().toString());
+
+            Filme modeloTela = telaFilme.pegarModelo();
+        }
     }
 
 
@@ -30,5 +54,15 @@ public class VisualizarFilmesController {
         }
 
         return modelo.toArray();
+    }
+
+    public Filme buscarFilmeEscolhido(String name) {
+        for (Filme filmeAgora : Dados.getFilmes()) {
+            if (filmeAgora.getTitulo().equals(name)) {
+                return filmeAgora;
+            }
+        }
+
+        return null;
     }
 }

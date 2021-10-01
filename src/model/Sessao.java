@@ -6,30 +6,30 @@ import java.util.List;
 
 public class Sessao {
     
-    private Date dataDaSessao;
-    private Date horario;
+    private String dataDaSessao;
+    private String horario;
 
     private ArrayList<Sala> salas;
     
-    public Sessao(Date dataDaSessao, Date horario) {
+    public Sessao(String dataDaSessao, String horario) {
         this.dataDaSessao = dataDaSessao;
         this.horario = horario;
         this.salas = new ArrayList<>();
     }
 
-    public Date getDataDaSessao() {
+    public String getDataDaSessao() {
         return dataDaSessao;
     }
 
-    public void setDataDaSessao(Date dataDaSessao) {
+    public void setDataDaSessao(String dataDaSessao) {
         this.dataDaSessao = dataDaSessao;
     }
 
-    public Date getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(Date horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

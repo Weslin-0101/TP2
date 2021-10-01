@@ -82,5 +82,10 @@ public class Cliente extends Pessoa {
         super.editar();
     }
 
+    @Override
+    public String toString() {
+        return getNome();
+    }
+
     
 }

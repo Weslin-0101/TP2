@@ -6,6 +6,7 @@ import view.CadastrarAlimento;
 import view.CadastrarCinema;
 import view.CadastrarFilme;
 import view.CadastrarSala;
+import view.CadastrarSessao;
 import view.Login;
 import view.Menu;
 import view.MinhaConta;
@@ -40,10 +41,10 @@ public class MenuController {
         } else if (botao == view.getMinhaContaBtn()) {
             new MinhaConta().setVisible(true);
             this.view.dispose();
-        } else if (botao == view.getCadastrarSalaItemMenu()) {
-            new CadastrarSala().setVisible(true);
+        } else if (botao == view.getCadastrarSessaoItemMenu()) {
+            new CadastrarSessao().setVisible(true);
             this.view.dispose();
-        } 
+        }
     }
 
     public void navegarCadastroFilmes() {

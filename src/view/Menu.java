@@ -24,13 +24,10 @@ public class Menu extends JFrame implements ActionListener{
 	private final JMenu cadastroMenu;
 	private final JMenuItem cadastrarFilmesItemMenu;
 	private final JMenuItem cadastrarCinemaItemMenu;
-	private final JMenuItem cadastrarIngressoItemMenu;
 	private final JMenuItem cadastrarSessaoItemMenu;
 	private final JMenuItem cadastrarAlimentosItemMenu;
-	private final JMenuItem cadastrarSalaItemMenu;
 	private final JButton visualizarFilmesBtn;
 	private final JButton minhaContaBtn;
-	private final JButton opcao3Btn;
 	private final JButton sairBtn;
 	private final MenuController controller;
 
@@ -63,17 +60,9 @@ public class Menu extends JFrame implements ActionListener{
 		cadastrarCinemaItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarCinemaItemMenu);
 
-		cadastrarIngressoItemMenu = new JMenuItem("Cadastrar Ingresso");
-		cadastrarIngressoItemMenu.addActionListener(this);
-		cadastroMenu.add(cadastrarIngressoItemMenu);
-
 		cadastrarSessaoItemMenu = new JMenuItem("Cadastrar Sessoes");
 		cadastrarSessaoItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarSessaoItemMenu);
-
-		cadastrarSalaItemMenu = new JMenuItem("Cadastrar Sala");
-		cadastrarSalaItemMenu.addActionListener(this);
-		cadastroMenu.add(cadastrarSalaItemMenu);
 
 		cadastrarAlimentosItemMenu = new JMenuItem("Cadastrar Alimentos");
 		cadastrarAlimentosItemMenu.addActionListener(this);
@@ -95,11 +84,6 @@ public class Menu extends JFrame implements ActionListener{
 		minhaContaBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		minhaContaBtn.addActionListener(this);
 		contentPane.add(minhaContaBtn);
-
-		opcao3Btn = new JButton("Opcao 3");
-		opcao3Btn.setBounds(114, 194, 214, 49);
-		opcao3Btn.setFont(new Font("Open Sans", Font.PLAIN, 14));
-		contentPane.add(opcao3Btn);
 
 		sairBtn = new JButton("Sair");
 		sairBtn.setBounds(114, 269, 214, 49);
@@ -133,10 +117,6 @@ public class Menu extends JFrame implements ActionListener{
 		return cadastrarCinemaItemMenu;
 	}
 
-	public JMenuItem getCadastrarIngressoItemMenu() {
-		return cadastrarIngressoItemMenu;
-	}
-
 	public JMenuItem getCadastrarSessaoItemMenu() {
 		return cadastrarSessaoItemMenu;
 	}
@@ -153,16 +133,8 @@ public class Menu extends JFrame implements ActionListener{
 		return minhaContaBtn;
 	}
 
-	public JButton getOpcao3Btn() {
-		return opcao3Btn;
-	}
-
 	public JButton getSairBtn() {
 		return sairBtn;
-	}
-
-	public JMenuItem getCadastrarSalaItemMenu() {
-		return cadastrarSalaItemMenu;
 	}
 
 }

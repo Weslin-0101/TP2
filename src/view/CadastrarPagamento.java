@@ -1,52 +1,62 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
-public class Pagamento extends JFrame {
+import controller.PagamentoController;
+import model.Dados;
 
-	private JPanel contentPane;
-	private JTextField numeroDoCartaoField;
-	private JTextField dataField;
-	private JTextField nomeDoCartaoField;
-	private JTextField codigoDeSegurancaField;
-	private JTextField cpfCartaoField;
-	private JTextField cpfPixField;
-	private JTextField emailPixField;
+public class CadastrarPagamento extends JFrame implements ActionListener{
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Pagamento frame = new Pagamento();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private final JPanel contentPane;
+	private final JComboBox<String> clientesComboBox;
+	private final JLabel cartaoDeCreditoLabel;
+	private final JLabel numeroDoCartaoLabel;
+	private final JLabel dataLabel;
+	private final JLabel nomeDoCartaoLabel;
+	private final JLabel codigoDeSegurancaLabel;
+	private final JLabel cpfCartaoLabel;
+	private final JLabel pixLabel;
+	private final JLabel cpfPixLabel;
+	private final JLabel emailPixLabel;
+	private final JLabel formaDePagamaLabel;
+	private final JLabel bordaCartaoDeCredito;
+	private final JLabel bordaPixLabel;
+	private final JButton adicionarCartaoBtn;
+	private final JButton adicionarPixBtn;
+	private final JButton confirmarBtn;
+	private final JTextField numeroDoCartaoField;
+	private final JTextField dataField;
+	private final JTextField nomeDoCartaoField;
+	private final JTextField codigoDeSegurancaField;
+	private final JTextField cpfCartaoField;
+	private final JTextField cpfPixField;
+	private final JTextField emailPixField;
+	private final PagamentoController controller;
 
 	/**
 	 * Create the frame.
 	 */
-	public Pagamento() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Pagamento.class.getResource("/view/images/favicon.png")));
+	public CadastrarPagamento() {
+		
+		controller = new PagamentoController(this);
+		Dados.iniciar();
+		start();
+
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarPagamento.class.getResource("/view/images/favicon.png")));
 		setResizable(false);
 		setTitle("Pagamento");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,13 +66,14 @@ public class Pagamento extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JComboBox clientesComboBox = new JComboBox();
+		clientesComboBox = new JComboBox<String>();
 		clientesComboBox.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		clientesComboBox.setBounds(34, 24, 415, 27);
+		clientesComboBox.addActionListener(this);
 		contentPane.add(clientesComboBox);
 		clientesComboBox.addItem("Clientes");
 
-		JLabel cartaoDeCreditoLabel = new JLabel("Cartao de Credito");
+		cartaoDeCreditoLabel = new JLabel("Cartao de Credito");
 		cartaoDeCreditoLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
 		cartaoDeCreditoLabel.setBounds(10, 111, 151, 21);
 		contentPane.add(cartaoDeCreditoLabel);
@@ -72,7 +83,7 @@ public class Pagamento extends JFrame {
 		contentPane.add(numeroDoCartaoField);
 		numeroDoCartaoField.setColumns(10);
 
-		JLabel numeroDoCartaoLabel = new JLabel("Numero do Cartao");
+		numeroDoCartaoLabel = new JLabel("Numero do Cartao");
 		numeroDoCartaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		numeroDoCartaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		numeroDoCartaoLabel.setBounds(20, 152, 168, 14);
@@ -83,7 +94,7 @@ public class Pagamento extends JFrame {
 		dataField.setBounds(301, 168, 168, 21);
 		contentPane.add(dataField);
 
-		JLabel dataLabel = new JLabel("Validade");
+		dataLabel = new JLabel("Validade");
 		dataLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dataLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		dataLabel.setBounds(301, 152, 168, 14);
@@ -94,7 +105,7 @@ public class Pagamento extends JFrame {
 		nomeDoCartaoField.setBounds(20, 221, 168, 21);
 		contentPane.add(nomeDoCartaoField);
 
-		JLabel nomeDoCartaoLabel = new JLabel("Nome impresso ");
+		nomeDoCartaoLabel = new JLabel("Nome impresso ");
 		nomeDoCartaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeDoCartaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		nomeDoCartaoLabel.setBounds(20, 205, 168, 14);
@@ -105,7 +116,7 @@ public class Pagamento extends JFrame {
 		codigoDeSegurancaField.setBounds(301, 221, 168, 21);
 		contentPane.add(codigoDeSegurancaField);
 
-		JLabel codigoDeSegurancaLabel = new JLabel("Codigo de seguranca");
+		codigoDeSegurancaLabel = new JLabel("Codigo de seguranca");
 		codigoDeSegurancaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		codigoDeSegurancaLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		codigoDeSegurancaLabel.setBounds(301, 205, 168, 14);
@@ -116,13 +127,13 @@ public class Pagamento extends JFrame {
 		cpfCartaoField.setBounds(20, 274, 168, 21);
 		contentPane.add(cpfCartaoField);
 
-		JLabel cpfCartaoLabel = new JLabel("CPF");
+		cpfCartaoLabel = new JLabel("CPF");
 		cpfCartaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		cpfCartaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		cpfCartaoLabel.setBounds(20, 260, 168, 14);
 		contentPane.add(cpfCartaoLabel);
 
-		JLabel pixLabel = new JLabel("Pix");
+		pixLabel = new JLabel("Pix");
 		pixLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
 		pixLabel.setBounds(10, 332, 151, 21);
 		contentPane.add(pixLabel);
@@ -132,7 +143,7 @@ public class Pagamento extends JFrame {
 		cpfPixField.setBounds(20, 392, 168, 21);
 		contentPane.add(cpfPixField);
 
-		JLabel cpfPixLabel = new JLabel("CPF");
+		cpfPixLabel = new JLabel("CPF");
 		cpfPixLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		cpfPixLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		cpfPixLabel.setBounds(20, 377, 168, 14);
@@ -143,42 +154,156 @@ public class Pagamento extends JFrame {
 		emailPixField.setBounds(301, 392, 168, 21);
 		contentPane.add(emailPixField);
 
-		JLabel emailPixLabel = new JLabel("Email");
+		emailPixLabel = new JLabel("Email");
 		emailPixLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		emailPixLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		emailPixLabel.setBounds(301, 377, 168, 14);
 		contentPane.add(emailPixLabel);
 
-		JButton adicionarCartaoBtn = new JButton("Adicionar");
+		adicionarCartaoBtn = new JButton("Adicionar");
 		adicionarCartaoBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		adicionarCartaoBtn.setBounds(379, 314, 105, 23);
+		adicionarCartaoBtn.addActionListener(this);
 		contentPane.add(adicionarCartaoBtn);
 
-		JButton adicionarPixBtn = new JButton("Adicionar");
+		adicionarPixBtn = new JButton("Adicionar");
 		adicionarPixBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		adicionarPixBtn.setBounds(379, 464, 105, 23);
+		adicionarPixBtn.addActionListener(this);
 		contentPane.add(adicionarPixBtn);
 
-		JButton confirmarBtn = new JButton("Confirmar");
+		confirmarBtn = new JButton("Confirmar");
 		confirmarBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		confirmarBtn.setBounds(198, 487, 105, 38);
+		confirmarBtn.addActionListener(this);
 		contentPane.add(confirmarBtn);
 
-		JLabel formaDePagamaLabel = new JLabel("Selecione uma forma de pagamento");
+		formaDePagamaLabel = new JLabel("Selecione uma forma de pagamento");
 		formaDePagamaLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		formaDePagamaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		formaDePagamaLabel.setBounds(10, 62, 459, 14);
 		contentPane.add(formaDePagamaLabel);
 
-		JLabel bordaCartaoDeCredito = new JLabel("");
+		bordaCartaoDeCredito = new JLabel("");
 		bordaCartaoDeCredito.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		bordaCartaoDeCredito.setBounds(10, 143, 474, 160);
 		contentPane.add(bordaCartaoDeCredito);
 
-		JLabel bordaPixLabel = new JLabel("");
+		bordaPixLabel = new JLabel("");
 		bordaPixLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		bordaPixLabel.setBounds(10, 365, 474, 89);
 		contentPane.add(bordaPixLabel);
+
+		setLocationRelativeTo(null);
 	}
 
+	public void mostrarMensagemPagamento(String mensagem) {
+		JOptionPane.showConfirmDialog(null, mensagem);
+	}
+
+	public void mostrarMensagemConfirmacao(String mensagem) {
+		JOptionPane.showConfirmDialog(null, mensagem);
+	}
+
+	public void start() {
+		this.controller.atualizarCliente();
+	}
+
+	public JComboBox<String> getClientesComboBox() {
+		return clientesComboBox;
+	}
+
+	public JLabel getCartaoDeCreditoLabel() {
+		return cartaoDeCreditoLabel;
+	}
+
+	public JLabel getNumeroDoCartaoLabel() {
+		return numeroDoCartaoLabel;
+	}
+
+	public JLabel getDataLabel() {
+		return dataLabel;
+	}
+
+	public JLabel getNomeDoCartaoLabel() {
+		return nomeDoCartaoLabel;
+	}
+
+	public JLabel getCodigoDeSegurancaLabel() {
+		return codigoDeSegurancaLabel;
+	}
+
+	public JLabel getCpfCartaoLabel() {
+		return cpfCartaoLabel;
+	}
+
+	public JLabel getPixLabel() {
+		return pixLabel;
+	}
+
+	public JLabel getCpfPixLabel() {
+		return cpfPixLabel;
+	}
+
+	public JLabel getEmailPixLabel() {
+		return emailPixLabel;
+	}
+
+	public JLabel getFormaDePagamaLabel() {
+		return formaDePagamaLabel;
+	}
+
+	public JLabel getBordaCartaoDeCredito() {
+		return bordaCartaoDeCredito;
+	}
+
+	public JLabel getBordaPixLabel() {
+		return bordaPixLabel;
+	}
+
+	public JButton getAdicionarCartaoBtn() {
+		return adicionarCartaoBtn;
+	}
+
+	public JButton getAdicionarPixBtn() {
+		return adicionarPixBtn;
+	}
+
+	public JButton getConfirmarBtn() {
+		return confirmarBtn;
+	}
+
+	public JTextField getNumeroDoCartaoField() {
+		return numeroDoCartaoField;
+	}
+
+	public JTextField getDataField() {
+		return dataField;
+	}
+
+	public JTextField getNomeDoCartaoField() {
+		return nomeDoCartaoField;
+	}
+
+	public JTextField getCodigoDeSegurancaField() {
+		return codigoDeSegurancaField;
+	}
+
+	public JTextField getCpfCartaoField() {
+		return cpfCartaoField;
+	}
+
+	public JTextField getCpfPixField() {
+		return cpfPixField;
+	}
+
+	public JTextField getEmailPixField() {
+		return emailPixField;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		this.controller.executarBotao(e.getSource());
+	}
 }

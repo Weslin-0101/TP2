@@ -100,11 +100,13 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		seguirAdianteBtn = new JButton("Seguir Adiante");
 		seguirAdianteBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		seguirAdianteBtn.setBounds(54, 353, 124, 43);
+		seguirAdianteBtn.addActionListener(this);
 		contentPane.add(seguirAdianteBtn);
 
 		voltarBtn = new JButton("Voltar");
 		voltarBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		voltarBtn.setBounds(400, 353, 124, 43);
+		voltarBtn.addActionListener(this);
 		contentPane.add(voltarBtn);
 
 		setLocationRelativeTo(null);
@@ -112,11 +114,12 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		this.controller.executarBotao(e);
 		
 	}
 
-	public JComboBox getSelecionarFilmeComboBox() {
+	public JComboBox<Object> getSelecionarFilmeComboBox() {
 		return selecionarFilmeComboBox;
 	}
 

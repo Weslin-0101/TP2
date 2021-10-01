@@ -3,43 +3,44 @@ package view;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class CadastrarSessao extends JFrame {
+import controller.CadastrarSessaoController;
+import model.Dados;
 
-	private JPanel salaSessaoField;
-	private JTextField dataSessaoField;
-	private JTextField horarioSessaoField;
-	private JTextField textField_2;
+public class CadastrarSessao extends JFrame implements ActionListener{
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					CadastrarSessao frame = new CadastrarSessao();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private final JPanel salaSessaoField;
+	private final JLabel dataSessaoLabel;
+	private final JLabel horarioSessaoLabel;
+	private final JLabel salaSessaoLabel;
+	private final JButton confirmarSessaoBtn;
+	private final JButton voltarSessaoBtn;
+	private final JTextField dataSessaoField;
+	private final JTextField horarioSessaoField;
+	private final JComboBox<String> salaComboBox;
+	private final CadastrarSessaoController controller;
+
 
 	/**
 	 * Create the frame.
 	 */
 	public CadastrarSessao() {
+		
+		controller = new CadastrarSessaoController(this);
+		Dados.iniciar();
+
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarSessao.class.getResource("/view/images/favicon.png")));
 		setTitle("Cadastrar Sess\u00E3o");
@@ -50,19 +51,19 @@ public class CadastrarSessao extends JFrame {
 		setContentPane(salaSessaoField);
 		salaSessaoField.setLayout(null);
 
-		JLabel dataSessaoLabel = new JLabel("Data das sessoes");
+		dataSessaoLabel = new JLabel("Data das sessoes");
 		dataSessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		dataSessaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dataSessaoLabel.setBounds(10, 32, 166, 14);
 		salaSessaoField.add(dataSessaoLabel);
 
-		JLabel horarioSessaoLabel = new JLabel("Horario");
+		horarioSessaoLabel = new JLabel("Horario");
 		horarioSessaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		horarioSessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		horarioSessaoLabel.setBounds(10, 74, 166, 14);
 		salaSessaoField.add(horarioSessaoLabel);
 
-		JLabel salaSessaoLabel = new JLabel("Sala");
+		salaSessaoLabel = new JLabel("Sala");
 		salaSessaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		salaSessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		salaSessaoLabel.setBounds(10, 118, 166, 14);
@@ -78,20 +79,60 @@ public class CadastrarSessao extends JFrame {
 		salaSessaoField.add(horarioSessaoField);
 		horarioSessaoField.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(196, 116, 127, 20);
-		salaSessaoField.add(textField_2);
-		textField_2.setColumns(10);
+		salaComboBox = new JComboBox<>();
+		salaComboBox.setBounds(196, 116, 127, 20);
+		salaSessaoField.add(salaComboBox);
 
-		JButton confirmarSessaoBtn = new JButton("Confirmar");
+		confirmarSessaoBtn = new JButton("Confirmar");
 		confirmarSessaoBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		confirmarSessaoBtn.setBounds(24, 165, 127, 34);
+		confirmarSessaoBtn.addActionListener(this);
 		salaSessaoField.add(confirmarSessaoBtn);
 
-		JButton voltarSessaoBtn = new JButton("Voltar");
+		voltarSessaoBtn = new JButton("Voltar");
 		voltarSessaoBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		voltarSessaoBtn.setBounds(228, 165, 127, 34);
+		voltarSessaoBtn.addActionListener(this);
 		salaSessaoField.add(voltarSessaoBtn);
+
+		setLocationRelativeTo(null);
 	}
 
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		this.controller.executarBotao(e.getSource());
+	}
+
+	public void mostrarMensagemConfirmando(String mensagem) {
+		JOptionPane.showMessageDialog(null, mensagem);
+	}
+
+
+	public JButton getConfirmarSessaoBtn() {
+		return confirmarSessaoBtn;
+	}
+
+
+	public JButton getVoltarSessaoBtn() {
+		return voltarSessaoBtn;
+	}
+
+
+	public JTextField getDataSessaoField() {
+		return dataSessaoField;
+	}
+
+
+	public JTextField getHorarioSessaoField() {
+		return horarioSessaoField;
+	}
+
+
+	public JComboBox<String> getSalaComboBox() {
+		return salaComboBox;
+	}
+
+	
 }

@@ -1,45 +1,77 @@
 package controller;
 
+import view.Menu;
+import view.CadastrarPagamento;
+
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Pagamento;
-import utils.Sc;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+
+import model.Cliente;
+import model.Dados;
 
 public class PagamentoController {
     
-    private ArrayList<Pagamento> pagamentos;
+    private final CadastrarPagamento view;
+    private Cliente cliente;
 
-    public PagamentoController() {
-        this.pagamentos = new ArrayList<>();
+    public PagamentoController(CadastrarPagamento view) {
+        this.view = view;
     }
 
-    public List<Pagamento> getPagamentos() {
-        return pagamentos;
-    }
+    public void executarBotao(Object botao) {
+        
 
+        if (botao == view.getAdicionarCartaoBtn()) {
+            adicionarCartão();
+            view.mostrarMensagemPagamento("Pagamento adicionado com sucesso!");
+        } else if (botao == view.getAdicionarPixBtn()) {
+            adicionarPix();
+            view.mostrarMensagemPagamento("Pagamento adicionado com sucesso!");
+        } else if (botao == view.getConfirmarBtn()) {
+            view.mostrarMensagemConfirmacao("Compra do ingresso realizada com sucesso! Tenha bom filme!");
+            new Menu().setVisible(true);
+            this.view.dispose();
 
-    public void addPagamento(Pagamento pagamento) {
-        if (!pagamentos.contains(pagamento)) {
-            pagamentos.add(pagamento);
         } else {
-            System.out.println("Método de pagamento já existente");
+            
+
+
         }
     }
-    // Precisa ser refatorado (manutenção urgente)
-    public boolean validacaoDaEscolha(boolean escolha) {
 
-        boolean validacao = true;
+    public void adicionarCartão() {
+        String numCartao = view.getNumeroDoCartaoField().getText();
+        String nomeImpresso = view.getNomeDoCartaoField().getText();
+        String data = view.getDataField().getText();
+        String codigo = view.getCodigoDeSegurancaField().getText();
+        String cpf = view.getCpfCartaoField().getText();
 
-        return (escolha == validacao);
+        Dados.getPagamentos().add(new model.Pagamento(numCartao, nomeImpresso, data, codigo, cpf));
     }
 
-    public boolean finalizarPedido(boolean pedido) {
+    public void adicionarPix() {
+        String cpf = view.getCpfCartaoField().getText();
+        String pix = view.getCpfPixField().getText();
 
-        boolean valida = true;
-        return (pedido == valida);
+        Dados.getPagamentos().add(new model.Pagamento(cpf, pix));
     }
-    
-    // Necessário fazer depois!!!
-    // public Double total() {}
+
+    public void atualizarCliente() {
+        List<Cliente> clientes = Dados.selecionaTudo();
+        preencherClientes(clientes);
+    }
+
+    public void preencherClientes(List<Cliente> clientes) {
+
+        DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getClientesComboBox().getModel();
+
+        for (Cliente cliente : clientes) {
+            
+            comboBoxModel.addElement(cliente);
+        }
+    }
 }

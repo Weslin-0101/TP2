@@ -106,16 +106,8 @@ public class Login extends JFrame implements ActionListener{
         JOptionPane.showMessageDialog(null, mensagem);
     }
 
-    public JLabel getUsernameJLabel() {
-        return usernameJLabel;
-    }
-
     public JTextField getUsername() {
         return username;
-    }
-
-    public JLabel getPasswrodJLabel() {
-        return passwrodJLabel;
     }
 
     public JPasswordField getPassword() {

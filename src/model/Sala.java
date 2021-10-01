@@ -12,6 +12,11 @@ public class Sala {
         this.tecnologia = tecnologia;
     }
 
+    public Sala(Integer numeroDaSala, Integer capacidade) {
+        this.numeroDaSala = numeroDaSala;
+        this.capacidade = capacidade;
+    }
+
     public Integer getNumeroDaSala() {
         return numeroDaSala;
     }

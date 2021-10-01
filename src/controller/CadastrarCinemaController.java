@@ -27,11 +27,10 @@ public class CadastrarCinemaController {
         String endereco = view.getEnderecoField().getText();
         String cep = view.getCepField().getText();
         String referencia = view.getReferenciaField().getText();
-        Integer numeroSala = Integer.parseInt(view.getNumeroSalaField().getText());
+        Integer numeroSala = Integer.parseInt(view.getNumeroSalaField().getSelectedValue());
         Integer capacidade = Integer.parseInt(view.getCapacidadeField().getText());
-        String tecnologia = view.getTecnologiaField().getText();
 
-        Dados.getCinemas().add(new Cinema(name, new Localidade(endereco, cep, referencia), new Sala(numeroSala, capacidade, tecnologia)));
+        Dados.getCinemas().add(new Cinema(name, new Localidade(endereco, cep, referencia), new Sala(numeroSala, capacidade)));
     }
 
     public void executarBotao(ActionEvent e) {

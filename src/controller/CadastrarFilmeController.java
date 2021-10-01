@@ -43,4 +43,17 @@ public class CadastrarFilmeController {
             new Menu().setVisible(true);
         }
     }
+
+    public Filme pegarModelo() {
+
+        String titulo = view.getTituloField().getText();
+        String duracao = view.getDuracaoField().getText();
+        String sinopse = view.getSinopseField().getText();
+        String genero = view.getGeneroField().getText();
+        String cartaz = view.getCartazField().getText();
+        String atores = view.getAtoresField().getText();
+        String diretor = view.getDiretorField().getText();
+
+        return new Filme(titulo, duracao, sinopse, genero, cartaz, atores, diretor);
+    }
 }

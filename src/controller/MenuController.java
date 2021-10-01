@@ -5,13 +5,16 @@ import java.awt.event.ActionEvent;
 import view.CadastrarAlimento;
 import view.CadastrarCinema;
 import view.CadastrarFilme;
-import view.CadastrarSala;
 import view.CadastrarSessao;
 import view.Login;
 import view.Menu;
 import view.MinhaConta;
 import view.VisualizarFilmes;
 
+/**
+ * Classe controlada do Menu. Nela é quem realiza
+ * os controles por dentro da view
+ */
 public class MenuController {
     
     private final Menu view;
@@ -23,6 +26,13 @@ public class MenuController {
         login = new Login();
     }
 
+    /**
+     * Nessa classe, está armazenado cada momento em que pode ocorrer
+     * do clique de um mouse sobre o Menu, botões e em seus items dentro
+     * do MenuBar. Cada um leva a uma das outras telas restantes do programa
+     * 
+     * @param e da ActionEvent
+     */
     public void executarBotao(ActionEvent e) {
         Object botao = e.getSource();
 
@@ -47,6 +57,10 @@ public class MenuController {
         }
     }
 
+    /**
+     * Os métodos navegar são para os casos dos items que estão
+     * dentro do MenuBar
+     */
     public void navegarCadastroFilmes() {
 
         CadastrarFilme cadastro = new CadastrarFilme();

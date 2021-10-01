@@ -48,7 +48,6 @@ public class Login extends JFrame implements ActionListener{
          * 
          */
 		controller = new LoginController(this);
-        Dados.iniciar();
 
 		this.setSize(425, 340);
 		getContentPane().setLayout(null);

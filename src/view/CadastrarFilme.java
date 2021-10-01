@@ -40,12 +40,11 @@ public class CadastrarFilme extends JFrame implements ActionListener{
 	private final CadastrarFilmeController controller;
 
 	/**
-	 * Create the frame.
+	 * Classe responsável pela View do cadastro de Filme
 	 */
 	public CadastrarFilme() {
 		
 		this.controller = new CadastrarFilmeController(this);
-		Dados.iniciar();
 
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarFilme.class.getResource("/view/images/favicon.png")));

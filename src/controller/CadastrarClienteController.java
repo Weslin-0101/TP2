@@ -17,6 +17,10 @@ public class CadastrarClienteController {
         this.view = view;
     }
     
+    /**
+     * Para armazenas os dados preenchidos na View em uma
+     * ArrayList salva em Dados
+     */
     public void cadastrarCliente() {
 
         String name = view.getNameField().getText();
@@ -40,5 +44,22 @@ public class CadastrarClienteController {
             this.view.dispose();
             new Login().setVisible(true);
         }
+    }
+    
+    /**
+     * Método para buscar o modelo do cliente
+     * para que possa aparecer o nome do cliente
+     * cadastrado na ComboBox
+     * @return o modelo do cliente
+     */
+    public Cliente pegarModelo() {
+
+        String name = view.getNameField().getText();
+        String date = view.getDateField().getText();
+        String cpf = view.getDateField().getText();
+        String email = view.getEmailField().getText();
+        String password = view.getSenhaField().getText();
+
+        return new Cliente(name, date, cpf, email, password);
     }
 }

@@ -32,12 +32,15 @@ public class Menu extends JFrame implements ActionListener{
 	private final MenuController controller;
 
 	/**
-	 * Create the frame.
+	 * Essa é a classe Menu
+	 * ELa faz os chamados para cada uma das outras views que existem no programa.
+	 * 
+	 * Nela está presente os items dentro de um Menu menor, e também as telas restantes
+	 * dentro de cada botão
 	 */
 	public Menu() {
 		
 		controller = new MenuController(this);
-		Dados.iniciar();
 
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu.class.getResource("/view/images/favicon.png")));

@@ -1,7 +1,9 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 import model.Cinema;
@@ -21,15 +23,20 @@ public class CadastrarCinemaController {
         this.view = view;
     }
 
+    /**
+     * Método para que após aperta no botão de confirmar,
+     * ele possa armazenas os dados preenchidos em uma
+     * ArrayList armazenada em Dados
+     */
     public void cadastrarCinema() {
 
         String name = view.getNomeCinemaField().getText();
         String endereco = view.getEnderecoField().getText();
         String cep = view.getCepField().getText();
         String referencia = view.getReferenciaField().getText();
-        Integer numeroSala = Integer.parseInt(view.getNumeroSalaField().getSelectedValue());
+        Integer numeroSala = Integer.parseInt(view.getNumeroSalaField().getText());
         Integer capacidade = Integer.parseInt(view.getCapacidadeField().getText());
-
+        
         Dados.getCinemas().add(new Cinema(name, new Localidade(endereco, cep, referencia), new Sala(numeroSala, capacidade)));
     }
 

@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarClienteController;
+import model.Dados;
 
 public class CadastrarCliente extends JFrame implements ActionListener{
 

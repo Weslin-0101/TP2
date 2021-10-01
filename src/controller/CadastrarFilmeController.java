@@ -17,6 +17,9 @@ public class CadastrarFilmeController {
         this.view = view;
     }
 
+    /**
+     * Método para o cadastro de filmes
+     */
     public void cadastrarFilme() {
 
         String titulo = view.getTituloField().getText();
@@ -44,6 +47,13 @@ public class CadastrarFilmeController {
         }
     }
 
+    /**
+     * A função desse método é capturar o modelo da tela de View
+     * onde o usuário digitou os dados e clicou em Confirmar.
+     * 
+     * Ajuda para que possa aparecer uma JComboBox de outra
+     * tela
+     */
     public Filme pegarModelo() {
 
         String titulo = view.getTituloField().getText();

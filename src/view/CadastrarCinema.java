@@ -28,24 +28,23 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 	private final JLabel nomeCinemaLabel;
 	private final JLabel numeroSalaLabel;
 	private final JLabel capacidadeLabel;
-	private final JComboBox capacidadeComboBox;
+	private final JComboBox<Object> capacidadeComboBox;
 	private final JTextField enderecoField;
 	private final JTextField cepField;
 	private final JTextField referenciaField;
 	private final JTextField nomeCinemaField;
-	private final JList<String> numeroSalaField;
+	private final JTextField numeroSalaField;
 	private final JTextField capacidadeField;
 	private final JButton confirmaCinemaBtn;
 	private final JButton voltarCinemaBtn;
 	private final CadastrarCinemaController controller;
 
 	/**
-	 * Create the frame.
+	 * Classe para a View do cadastro de cinema!
 	 */
 	public CadastrarCinema() {
 		
 		this.controller	= new CadastrarCinemaController(this);
-		Dados.iniciar();
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarCinema.class.getResource("/view/images/favicon.png")));
 		this.setSize(525, 523);
@@ -118,7 +117,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		numeroSalaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
 		contentPane.add(numeroSalaLabel);
 
-		numeroSalaField = new JList<>();
+		numeroSalaField = new JTextField();
 		numeroSalaField.setBounds(188, 207, 258, 20);
 		contentPane.add(numeroSalaField);
 
@@ -133,7 +132,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		capacidadeField.setColumns(10);
 		contentPane.add(capacidadeField);
 
-		capacidadeComboBox = new JComboBox();
+		capacidadeComboBox = new JComboBox<>();
 		capacidadeComboBox.setBounds(168, 300, 156, 31);
 		contentPane.add(capacidadeComboBox);
 		capacidadeComboBox.addItem("Tecnologia");
@@ -195,7 +194,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		return nomeCinemaField;
 	}
 
-	public JList<String> getNumeroSalaField() {
+	public JTextField getNumeroSalaField() {
 		return numeroSalaField;
 	}
 
@@ -211,7 +210,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		return voltarCinemaBtn;
 	}
 
-	public JComboBox getCapacidadeComboBox() {
+	public JComboBox<Object> getCapacidadeComboBox() {
 		return capacidadeComboBox;
 	}
 }

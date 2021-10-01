@@ -24,19 +24,18 @@ public class CadastrarSala extends JFrame implements ActionListener{
 	private final JTextField capacidadeField;
 	private final JLabel numeroSalaLabel;
 	private final JLabel capacidadeLabel;
-	private final JComboBox filmesComboBox;
-	private final JComboBox capacidadeComboBox;
+	private final JComboBox<String> filmesComboBox;
+	private final JComboBox<String> capacidadeComboBox;
 	private final JButton confirmarBtn;
 	private final JButton voltarBtn;
 	private final CadastrarSalaController controller;
 
 	/**
-	 * Create the frame.
+	 * Reponsável para a view do Cadastro de sala
 	 */
 	public CadastrarSala() {
 		
 		controller = new CadastrarSalaController(this);
-		Dados.iniciar();;
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarSala.class.getResource("/view/images/favicon.png")));
 		setResizable(false);
@@ -48,7 +47,7 @@ public class CadastrarSala extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		filmesComboBox = new JComboBox();
+		filmesComboBox = new JComboBox<>();
 		filmesComboBox.setBounds(36, 11, 418, 31);
 		filmesComboBox.addActionListener(this);
 		contentPane.add(filmesComboBox);
@@ -76,7 +75,7 @@ public class CadastrarSala extends JFrame implements ActionListener{
 		capacidadeField.setBounds(167, 164, 156, 31);
 		contentPane.add(capacidadeField);
 
-		capacidadeComboBox = new JComboBox();
+		capacidadeComboBox = new JComboBox<>();
 		capacidadeComboBox.setBounds(168, 232, 156, 31);
 		contentPane.add(capacidadeComboBox);
 		capacidadeComboBox.addItem("Tecnologia");

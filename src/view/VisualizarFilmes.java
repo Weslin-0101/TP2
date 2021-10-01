@@ -20,10 +20,10 @@ import model.Dados;
 public class VisualizarFilmes extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
-	private final JComboBox<Object> selecionarFilmeComboBox;
-	private final JComboBox ingressoComboBox;
-	private final JComboBox salaComboBox;
-	private final JComboBox sessaoComboBox;
+	private final JComboBox<String> selecionarFilmeComboBox;
+	private final JComboBox<String> ingressoComboBox;
+	private final JComboBox<String> salaComboBox;
+	private final JComboBox<String> sessaoComboBox;
 	private final JTextArea areaText;
 	private final JLabel ingressoLabel;
 	private final JLabel salaLabel;
@@ -34,12 +34,19 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	private final VisualizarFilmesController controller;
 
 	/**
-	 * Create the frame.
+	 * Classe responsável para que possa acontecer todo o processo da seguinte ordem:
+	 * 1 - Você seleciona o nome do filme que deseja no ComboBox e aparece
+	 * as informações do filme (Nome, Sinopse, Duração, Gênero, Ator/Atriz, Diretor)
+	 * 
+	 * 2 - Seleciona qual Ingresso, Sala e Sessão que deseja
+	 * 
+	 * 3 - Aqui divide em duas coisas: 
+	 *   3.1 - Seguir Adiante: Vai te levar para o pagamento
+	 * 	 3.2 - Voltar: Você volta para o Menu
 	 */
 	public VisualizarFilmes() {
 		
 		controller = new VisualizarFilmesController(this);
-		Dados.iniciar();
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VisualizarFilmes.class.getResource("/view/images/favicon.png")));
 		setTitle("Visualizar Filmes");
@@ -51,8 +58,9 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		selecionarFilmeComboBox = new JComboBox();
+		selecionarFilmeComboBox = new JComboBox<>();
 		selecionarFilmeComboBox.setBounds(64, 22, 390, 22);
+		selecionarFilmeComboBox.setModel(controller.atualizarCaixaFilmes());
 		contentPane.add(selecionarFilmeComboBox);
 		selecionarFilmeComboBox.addItem("Selecionar Filme");
 		
@@ -64,22 +72,23 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		areaText.setBounds(20, 58, 540, 199);
 		contentPane.add(areaText);
 
-		ingressoComboBox = new JComboBox();
+		ingressoComboBox = new JComboBox<>();
 		ingressoComboBox.setBounds(64, 299, 101, 28);
 		contentPane.add(ingressoComboBox);
 		ingressoComboBox.addItem("Selecione");
 		ingressoComboBox.addItem("Meia");
 		ingressoComboBox.addItem("Inteira");
 
-		salaComboBox = new JComboBox();
+		salaComboBox = new JComboBox<>();
 		salaComboBox.setBounds(232, 299, 101, 28);
+		salaComboBox.setModel(controller.atualizarSala());
 		contentPane.add(salaComboBox);
 		salaComboBox.addItem("Selecione");
 
-		sessaoComboBox = new JComboBox();
+		sessaoComboBox = new JComboBox<>();
 		sessaoComboBox.setBounds(409, 299, 101, 28);
+		sessaoComboBox.setModel(controller.atualizarSessao());
 		contentPane.add(sessaoComboBox);
-		sessaoComboBox.setModel(controller.atualizarCaixaFilmes());
 		sessaoComboBox.addItem("Selecione");
 
 		ingressoLabel = new JLabel("Ingresso");
@@ -119,7 +128,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		
 	}
 
-	public JComboBox<Object> getSelecionarFilmeComboBox() {
+	public JComboBox<String> getSelecionarFilmeComboBox() {
 		return selecionarFilmeComboBox;
 	}
 
@@ -131,7 +140,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		return salaComboBox;
 	}
 
-	public JComboBox getSessaoComboBox() {
+	public JComboBox<String> getSessaoComboBox() {
 		return sessaoComboBox;
 	}
 

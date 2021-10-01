@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -27,12 +28,12 @@ public class MinhaConta extends JFrame implements ActionListener{
 	private final MinhaContaController controller;
 
 	/**
-	 * Create the frame.
+	 * Nessa classe reside as informações do cliente que se logou
+	 * 
 	 */
 	public MinhaConta() {
 		
 		controller = new MinhaContaController(this);
-		Dados.iniciar();
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MinhaConta.class.getResource("/view/images/favicon.png")));
 		setTitle("Minha Conta");
@@ -70,7 +71,15 @@ public class MinhaConta extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
+		this.controller.executaBotao(e.getSource());
+	}
+
+	public void mostrarMensagemExcluido(String mensagem) {
+		JOptionPane.showMessageDialog(null, mensagem);
+	}
+	
+	public void mostrarMensagemErro(String mensagem) {
+		JOptionPane.showMessageDialog(null, mensagem);
 	}
 
 	public JTable getInformacoesTable() {

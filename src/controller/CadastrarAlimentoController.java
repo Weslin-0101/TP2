@@ -13,6 +13,9 @@ public class CadastrarAlimentoController {
         this.view = view;
     }
 
+    /**
+     * Método para cadastrar os alimentos
+     */
     public void cadastrarAlimento() {
         
         String nome = view.getNomeAlimentoField().getText();
@@ -34,6 +37,11 @@ public class CadastrarAlimentoController {
         }
     } 
 
+    /**
+     * A função desse método é para limpar os dados
+     * que ainda estão escritos na view do cadastro
+     * de alimentos
+     */
     public void limparCampo() {
         view.getNomeAlimentoField().setText("");
         view.getPrecoAlimentoField().setText("");

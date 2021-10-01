@@ -48,13 +48,14 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 	private final PagamentoController controller;
 
 	/**
-	 * Create the frame.
+	 * Tela responsável para o cadastro de pagamento.
+	 * 
+	 * Nessa tela, foi adicionanda diversas labels, buttons e textFields. 
+	 * Além claro das bordas que aplicamos
 	 */
 	public CadastrarPagamento() {
 		
 		controller = new PagamentoController(this);
-		Dados.iniciar();
-		start();
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarPagamento.class.getResource("/view/images/favicon.png")));
 		setResizable(false);
@@ -66,10 +67,10 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		clientesComboBox = new JComboBox<String>();
+		clientesComboBox = new JComboBox<>();
 		clientesComboBox.setFont(new Font("Open Sans", Font.PLAIN, 13));
 		clientesComboBox.setBounds(34, 24, 415, 27);
-		clientesComboBox.addActionListener(this);
+		clientesComboBox.setModel(controller.atualizarClientes());
 		contentPane.add(clientesComboBox);
 		clientesComboBox.addItem("Clientes");
 
@@ -202,11 +203,7 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 	}
 
 	public void mostrarMensagemConfirmacao(String mensagem) {
-		JOptionPane.showConfirmDialog(null, mensagem);
-	}
-
-	public void start() {
-		this.controller.atualizarCliente();
+		JOptionPane.showMessageDialog(null, mensagem);
 	}
 
 	public JComboBox<String> getClientesComboBox() {

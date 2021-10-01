@@ -33,12 +33,18 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 	private final CadastrarAlimentoController controller;
 
 	/**
-	 * Create the frame.
+	 * Classe para o cadastro de Alimentos
 	 */
 	public CadastrarAlimento() {
 		
+		/**
+		 * Necessário haver a comunicação entre a View
+		 * e o Controller, além também da classe Dados que
+		 * simula o banco de dados. O método iniciar()
+		 * é para que a classe possa usar os dados
+		 * pré-cadastrados no banco de dados
+		 */
 		controller = new CadastrarAlimentoController(this);
-		Dados.iniciar();
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarAlimento.class.getResource("/view/images/favicon.png")));
 		setTitle("Cadastro do alimento");
@@ -96,7 +102,6 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 		contentPane.add(descricaoAlimentoField);
 
 		escolhaComboBox = new JComboBox<>();
-		escolhaComboBox.addActionListener(this);
 		escolhaComboBox.setBounds(70, 26, 102, 22);
 		contentPane.add(escolhaComboBox);
 		escolhaComboBox.addItem("Pipocas");

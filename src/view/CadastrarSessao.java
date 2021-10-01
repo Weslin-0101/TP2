@@ -34,12 +34,11 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 
 
 	/**
-	 * Create the frame.
+	 * Responsável pela view do cadastro de Sessão
 	 */
 	public CadastrarSessao() {
 		
 		controller = new CadastrarSessaoController(this);
-		Dados.iniciar();
 
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarSessao.class.getResource("/view/images/favicon.png")));
@@ -81,6 +80,7 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 
 		salaComboBox = new JComboBox<>();
 		salaComboBox.setBounds(196, 116, 127, 20);
+		salaComboBox.setModel(controller.atualizarSala());
 		salaSessaoField.add(salaComboBox);
 
 		confirmarSessaoBtn = new JButton("Confirmar");

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cinema{
     private String nome;
-    private List<Sala> salas;
+    private ArrayList<Sala> salas;
     private Localidade localidade;
 
     public Cinema() {} //default

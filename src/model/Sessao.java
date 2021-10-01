@@ -9,7 +9,7 @@ public class Sessao {
     private Date dataDaSessao;
     private Date horario;
 
-    private List<Sala> salas;
+    private ArrayList<Sala> salas;
     
     public Sessao(Date dataDaSessao, Date horario) {
         this.dataDaSessao = dataDaSessao;

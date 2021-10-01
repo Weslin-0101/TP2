@@ -13,7 +13,7 @@ public class Filme {
     private String emCartaz;
     private String atores;
     private String diretor;
-    private List<Ingresso> ingressos;
+    private ArrayList<Ingresso> ingressos;
     
     public Filme(String titulo, String duracao, String sinopse, String genero, String emCartaz, String atores,
             String diretor) {

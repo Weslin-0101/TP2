@@ -27,6 +27,7 @@ public class Menu extends JFrame implements ActionListener{
 	private final JMenuItem cadastrarIngressoItemMenu;
 	private final JMenuItem cadastrarSessaoItemMenu;
 	private final JMenuItem cadastrarAlimentosItemMenu;
+	private final JMenuItem cadastrarSalaItemMenu;
 	private final JButton visualizarFilmesBtn;
 	private final JButton minhaContaBtn;
 	private final JButton opcao3Btn;
@@ -69,6 +70,10 @@ public class Menu extends JFrame implements ActionListener{
 		cadastrarSessaoItemMenu = new JMenuItem("Cadastrar Sessoes");
 		cadastrarSessaoItemMenu.addActionListener(this);
 		cadastroMenu.add(cadastrarSessaoItemMenu);
+
+		cadastrarSalaItemMenu = new JMenuItem("Cadastrar Sala");
+		cadastrarSalaItemMenu.addActionListener(this);
+		cadastroMenu.add(cadastrarSalaItemMenu);
 
 		cadastrarAlimentosItemMenu = new JMenuItem("Cadastrar Alimentos");
 		cadastrarAlimentosItemMenu.addActionListener(this);
@@ -154,6 +159,10 @@ public class Menu extends JFrame implements ActionListener{
 
 	public JButton getSairBtn() {
 		return sairBtn;
+	}
+
+	public JMenuItem getCadastrarSalaItemMenu() {
+		return cadastrarSalaItemMenu;
 	}
 
 }

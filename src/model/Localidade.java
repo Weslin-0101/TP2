@@ -9,7 +9,7 @@ public class Localidade {
     private String endereco;
     private String cep;
     private String pontoDeReferencia;
-    private List<Cinema> cinemas;
+    private ArrayList<Cinema> cinemas;
 
 
 public Localidade() {} //default

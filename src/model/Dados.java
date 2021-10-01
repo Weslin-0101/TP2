@@ -10,14 +10,16 @@ import java.util.List;
  */
 public abstract class Dados {
     
-    private static final List<Administracao> admins = new ArrayList<>();
-    private static final List<Cliente> clientes = new ArrayList<>();
-    private static final List<Filme> filmes = new ArrayList<>();
-    private static final List<Localidade> localidades = new ArrayList<>();
-    private static final List<Cinema> cinemas = new ArrayList<>();
-    private static final List<Sessao> sessoes = new ArrayList<>();
-    private static final List<Alimento> alimentos = new ArrayList<>();
-    private static final List<Pagamento> pagamentos = new ArrayList<>();
+    private static final ArrayList<Administracao> admins = new ArrayList<>();
+    private static final ArrayList<Cliente> clientes = new ArrayList<>();
+    private static final ArrayList<Filme> filmes = new ArrayList<>();
+    private static final ArrayList<Localidade> localidades = new ArrayList<>();
+    private static final ArrayList<Cinema> cinemas = new ArrayList<>();
+    private static final ArrayList<Sessao> sessoes = new ArrayList<>();
+    private static final ArrayList<Alimento> alimentos = new ArrayList<>();
+    private static final ArrayList<Pagamento> pagamentos = new ArrayList<>();
+    private int qntClientes;
+    private Cliente[] clientees;
     
     /*
         Construtor para que não seja possível herdar a classe

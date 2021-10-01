@@ -41,4 +41,13 @@ public class CadastrarClienteController {
             new Login().setVisible(true);
         }
     }
+
+    public void obterModelo() {
+
+        String name = view.getNameField().getText();
+        String date = view.getDateField().getText();
+        String cpf = view.getDateField().getText();
+        String email = view.getEmailField().getText();
+        String password = view.getSenhaField().getText();
+    }
 }

@@ -14,10 +14,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
+import controller.VisualizarFilmesController;
+import model.Dados;
+
 public class VisualizarFilmes extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
-	private final JComboBox selecionarFilmeComboBox;
+	private final JComboBox<Object> selecionarFilmeComboBox;
 	private final JComboBox ingressoComboBox;
 	private final JComboBox salaComboBox;
 	private final JComboBox sessaoComboBox;
@@ -28,12 +31,16 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	private final JButton okBtn;
 	private final JButton seguirAdianteBtn;
 	private final JButton voltarBtn;
+	private final VisualizarFilmesController controller;
 
 	/**
 	 * Create the frame.
 	 */
 	public VisualizarFilmes() {
 		
+		controller = new VisualizarFilmesController(this);
+		Dados.iniciar();
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VisualizarFilmes.class.getResource("/view/images/favicon.png")));
 		setTitle("Visualizar Filmes");
 		setResizable(false);
@@ -72,6 +79,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		sessaoComboBox = new JComboBox();
 		sessaoComboBox.setBounds(409, 299, 101, 28);
 		contentPane.add(sessaoComboBox);
+		sessaoComboBox.setModel(controller.atualizarCaixaFilmes());
 		sessaoComboBox.addItem("Selecione");
 
 		ingressoLabel = new JLabel("Ingresso");

@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -15,7 +14,6 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import controller.VisualizarFilmesController;
-import model.Dados;
 import model.Filme;
 
 public class VisualizarFilmes extends JFrame implements ActionListener{
@@ -34,6 +32,9 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	private final JButton voltarBtn;
 	private final VisualizarFilmesController controller;
 	private Filme filme;
+	private static final String COLO_STRING = "Open Sans";
+	private static final String SELECT_STRING = "Selecione";
+
 
 	/**
 	 * Classe responsável para que possa acontecer todo o processo da seguinte ordem:
@@ -81,7 +82,7 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		ingressoComboBox = new JComboBox<>();
 		ingressoComboBox.setBounds(64, 299, 101, 28);
 		contentPane.add(ingressoComboBox);
-		ingressoComboBox.addItem("Selecione");
+		ingressoComboBox.addItem(SELECT_STRING);
 		ingressoComboBox.addItem("Meia");
 		ingressoComboBox.addItem("Inteira");
 		ingressoComboBox.setSelectedIndex(0);
@@ -90,39 +91,39 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		salaComboBox.setBounds(232, 299, 101, 28);
 		salaComboBox.setModel(controller.atualizarSala());
 		contentPane.add(salaComboBox);
-		salaComboBox.addItem("Selecione");
+		salaComboBox.addItem(SELECT_STRING);
 		salaComboBox.setSelectedIndex(4);
 
 		sessaoComboBox = new JComboBox<>();
 		sessaoComboBox.setBounds(409, 299, 101, 28);
 		sessaoComboBox.setModel(controller.atualizarSessao());
 		contentPane.add(sessaoComboBox);
-		sessaoComboBox.addItem("Selecione");
+		sessaoComboBox.addItem(SELECT_STRING);
 		sessaoComboBox.setSelectedIndex(5);
 
 		ingressoLabel = new JLabel("Ingresso");
-		ingressoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		ingressoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		ingressoLabel.setBounds(64, 278, 101, 22);
 		contentPane.add(ingressoLabel);
 
 		salaLabel = new JLabel("Sala");
-		salaLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		salaLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		salaLabel.setBounds(232, 278, 101, 22);
 		contentPane.add(salaLabel);
 
 		sessaoLabel = new JLabel("Sessao");
-		sessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		sessaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		sessaoLabel.setBounds(409, 278, 101, 22);
 		contentPane.add(sessaoLabel);
 
 		seguirAdianteBtn = new JButton("Seguir Adiante");
-		seguirAdianteBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		seguirAdianteBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		seguirAdianteBtn.setBounds(54, 353, 124, 43);
 		seguirAdianteBtn.addActionListener(this);
 		contentPane.add(seguirAdianteBtn);
 
 		voltarBtn = new JButton("Voltar");
-		voltarBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		voltarBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		voltarBtn.setBounds(400, 353, 124, 43);
 		voltarBtn.addActionListener(this);
 		contentPane.add(voltarBtn);
@@ -146,11 +147,11 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		return selecionarFilmeComboBox;
 	}
 
-	public JComboBox getIngressoComboBox() {
+	public JComboBox<String> getIngressoComboBox() {
 		return ingressoComboBox;
 	}
 
-	public JComboBox getSalaComboBox() {
+	public JComboBox<String> getSalaComboBox() {
 		return salaComboBox;
 	}
 

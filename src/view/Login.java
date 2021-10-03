@@ -13,7 +13,6 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import controller.LoginController;
-import model.Dados;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,6 +26,8 @@ public class Login extends JFrame implements ActionListener{
     private final JButton loginBtn;
     private final JButton registerBtn;
     private final LoginController controller;
+    private static final String COLO_STRING = "Open Sans";
+
 
 
     /* 
@@ -56,7 +57,7 @@ public class Login extends JFrame implements ActionListener{
 
 		usernameJLabel = new JLabel("Usuario");
 		usernameJLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		usernameJLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		usernameJLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		usernameJLabel.setBounds(10, 83, 143, 25);
 		getContentPane().add(usernameJLabel);
 
@@ -66,7 +67,7 @@ public class Login extends JFrame implements ActionListener{
 
 		passwrodJLabel = new JLabel("Senha");
 		passwrodJLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		passwrodJLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		passwrodJLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		passwrodJLabel.setBounds(10, 119, 143, 25);
 		getContentPane().add(passwrodJLabel);
 
@@ -75,13 +76,13 @@ public class Login extends JFrame implements ActionListener{
 		getContentPane().add(password);
 
 		loginBtn = new JButton("Entrar");
-		loginBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		loginBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		loginBtn.setBounds(69, 172, 105, 28);
 		loginBtn.addActionListener(this);
 		getContentPane().add(loginBtn);
 
 		registerBtn = new JButton("Registrar-se");
-		registerBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		registerBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		registerBtn.setBounds(215, 172, 105, 28);
 		registerBtn.addActionListener(this);
 		getContentPane().add(registerBtn);

@@ -18,12 +18,10 @@ import view.VisualizarFilmes;
 public class MenuController {
     
     private final Menu view;
-    private Login login;
 
     public MenuController(Menu view) {
         super();
         this.view = view;
-        login = new Login();
     }
 
     /**

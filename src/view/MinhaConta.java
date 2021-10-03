@@ -7,18 +7,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
 import controller.MinhaContaController;
-import model.Cliente;
-import model.Dados;
 
 public class MinhaConta extends JFrame implements ActionListener{
 
@@ -28,13 +22,14 @@ public class MinhaConta extends JFrame implements ActionListener{
 	private final JButton voltarBtn;
 	private final JButton editarBtn;
 	private final MinhaContaController controller;
-	private Cliente cliente;
+	private static final String COLO_STRING = "Open Sans";
+
 	/**
 	 * Nessa classe reside as informações do cliente que se logou
 	 * 
 	 */
 	public MinhaConta() {
-		cliente = new Cliente("aa", "aa", "aa", "aa", "aaa");
+		
 		controller = new MinhaContaController(this);
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MinhaConta.class.getResource("/view/images/favicon.png")));
@@ -53,19 +48,19 @@ public class MinhaConta extends JFrame implements ActionListener{
 		contentPane.add(informacoesTable);
 
 		excluirBtn = new JButton("Excluir");
-		excluirBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		excluirBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		excluirBtn.addActionListener(this);
 		excluirBtn.setBounds(428, 226, 89, 23);
 		contentPane.add(excluirBtn);
 
 		voltarBtn = new JButton("Voltar");
-		voltarBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		voltarBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		voltarBtn.addActionListener(this);
 		voltarBtn.setBounds(48, 286, 102, 39);
 		contentPane.add(voltarBtn);
 
 		editarBtn = new JButton("Editar");
-		editarBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		editarBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		editarBtn.addActionListener(this);
 		editarBtn.setBounds(393, 286, 102, 39);
 		contentPane.add(editarBtn);

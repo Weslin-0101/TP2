@@ -9,6 +9,7 @@ import model.Dados;
 import view.CadastrarCliente;
 import view.Login;
 import view.Menu;
+import view.MenuCliente;
 
 /* 
 *
@@ -36,11 +37,7 @@ public class LoginController {
         JButton botao = (JButton) e.getSource();
 
         if (botao == view.getLoginBtn()) {
-            do {
-                validarUsuario();
-            } while (obterModelo() == null);
-            new Menu().setVisible(true);
-            this.view.dispose();
+            validarUsuario();
         } else {
             new CadastrarCliente().setVisible(true);
             this.view.dispose();
@@ -60,10 +57,18 @@ public class LoginController {
     public void validarUsuario() {
         
         Cliente cliente = obterModelo();
+        Administracao admin = obterModeloAdmin();
 
         Cliente clienteValidado = Dados.selecionarPorNomeESenha(cliente);
-        if (clienteValidado != null && obterModelo() != null) {
+        Administracao adminValidado = Dados.buscarAdmin(admin);
+        if ((clienteValidado != null && obterModelo() != null)) {
             view.mostrarMensagemLoginValido("Login realizado com sucesso!");
+            new MenuCliente().setVisible(true);
+            this.view.dispose();
+        } else if (adminValidado != null && obterModeloAdmin() != null) {
+            view.mostrarMensagemLoginValido("Admin logado com sucesso!");
+            new Menu().setVisible(true);
+            this.view.dispose();
         } else {
             view.mostrarMensagemLoginInvalido("Usuário e/ou senha inválidos!");
         }
@@ -77,9 +82,13 @@ public class LoginController {
     public Cliente obterModelo() {
         String name = view.getUsername().getText();
         String password = view.getPassword().getText();
-        Cliente modelo = new Cliente(name, password);
-        
-        return modelo;
+        return new Cliente(name, password);
+    }
+
+    public Administracao obterModeloAdmin() {
+        String name = view.getUsername().getText();
+        String password = view.getPassword().getText();
+        return new Administracao(name, password);
     }
 
     public Login getView() {

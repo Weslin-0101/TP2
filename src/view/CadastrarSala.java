@@ -15,7 +15,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarSalaController;
-import model.Dados;
 
 public class CadastrarSala extends JFrame implements ActionListener{
 
@@ -29,6 +28,8 @@ public class CadastrarSala extends JFrame implements ActionListener{
 	private final JButton confirmarBtn;
 	private final JButton voltarBtn;
 	private final CadastrarSalaController controller;
+	private static final String COLO_STRING = "Open Sans";
+
 
 	/**
 	 * Reponsável para a view do Cadastro de sala
@@ -60,13 +61,13 @@ public class CadastrarSala extends JFrame implements ActionListener{
 
 		numeroSalaLabel = new JLabel("Numero da Sala");
 		numeroSalaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		numeroSalaLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		numeroSalaLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		numeroSalaLabel.setBounds(167, 79, 156, 14);
 		contentPane.add(numeroSalaLabel);
 
 		capacidadeLabel = new JLabel("Capacidade");
 		capacidadeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		capacidadeLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		capacidadeLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		capacidadeLabel.setBounds(167, 147, 156, 14);
 		contentPane.add(capacidadeLabel);
 
@@ -85,13 +86,13 @@ public class CadastrarSala extends JFrame implements ActionListener{
 		capacidadeComboBox.addItem("DBOX");
 
 		confirmarBtn = new JButton("Confirmar");
-		confirmarBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		confirmarBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		confirmarBtn.setBounds(36, 307, 114, 41);
 		confirmarBtn.addActionListener(this);
 		contentPane.add(confirmarBtn);
 
 		voltarBtn = new JButton("Voltar");
-		voltarBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		voltarBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		voltarBtn.setBounds(340, 307, 114, 41);
 		voltarBtn.addActionListener(this);
 		contentPane.add(voltarBtn);
@@ -122,11 +123,11 @@ public class CadastrarSala extends JFrame implements ActionListener{
 		return capacidadeLabel;
 	}
 
-	public JComboBox getFilmesComboBox() {
+	public JComboBox<String> getFilmesComboBox() {
 		return filmesComboBox;
 	}
 
-	public JComboBox getCapacidadeComboBox() {
+	public JComboBox<String> getCapacidadeComboBox() {
 		return capacidadeComboBox;
 	}
 

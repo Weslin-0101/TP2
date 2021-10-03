@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,7 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarCinemaController;
-import model.Dados;
 
 public class CadastrarCinema extends JFrame implements ActionListener{
 
@@ -38,6 +36,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 	private final JButton confirmaCinemaBtn;
 	private final JButton voltarCinemaBtn;
 	private final CadastrarCinemaController controller;
+	private static final String COLOR_STRING = "Open Sans";
 
 	/**
 	 * Classe para a View do cadastro de cinema!
@@ -60,19 +59,19 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		enderecoLabel = new JLabel("Endereco");
 		enderecoLabel.setBounds(10, 71, 168, 14);
 		enderecoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		enderecoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		enderecoLabel.setFont(new Font(COLOR_STRING, Font.PLAIN, 14));
 		contentPane.add(enderecoLabel);
 
 		cepLabel = new JLabel("CEP");
 		cepLabel.setBounds(20, 118, 158, 14);
 		cepLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		cepLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		cepLabel.setFont(new Font(COLOR_STRING, Font.PLAIN, 14));
 		contentPane.add(cepLabel);
 
 		referenciaLabel = new JLabel("Ponto de referencia");
 		referenciaLabel.setBounds(10, 164, 168, 14);
 		referenciaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		referenciaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		referenciaLabel.setFont(new Font(COLOR_STRING, Font.PLAIN, 14));
 		contentPane.add(referenciaLabel);
 
 		enderecoField = new JTextField();
@@ -103,7 +102,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		nomeCinemaLabel = new JLabel("Nome");
 		nomeCinemaLabel.setBounds(10, 26, 168, 14);
 		nomeCinemaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeCinemaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		nomeCinemaLabel.setFont(new Font(COLOR_STRING, Font.PLAIN, 14));
 		contentPane.add(nomeCinemaLabel);
 
 		nomeCinemaField = new JTextField();
@@ -114,7 +113,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		numeroSalaLabel = new JLabel("Numero da sala");
 		numeroSalaLabel.setBounds(10, 209, 168, 14);
 		numeroSalaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		numeroSalaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		numeroSalaLabel.setFont(new Font(COLOR_STRING, Font.PLAIN, 14));
 		contentPane.add(numeroSalaLabel);
 
 		numeroSalaField = new JTextField();
@@ -124,7 +123,7 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		capacidadeLabel = new JLabel("Capacidade");
 		capacidadeLabel.setBounds(10, 256, 168, 14);
 		capacidadeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		capacidadeLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		capacidadeLabel.setFont(new Font(COLOR_STRING, Font.PLAIN, 14));
 		contentPane.add(capacidadeLabel);
 
 		capacidadeField = new JTextField();

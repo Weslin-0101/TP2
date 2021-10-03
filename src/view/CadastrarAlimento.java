@@ -16,7 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarAlimentoController;
-import model.Dados;
 
 public class CadastrarAlimento extends JFrame implements ActionListener{
 
@@ -29,8 +28,9 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 	private final JTextField descricaoAlimentoField;
 	private final JButton confirmarAlimentoBtn;
 	private final JButton voltarAlimentoBtn;
-	private final JComboBox<Object> escolhaComboBox;
+	private final JComboBox<String> escolhaComboBox;
 	private final CadastrarAlimentoController controller;
+	private static final String COR_STRING = "Open Sans";
 
 	/**
 	 * Classe para o cadastro de Alimentos
@@ -58,7 +58,7 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 
 		nomeAlimentoLabel = new JLabel("Nome");
 		nomeAlimentoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeAlimentoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		nomeAlimentoLabel.setFont(new Font(COR_STRING, Font.PLAIN, 14));
 		nomeAlimentoLabel.setBounds(10, 71, 175, 14);
 		contentPane.add(nomeAlimentoLabel);
 
@@ -69,25 +69,25 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 
 		precoAlimentoLabel = new JLabel("Preco Alimento");
 		precoAlimentoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		precoAlimentoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		precoAlimentoLabel.setFont(new Font(COR_STRING, Font.PLAIN, 14));
 		precoAlimentoLabel.setBounds(10, 112, 175, 14);
 		contentPane.add(precoAlimentoLabel);
 
 		descricaoAlimentoLabel = new JLabel("Descricao Alimento");
 		descricaoAlimentoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		descricaoAlimentoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		descricaoAlimentoLabel.setFont(new Font(COR_STRING, Font.PLAIN, 14));
 		descricaoAlimentoLabel.setBounds(10, 154, 175, 14);
 		contentPane.add(descricaoAlimentoLabel);
 
 		confirmarAlimentoBtn = new JButton("Confirmar");
-		confirmarAlimentoBtn.setFont(new Font("Open Sans", Font.PLAIN, 11));
+		confirmarAlimentoBtn.setFont(new Font(COR_STRING, Font.PLAIN, 11));
 		confirmarAlimentoBtn.addActionListener(this);
 		confirmarAlimentoBtn.setBounds(36, 200, 102, 35);
 		contentPane.add(confirmarAlimentoBtn);
 
 		voltarAlimentoBtn = new JButton("Voltar");
 		voltarAlimentoBtn.addActionListener(this);
-		voltarAlimentoBtn.setFont(new Font("Open Sans", Font.PLAIN, 11));
+		voltarAlimentoBtn.setFont(new Font(COR_STRING, Font.PLAIN, 11));
 		voltarAlimentoBtn.setBounds(289, 200, 102, 35);
 		contentPane.add(voltarAlimentoBtn);
 
@@ -139,7 +139,7 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 		return voltarAlimentoBtn;
 	}
 
-	public JComboBox getEscolhaComboBox() {
+	public JComboBox<String> getEscolhaComboBox() {
 		return escolhaComboBox;
 	}
 

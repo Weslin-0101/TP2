@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -16,7 +15,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarFilmeController;
-import model.Dados;
 
 public class CadastrarFilme extends JFrame implements ActionListener{
 
@@ -38,6 +36,7 @@ public class CadastrarFilme extends JFrame implements ActionListener{
 	private final JButton confirmarFilmeBtn;
 	private final JButton voltarBtn;
 	private final CadastrarFilmeController controller;
+	private static final String COLO_STRING = "Open Sans";
 
 	/**
 	 * Classe responsável pela View do cadastro de Filme
@@ -59,43 +58,43 @@ public class CadastrarFilme extends JFrame implements ActionListener{
 
 		tituloLabel = new JLabel("Titulo");
 		tituloLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		tituloLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		tituloLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		tituloLabel.setBounds(10, 31, 154, 14);
 		contentPane.add(tituloLabel);
 
 		duracaoLabel = new JLabel("Duracao");
 		duracaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		duracaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		duracaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		duracaoLabel.setBounds(10, 72, 154, 14);
 		contentPane.add(duracaoLabel);
 
 		sinopseLabel = new JLabel("Sinopse");
 		sinopseLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		sinopseLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		sinopseLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		sinopseLabel.setBounds(10, 112, 154, 14);
 		contentPane.add(sinopseLabel);
 
 		generoLabel = new JLabel("Genero");
 		generoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		generoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		generoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		generoLabel.setBounds(10, 151, 154, 14);
 		contentPane.add(generoLabel);
 
 		cartazLabel = new JLabel("Em cartaz");
 		cartazLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		cartazLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		cartazLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		cartazLabel.setBounds(10, 193, 154, 14);
 		contentPane.add(cartazLabel);
 
 		atoresLabel = new JLabel("Atores");
 		atoresLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		atoresLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		atoresLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		atoresLabel.setBounds(10, 234, 154, 14);
 		contentPane.add(atoresLabel);
 
 		diretorLabel = new JLabel("Diretor");
 		diretorLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		diretorLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		diretorLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		diretorLabel.setBounds(10, 275, 154, 14);
 		contentPane.add(diretorLabel);
 

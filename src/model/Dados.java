@@ -125,10 +125,20 @@ public abstract class Dados {
      */
     public static Cliente selecionarPorNomeESenha(Cliente cliente) {
         for (Cliente clienteLista : Dados.clientes) {
-            if (nomeESenhaIguais(clienteLista, cliente)) {
+            if (nomeESenhaIguaisCliente(clienteLista, cliente)) {
                 return clienteLista;
             }
         }
+        return null;
+    }
+
+    public static Administracao buscarAdmin(Administracao admin) {
+        for (Administracao adminBuscado : Dados.getAdmin()) {
+            if (nomeESenhaIguaisAdmin(adminBuscado, admin)) {
+                return adminBuscado;
+            }
+        }
+
         return null;
     }
     
@@ -138,8 +148,12 @@ public abstract class Dados {
      * para o cadastro.
      * 
      */
-    private static boolean nomeESenhaIguais(Cliente cliente, Cliente clienteProcura) {
+    private static boolean nomeESenhaIguaisCliente(Cliente cliente, Cliente clienteProcura) {
         return cliente.getNome().equals(clienteProcura.getNome()) && cliente.getSenha().equals(clienteProcura.getSenha());
+    }
+
+    private static boolean nomeESenhaIguaisAdmin(Administracao admin, Administracao adminProcura) {
+        return admin.getNome().equals(adminProcura.getNome()) && admin.getSenha().equals(adminProcura.getSenha());
     }
 
     public static List<Cliente> selecionaTudo() {

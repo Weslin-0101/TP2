@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -15,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controller.MenuController;
-import model.Dados;
 
 public class Menu extends JFrame implements ActionListener{
 
@@ -103,10 +101,10 @@ public class Menu extends JFrame implements ActionListener{
 		this.controller.executarBotao(e);
 	}
 
+	@Override
 	public JPanel getContentPane() {
 		return contentPane;
 	}
-
 
 	public JMenu getCadastroMenu() {
 		return cadastroMenu;

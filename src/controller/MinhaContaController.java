@@ -1,6 +1,5 @@
 package controller;
 
-import javax.swing.table.DefaultTableModel;
 
 import model.Cliente;
 import model.Dados;
@@ -53,7 +52,7 @@ public class MinhaContaController {
      * @return true se tiver o nome igual ou false, caso o nome não seja igual
      */
     private boolean saoIguais(Cliente cliente, Cliente clienteAComparar) {
-        return cliente.getNome() == clienteAComparar.getNome();
+        return cliente.getNome().equals(clienteAComparar.getNome());
     }
 
     public Cliente buscarClienteEscolhido(String name) {

@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -17,7 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarClienteController;
-import model.Dados;
 
 public class CadastrarCliente extends JFrame implements ActionListener{
 
@@ -35,6 +33,7 @@ public class CadastrarCliente extends JFrame implements ActionListener{
 	private final JButton confirmarBtn;
 	private final JButton voltarBtn;
 	private final CadastrarClienteController controller;
+	private static final String COLO_STRING = "Open Sans";
 
 
 	/**
@@ -59,32 +58,32 @@ public class CadastrarCliente extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 
 		nameLabel = new JLabel("Nome");
-		nameLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		nameLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		nameLabel.setBounds(30, 11, 152, 35);
 		contentPane.add(nameLabel);
 
 		dateLabel = new JLabel("Data de nascimento");
 		dateLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		dateLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		dateLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		dateLabel.setBounds(30, 57, 152, 35);
 		contentPane.add(dateLabel);
 
 		cpfLabel = new JLabel("CPF");
 		cpfLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		cpfLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		cpfLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		cpfLabel.setBounds(30, 103, 152, 35);
 		contentPane.add(cpfLabel);
 
 		emailLabel = new JLabel("Email");
 		emailLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		emailLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		emailLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		emailLabel.setBounds(33, 149, 152, 35);
 		contentPane.add(emailLabel);
 
 		senhaLabel = new JLabel("Senha");
 		senhaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		senhaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		senhaLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		senhaLabel.setBounds(33, 198, 152, 35);
 		contentPane.add(senhaLabel);
 
@@ -136,6 +135,7 @@ public class CadastrarCliente extends JFrame implements ActionListener{
 		JOptionPane.showMessageDialog(null, mensagem);
 	}
 
+	@Override
 	public JPanel getContentPane() {
 		return contentPane;
 	}

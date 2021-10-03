@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -17,7 +16,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarSessaoController;
-import model.Dados;
 
 public class CadastrarSessao extends JFrame implements ActionListener{
 
@@ -31,6 +29,8 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 	private final JTextField horarioSessaoField;
 	private final JComboBox<String> salaComboBox;
 	private final CadastrarSessaoController controller;
+	private static final String COLO_STRING = "Open Sans";
+
 
 
 	/**
@@ -51,20 +51,20 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 		salaSessaoField.setLayout(null);
 
 		dataSessaoLabel = new JLabel("Data das sessoes");
-		dataSessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		dataSessaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		dataSessaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		dataSessaoLabel.setBounds(10, 32, 166, 14);
 		salaSessaoField.add(dataSessaoLabel);
 
 		horarioSessaoLabel = new JLabel("Horario");
 		horarioSessaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		horarioSessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		horarioSessaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		horarioSessaoLabel.setBounds(10, 74, 166, 14);
 		salaSessaoField.add(horarioSessaoLabel);
 
 		salaSessaoLabel = new JLabel("Sala");
 		salaSessaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		salaSessaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		salaSessaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		salaSessaoLabel.setBounds(10, 118, 166, 14);
 		salaSessaoField.add(salaSessaoLabel);
 
@@ -84,13 +84,13 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 		salaSessaoField.add(salaComboBox);
 
 		confirmarSessaoBtn = new JButton("Confirmar");
-		confirmarSessaoBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		confirmarSessaoBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		confirmarSessaoBtn.setBounds(24, 165, 127, 34);
 		confirmarSessaoBtn.addActionListener(this);
 		salaSessaoField.add(confirmarSessaoBtn);
 
 		voltarSessaoBtn = new JButton("Voltar");
-		voltarSessaoBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		voltarSessaoBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		voltarSessaoBtn.setBounds(228, 165, 127, 34);
 		voltarSessaoBtn.addActionListener(this);
 		salaSessaoField.add(voltarSessaoBtn);

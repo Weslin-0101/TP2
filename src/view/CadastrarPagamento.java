@@ -17,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
 import controller.PagamentoController;
-import model.Dados;
 
 public class CadastrarPagamento extends JFrame implements ActionListener{
 
@@ -46,6 +45,8 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 	private final JTextField cpfPixField;
 	private final JTextField emailPixField;
 	private final PagamentoController controller;
+	private static final String COLO_STRING = "Open Sans";
+
 
 	/**
 	 * Tela responsável para o cadastro de pagamento.
@@ -68,14 +69,14 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 
 		clientesComboBox = new JComboBox<>();
-		clientesComboBox.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		clientesComboBox.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		clientesComboBox.setBounds(34, 24, 415, 27);
 		clientesComboBox.setModel(controller.atualizarClientes());
 		contentPane.add(clientesComboBox);
 		clientesComboBox.addItem("Clientes");
 
 		cartaoDeCreditoLabel = new JLabel("Cartao de Credito");
-		cartaoDeCreditoLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
+		cartaoDeCreditoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 16));
 		cartaoDeCreditoLabel.setBounds(10, 111, 151, 21);
 		contentPane.add(cartaoDeCreditoLabel);
 
@@ -86,7 +87,7 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		numeroDoCartaoLabel = new JLabel("Numero do Cartao");
 		numeroDoCartaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		numeroDoCartaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		numeroDoCartaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		numeroDoCartaoLabel.setBounds(20, 152, 168, 14);
 		contentPane.add(numeroDoCartaoLabel);
 
@@ -97,7 +98,7 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		dataLabel = new JLabel("Validade");
 		dataLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		dataLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		dataLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		dataLabel.setBounds(301, 152, 168, 14);
 		contentPane.add(dataLabel);
 
@@ -108,7 +109,7 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		nomeDoCartaoLabel = new JLabel("Nome impresso ");
 		nomeDoCartaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeDoCartaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		nomeDoCartaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		nomeDoCartaoLabel.setBounds(20, 205, 168, 14);
 		contentPane.add(nomeDoCartaoLabel);
 
@@ -119,7 +120,7 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		codigoDeSegurancaLabel = new JLabel("Codigo de seguranca");
 		codigoDeSegurancaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		codigoDeSegurancaLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		codigoDeSegurancaLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		codigoDeSegurancaLabel.setBounds(301, 205, 168, 14);
 		contentPane.add(codigoDeSegurancaLabel);
 
@@ -130,12 +131,12 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		cpfCartaoLabel = new JLabel("CPF");
 		cpfCartaoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		cpfCartaoLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		cpfCartaoLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		cpfCartaoLabel.setBounds(20, 260, 168, 14);
 		contentPane.add(cpfCartaoLabel);
 
 		pixLabel = new JLabel("Pix");
-		pixLabel.setFont(new Font("Open Sans", Font.PLAIN, 16));
+		pixLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 16));
 		pixLabel.setBounds(10, 332, 151, 21);
 		contentPane.add(pixLabel);
 
@@ -146,7 +147,7 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		cpfPixLabel = new JLabel("CPF");
 		cpfPixLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		cpfPixLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		cpfPixLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		cpfPixLabel.setBounds(20, 377, 168, 14);
 		contentPane.add(cpfPixLabel);
 
@@ -157,31 +158,31 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 
 		emailPixLabel = new JLabel("Email");
 		emailPixLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		emailPixLabel.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		emailPixLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		emailPixLabel.setBounds(301, 377, 168, 14);
 		contentPane.add(emailPixLabel);
 
 		adicionarCartaoBtn = new JButton("Adicionar");
-		adicionarCartaoBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		adicionarCartaoBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		adicionarCartaoBtn.setBounds(379, 314, 105, 23);
 		adicionarCartaoBtn.addActionListener(this);
 		contentPane.add(adicionarCartaoBtn);
 
 		adicionarPixBtn = new JButton("Adicionar");
-		adicionarPixBtn.setFont(new Font("Open Sans", Font.PLAIN, 13));
+		adicionarPixBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
 		adicionarPixBtn.setBounds(379, 464, 105, 23);
 		adicionarPixBtn.addActionListener(this);
 		contentPane.add(adicionarPixBtn);
 
 		confirmarBtn = new JButton("Confirmar");
-		confirmarBtn.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		confirmarBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		confirmarBtn.setBounds(198, 487, 105, 38);
 		confirmarBtn.addActionListener(this);
 		contentPane.add(confirmarBtn);
 
 		formaDePagamaLabel = new JLabel("Selecione uma forma de pagamento");
 		formaDePagamaLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		formaDePagamaLabel.setFont(new Font("Open Sans", Font.PLAIN, 14));
+		formaDePagamaLabel.setFont(new Font(COLO_STRING, Font.PLAIN, 14));
 		formaDePagamaLabel.setBounds(10, 62, 459, 14);
 		contentPane.add(formaDePagamaLabel);
 

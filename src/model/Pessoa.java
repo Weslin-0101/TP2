@@ -3,6 +3,12 @@ package model;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Classe abstrata para que possa ser herdada pelas classes Cliente e Administração
+ * @see Cliente
+ * @see Administracao
+ * @author Wesley Lira Carvalho
+ */
 public abstract class Pessoa {
     
     private String nome;
@@ -10,9 +16,18 @@ public abstract class Pessoa {
     private String cpf;
     private String email;
     private String senha;
-
-    List<Pessoa> pessoas = new ArrayList<>();
     
+    /**
+     * Construtor para armazenas as informações do tipo Pessoa.
+     * Construtor protected para que possa ser herdado pelas classes que
+     * extendem ela
+     * 
+     * @param nome nome da Pessoa
+     * @param dataDeNascimento data de nascimento da Pessoa
+     * @param cpf cpf da Pessoa
+     * @param email email da Pessoa
+     * @param senha senha da Pessoa
+     */
     protected Pessoa(String nome, String dataDeNascimento, String cpf, String email, String senha) {
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
@@ -21,11 +36,20 @@ public abstract class Pessoa {
         this.senha = senha;
     }
 
+    /**
+     * Construtor protected para que possa ser herdado e que
+     * armazene as informações do tipo pessoa
+     * @param nome nome da Pessoa
+     * @param senha senha da Pessoa
+     */
     protected Pessoa(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
     }
 
+    /**
+     * Construtor default
+     */
     protected Pessoa() {
         
     }

@@ -17,6 +17,12 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarClienteController;
 
+/**
+ * Classe responsável para a visualização e cadastro do Cliente.
+ * Essa mesma classe herda o JFrame e implementa a interface ActionListener
+ * 
+ * @author Cleber de Oliveira Brant e Wesley Lira Carvalho
+ */
 public class CadastrarCliente extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -37,9 +43,19 @@ public class CadastrarCliente extends JFrame implements ActionListener{
 
 
 	/**
-	 * Classe responsável pela View de CadastrarCliente
+	 * JPanel para o cadastro do cliente
 	 * 
-	 * Foi adicoinado um ícone na janela do Frame desta classe.
+	 * JPanel cria diversos labels para inserir os dados
+	 * de cada cliente para o seu cadastro. Além disso, também
+	 * possui os dois seguintes botões e suas funções:
+	 * 		(1) -> Confirmar: O botão gera um evento após ser clicado, do qual
+	 * 		chama uma JOptionPane dizendo que o cadastro foi um sucesso e em seguida
+	 * 		te redireciona para o Menu.
+	 * 		
+	 * 		(2) -> Voltar: O botão gera um evento após ser clicado, que no qual
+	 * 		te redirecio para o Menu
+	 * 
+	 * @see Menu
 	 */
 	public CadastrarCliente() {
 		
@@ -125,12 +141,23 @@ public class CadastrarCliente extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Executa o comando após o botão ser clicado
+	 * 
+	 * Implementação da interface ActionListener
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		this.controller.executarBotao(e);
 	}
 
+	/**
+	 * Gera um JOptionPane que aparece na tela logo após
+	 * o botão Confirmar ser clicado!
+	 * @param mensagem mensagem de confirmação do cadastro
+	 * do cliente
+	 */
 	public void mensagemConfirmarCadastro(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem);
 	}

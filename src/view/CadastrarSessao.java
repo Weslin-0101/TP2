@@ -17,6 +17,13 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarSessaoController;
 
+/**
+ * Classe responsável pela visualização do cadastro de sessão.
+ * 
+ * Essa mesma classe herda o JFrame e implementa a interface ActionListener.
+ * 
+ * @author Cleber de Oliveira Brant
+ */
 public class CadastrarSessao extends JFrame implements ActionListener{
 
 	private final JPanel salaSessaoField;
@@ -34,7 +41,19 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 
 
 	/**
-	 * Responsável pela view do cadastro de Sessão
+	 * JPanel para o cadastro de sessão.
+	 * 
+	 * JPanel adiciona um comboBox atualizada com a lista
+	 * de salas cadastradas para serem selecionadas.
+	 * 
+	 * JPnale também possui diversos JPanels para que possa
+	 * inseris os dados da sessão. Além disso, possui os botãos
+	 * com diferentes funcões, são eles:
+	 * 		(1) -> botão Confirmar: confirma o cadastro da sessão
+	 * e te retorna para a tela de Menu.
+	 * 		(2) -> botão Voltar: retorna para a tela de Menu.
+	 * 
+	 * @see Menu
 	 */
 	public CadastrarSessao() {
 		
@@ -98,15 +117,23 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
-
+	/**
+	 * Executa um comando dependendo de qual botão foi clicado.
+	 * 
+	 * Implementação da interface ActionListener.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		this.controller.executarBotao(e.getSource());
 	}
 
+	/**
+	 * Retorna um JOptionPane confirmando o cadastro de sessão.
+	 * @param mensagem Uma mensagem confirmando o cadastro de sessão.
+	 */
 	public void mostrarMensagemConfirmando(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 

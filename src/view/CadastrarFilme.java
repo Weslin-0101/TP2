@@ -16,6 +16,13 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarFilmeController;
 
+/**
+ * Classe responsável para a visualização do Cadastro de Filmes
+ * 
+ * Essa mesma classe herda o JFrame e implementa a interface ActionListener.
+ * 
+ * @author Cleber de Oliveira Brant
+ */
 public class CadastrarFilme extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -39,7 +46,17 @@ public class CadastrarFilme extends JFrame implements ActionListener{
 	private static final String COLO_STRING = "Open Sans";
 
 	/**
-	 * Classe responsável pela View do cadastro de Filme
+	 * JPanel para o cadastro de filme
+	 * 
+	 * JPanel cria diversos JPanels para introduzir as informações
+	 * de cada filme para cadastrá-los.
+	 * 
+	 * JPanel também possui dois botões com as seguintes funções:
+	 * 		(1) -> botão Voltar: retorna para o Menu.
+	 * 		(2) -> botão Confirmar: retorna uma mensagem confirmando
+	 * o cadastro de filme e te retornado para o Menu.
+	 * 
+	 * @see Menu
 	 */
 	public CadastrarFilme() {
 		
@@ -146,14 +163,25 @@ public class CadastrarFilme extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Executa o comando após o botão ser clicado.
+	 * 
+	 * Implementação da interface ActionListener.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		this.controller.executarBotao(e);
 	}
 
+	/**
+	 * Retorna um JOptionPane com uma mensagem confirmando o cadastro
+	 * logo após o clique no botão Confirmar.
+	 * 
+	 * @param mensagem Mensagem dentro da JOptionPane confirmando o cadastro.
+	 */
 	public void mostrarMensagemCadastro(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public JLabel getTituloLabel() {

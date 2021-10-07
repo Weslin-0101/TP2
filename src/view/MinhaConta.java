@@ -13,7 +13,15 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import controller.MinhaContaController;
+import model.Cliente;
 
+/**
+ * Classe responsável pela visualização da Minha Conta.
+ * 
+ * Essa mesma classe herda o JFrame e implementa a interface ActionListener.
+ * 
+ * @author Cleber de Oliveira Brant.
+ */
 public class MinhaConta extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -21,15 +29,28 @@ public class MinhaConta extends JFrame implements ActionListener{
 	private final JButton excluirBtn;
 	private final JButton voltarBtn;
 	private final JButton editarBtn;
+	private final JButton mostrarDetalhes;
 	private final MinhaContaController controller;
 	private static final String COLO_STRING = "Open Sans";
 
 	/**
-	 * Nessa classe reside as informações do cliente que se logou
+	 * JPanel para a Minha Conta.
 	 * 
+	 * JPanel insere um JTextArea que mostra as informações
+	 * do cliente que se logou.
+	 * 
+	 * Além disso, possui alguns botões com diferentes funções, são elas:
+	 * 		(1) -> botão Mostrar Detalhes: mostra na JTextArea as informações
+	 * de cadastro do Cliente logado.
+	 * 		(2) -> botão Excluir: exclui a conta do Cliente logado.
+	 * 		(3) -> botão Editar: edita as informações do cliente Logado.
+	 * 		(4) -> botão Voltar: retorna para a tela de Menu.
+	 * 
+	 * @see Menu
 	 */
 	public MinhaConta() {
 		
+		Cliente cliente = new Cliente("", "", "", "", "");
 		controller = new MinhaContaController(this);
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MinhaConta.class.getResource("/view/images/favicon.png")));
@@ -42,10 +63,16 @@ public class MinhaConta extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		informacoesTable = new JTextArea();
+		informacoesTable = new JTextArea(cliente.toString());
 		informacoesTable.setBounds(10, 11, 521, 204);
 		informacoesTable.setEditable(false);
 		contentPane.add(informacoesTable);
+
+		mostrarDetalhes = new JButton("Mostrar Detalhes");
+		mostrarDetalhes.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
+		mostrarDetalhes.addActionListener(this);
+		mostrarDetalhes.setBounds(10, 226, 170, 23);
+		contentPane.add(mostrarDetalhes);
 
 		excluirBtn = new JButton("Excluir");
 		excluirBtn.setFont(new Font(COLO_STRING, Font.PLAIN, 13));
@@ -66,18 +93,31 @@ public class MinhaConta extends JFrame implements ActionListener{
 		contentPane.add(editarBtn);
 	}
 	
+	/**
+	 * Executa um comando quando um botão é clicado.
+	 * 
+	 * Implementa a interface da ActionListener.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		this.controller.executaBotao(e.getSource());
 	}
 
+	/**
+	 * Retorna um JOptionPane informando que a conta foi excluída.
+	 * @param mensagem	Mensagem que aparece dentro da JOptionPane.
+	 */
 	public void mostrarMensagemExcluido(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 	
+	/**
+	 * Retorna um JPiotnPane informando que ocorreu algum erro.
+	 * @param mensagem Mensagem que aparece dentro da JOPtionPane.
+	 */
 	public void mostrarMensagemErro(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.ERROR_MESSAGE);
 	}
 
 	public JTextArea getInformacoesTable() {
@@ -96,4 +136,7 @@ public class MinhaConta extends JFrame implements ActionListener{
 		return editarBtn;
 	}
 
+	public JButton getMostrarDetalhes() {
+		return mostrarDetalhes;
+	}
 }

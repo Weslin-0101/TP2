@@ -14,11 +14,18 @@ import view.VisualizarFilmes;
 /**
  * Classe controlada do Menu. Nela é quem realiza
  * os controles por dentro da view
+ * 
+ * @author Cleber de Oliveira Brant e Wesley Lira Carvalho
  */
 public class MenuController {
     
     private final Menu view;
 
+    /**
+     * Responsável pela inicialização da View.
+     * 
+     * @param view A tela de Menu.
+     */
     public MenuController(Menu view) {
         super();
         this.view = view;
@@ -27,9 +34,33 @@ public class MenuController {
     /**
      * Nessa classe, está armazenado cada momento em que pode ocorrer
      * do clique de um mouse sobre o Menu, botões e em seus items dentro
-     * do MenuBar. Cada um leva a uma das outras telas restantes do programa
+     * do MenuBar. Cada um leva a uma das outras telas restantes do programa,
+     * são elas:
+     *      (1) -> botão Sair: retorna para a tela de Login.
+     *      (2) -> Item CadastrarFilmeMenu: te leva para a tela de 
+     * cadastrarFilmes.
+     *      (3) -> Item CadastrarCinemaMenu: te leva para a tela de
+     * cadastrarCinema.
+     *      (4) -> Item CadastrarAlimentosMenu: te leva para a tela de
+     * cadastrarAlimentos.
+     *      (5) -> botão VisualizarFilmes: te encaminha para a tela
+     * de Visualizar Filmes.
+     *      (6) => botão Minha Conta: te encaminha para a tela de
+     * Minha Conta, onde pode editar, excluir ou ver os detalhes
+     * da sua conta cadastrada.
+     *      (7) -> Item CadastrarSessaoMenu: te leva para a tela de
+     * cadastrarSessao.
      * 
-     * @param e da ActionEvent
+     * @see Login
+     * @see CadastrarFilme
+     * @see CadastrarCinema
+     * @see CadastrarAlimento
+     * @see CadastrarSessao
+     * @see VisualizarFilmes
+     * @see MinhaConta
+     * 
+     * @param e Implementa o ActionEvent para capturar o evento
+     * do clique do mouse.
      */
     public void executarBotao(ActionEvent e) {
         Object botao = e.getSource();
@@ -56,8 +87,8 @@ public class MenuController {
     }
 
     /**
-     * Os métodos navegar são para os casos dos items que estão
-     * dentro do MenuBar
+     * Os métodos navegarCadastroFilmes nos leva exatamente
+     * para a tela de cadastro de Filmes
      */
     public void navegarCadastroFilmes() {
 
@@ -66,6 +97,10 @@ public class MenuController {
         this.view.dispose();
     }
 
+    /**
+     * Tem a função de nos levar para a view do cadastro de 
+     * cinema
+     */
     public void navegarCadastroCinema() {
 
         CadastrarCinema cadastro = new CadastrarCinema();
@@ -73,6 +108,10 @@ public class MenuController {
         this.view.dispose();
     }
 
+    /**
+     * Tem a função de nos levar para a view do cadastro de
+     * alimento
+     */
     public void navegarCadastroAlimento() {
 
         CadastrarAlimento cadastro = new CadastrarAlimento();

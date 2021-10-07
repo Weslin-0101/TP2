@@ -1,8 +1,12 @@
 package model;
 
+/**
+ * Classe que armazena as informações do Filme
+ * 
+ * @author Wesley Lira Carvalho
+ */
 public class Filme {
     
-    // Atributos
     private String titulo;
     private String duracao;
     private String sinopse;
@@ -11,6 +15,17 @@ public class Filme {
     private String atores;
     private String diretor;
     
+    /**
+     * Construtor responsável para gerar um Filme
+     * 
+     * @param titulo titulo do Filme
+     * @param duracao duração do Filme
+     * @param sinopse sinopse e detalhes do Filme
+     * @param genero gênero do Filme
+     * @param emCartaz se o Filme está ou não em cartaz
+     * @param atores atores e atrizes que fazem parte do Filme
+     * @param diretor diretor ou diretores do Filme
+     */
     public Filme(String titulo, String duracao, String sinopse, String genero, String emCartaz, String atores,
             String diretor) {
         this.titulo = titulo;
@@ -22,8 +37,9 @@ public class Filme {
         this.diretor = diretor;
     }
 
-    // Getters e Settes dos atributos
-
+    /**
+     * Construtor default
+     */
     public Filme() {
     }
 
@@ -83,6 +99,10 @@ public class Filme {
         this.diretor = diretor;
     }
 
+    /**
+     * Método responsável para printar e exibir as informações
+     * do Filme que foi cadastrado
+     */
     @Override
     public String toString() {
         return "Título: " + getTitulo() +"\n" + " Sinopse: " + getSinopse() + "\n" + " Gênero: " + getGenero()

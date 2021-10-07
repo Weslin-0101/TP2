@@ -16,6 +16,14 @@ import javax.swing.border.EmptyBorder;
 import controller.VisualizarFilmesController;
 import model.Filme;
 
+/**
+ * Classe responsável para que possa escolher qual filme deseja, qual sessão
+ * e qual sala.
+ * 
+ * Essa mesma classe herda o JFrame e implementa a interface ActionListener
+ * 
+ * @author Wesley Lira Carvalho e Cleber de Oliveira Brant
+ */
 public class VisualizarFilmes extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -39,13 +47,16 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	/**
 	 * Classe responsável para que possa acontecer todo o processo da seguinte ordem:
 	 * 1 - Você seleciona o nome do filme que deseja no ComboBox e aparece
-	 * as informações do filme (Nome, Sinopse, Duração, Gênero, Ator/Atriz, Diretor)
+	 * as informações do filme em uma JTextArea (Nome, Sinopse, Duração, Gênero, Ator/Atriz, Diretor)
 	 * 
 	 * 2 - Seleciona qual Ingresso, Sala e Sessão que deseja
 	 * 
 	 * 3 - Aqui divide em duas coisas: 
 	 *   3.1 - Seguir Adiante: Vai te levar para o pagamento
 	 * 	 3.2 - Voltar: Você volta para o Menu
+	 * 
+	 * @see CadastrarPagamento
+	 * @see Menu
 	 */
 	public VisualizarFilmes() {
 		
@@ -131,6 +142,11 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Executa o comando quando o botão é clicado
+	 * 
+	 * Implementa a interface ActionListener
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object botao = e.getSource();

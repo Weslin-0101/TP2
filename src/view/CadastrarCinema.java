@@ -17,6 +17,11 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarCinemaController;
 
+/**
+ * Classe responsável para a view do CadastrarCinema
+ * 
+ * @author Cleber de Oliveira Brant e Wesley Lira Carvalho
+ */
 public class CadastrarCinema extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -39,7 +44,23 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 	private static final String COLOR_STRING = "Open Sans";
 
 	/**
-	 * Classe para a View do cadastro de cinema!
+	 * JPanel para o cadastro de cinema
+	 * 
+	 * JPanel cria diveros JLabel para inserir as informações
+	 * para o cadastro de cinema.
+	 * Além disso, JPanel também cria um comboBox para selecionar
+	 * as tecnologia, dos quais possuem os items
+	 * 2D, 3D, DUB e DBOX
+	 * 
+	 * JPanel reside os seguintes botões e suas funções:
+	 * 		(1) -> Confirmar: Botão gera um evento após ser clicado, no qual
+	 * 		aparecer um JOptionPane com a mensagem de confirmação do cadastro. Logo
+	 * 		em seguida ele te redireciona para a tela de Menu.
+	 * 		
+	 * 		(2) -> Voltar: Botão gera um evento após ser clicado, que logo
+	 * 		te redireciona para a tela de Menu.
+	 * 
+	 * @see Menu
 	 */
 	public CadastrarCinema() {
 		
@@ -143,14 +164,25 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Executa o comando quando o botão é pressionado
+	 * 
+	 * A implementação da interface ActionListener
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		this.controller.executarBotao(e);
 	}
-
+	
+	/**
+	 * Gera um JOptionPane com a mensagem de cadastro do Cinema
+	 * @param mensagem gerada logo após do botão Confirmar ser clicado,
+	 * assim gera uma mensagem do tipo INFORMATION_MESSAGE dizendo que
+	 * o cadastro foi um sucesso
+	 */
 	public void mostrarMensagemCadastroCinema(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public JLabel getEnderecoLabel() {

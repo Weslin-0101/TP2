@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/*
- * Classe que simula o Banco de Dados
- * Aqui reside todas as ArrayList das classes que vamos utlizar 
+/**
+ * Classe responsável para simular o banco de dados do programa.
+ * Nele reside todos as arraylist necessárias para o funcionamento
+ * do programa
+ * 
+ * @author Wesley Lira Carvalho
  */
 public abstract class Dados {
     
@@ -20,18 +23,22 @@ public abstract class Dados {
     private static final ArrayList<Alimento> alimentos = new ArrayList<>();
     private static final ArrayList<Pagamento> pagamentos = new ArrayList<>();
     
-    /*
-        Construtor para que não seja possível herdar a classe
-        ou instanciar
-    */
+    /**
+     * Construtor privado para que não seja necessário
+     * instanciar a classe
+     */
 
     private Dados() {
     }
 
-    /*
-     * Neste método é onde estão instanciados os dados pré cadastrados
-     * de todas as classes
-     * Deve ser instanciada dentro da classe Login para que tudo possa funcionar 
+    /**
+     * Nesse método fica todas as informações pré-cadastradas de cada classe necessária
+     * @see Cliente
+     * @see Administraçao
+     * @see Filme
+     * @see Sala
+     * @see Sessao
+     * 
      */
     public static void iniciar() {
 
@@ -116,12 +123,16 @@ public abstract class Dados {
         return salas;
     }
 
-    /*
-     * 
-     * Método retorna um objeto do tipo Cliente para o caso
-     * da função encontrar dentro do banco de dados na classe
-     * Dados o cliente cadastrado.
-     * 
+    
+    /**
+     * Método necessário para comparar os dados que foram
+     * inseridos na view Login. Assim a gente compara com
+     * os dados inseridos no banco de dados
+     * @see Login
+     * @param cliente que vai ser utilizado para buscar no ObterModelo
+     * dentro do controller do Login
+     * @return os dados do cliente encontrado, caso contrário irá
+     * retornar null
      */
     public static Cliente selecionarPorNomeESenha(Cliente cliente) {
         for (Cliente clienteLista : Dados.clientes) {
@@ -132,6 +143,14 @@ public abstract class Dados {
         return null;
     }
 
+    /**
+     * Método para comparar os dados que foram inseridos na view Login.
+     * Dessa forma irá comparar com os dados cadastrados no banco de dados
+     * @see Login
+     * @param admin parâmetro que vai ser usado como comparação
+     * @return os dados do admin cadastrado no banco de dados, caso contrário
+     * retornará null
+     */
     public static Administracao buscarAdmin(Administracao admin) {
         for (Administracao adminBuscado : Dados.getAdmin()) {
             if (nomeESenhaIguaisAdmin(adminBuscado, admin)) {
@@ -142,20 +161,33 @@ public abstract class Dados {
         return null;
     }
     
-    /*
-     * Método onde recebe dois parâmetros Objeto do tipo Cliente.
-     * Nesse método, é para equiparar o nome e senha que fora usados
-     * para o cadastro.
-     * 
+    /**
+     * Vai comparar com os dados que foram digitados na view de Login
+     * @param cliente para percorrer os que já foram cadastrados
+     * @param clienteProcura o que desejamos procurar
+     * @return true para caso confirmar que são iguais aos dados digitados
+     * na view Login ou false para caso os dados não forem iguais
      */
     private static boolean nomeESenhaIguaisCliente(Cliente cliente, Cliente clienteProcura) {
         return cliente.getNome().equals(clienteProcura.getNome()) && cliente.getSenha().equals(clienteProcura.getSenha());
     }
 
+    /**
+     * Vai comparar com os dados que foram digitados na view de Login
+     * @param admin para percorrer na array do que já foram cadastrados
+     * @param adminProcura o que usamos como parâmetro para comparação
+     * @return true para caso forem iguais, ou false para caso os dados
+     * digitados não forem iguais aos que estão no banco de dados
+     */
     private static boolean nomeESenhaIguaisAdmin(Administracao admin, Administracao adminProcura) {
         return admin.getNome().equals(adminProcura.getNome()) && admin.getSenha().equals(adminProcura.getSenha());
     }
 
+    /**
+     * Vai buscar dentro da array de cliente e buscar os dados de todos cadastrados
+     * @return todos os clientes e seus dados que foram ou estão cadastrados
+     * dentro do banco de dados
+     */
     public static List<Cliente> selecionaTudo() {
         return Dados.getClientes();
     }

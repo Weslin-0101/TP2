@@ -11,10 +11,20 @@ import view.Menu;
 
 import java.awt.event.ActionEvent;
 
+/**
+ * Classe controladora do CadastroCinema que contém toda a lógica por trás
+ * 
+ * @author Cleber de Oliveira Brant e Wesley Lira Carvalho
+ */
 public class CadastrarCinemaController {
     
     private final CadastrarCinema view;
 
+    /**
+     * Responsável para inicializar a view
+     * 
+     * @param view a tela do CadastrarCinema
+     */
     public CadastrarCinemaController(CadastrarCinema view) {
         this.view = view;
     }
@@ -36,6 +46,19 @@ public class CadastrarCinemaController {
         Dados.getCinemas().add(new Cinema(name, new Localidade(endereco, cep, referencia), new Sala(numeroSala, capacidade)));
     }
 
+    /**
+     * Vai executar uma ação de acordo com qual botão foi pressionado
+     * 
+     * Pode ocorrer os seguintes casos:
+     *      (1) -> botão Confirmar: quando o botão for pressionado, ele pega as 
+     * as informações que foram inseridas e as cadastra dentro de uma arrayList.
+     * Logo após chama uma JOptionPane com uma mensagem indicando que o cadastro
+     * foi finalizado com sucesso.
+     *  
+     *      (2) -> botão Voltar: retorna para o Menu
+     * 
+     * @param e chama o ActionEvent da interface ActionListener 
+     */
     public void executarBotao(ActionEvent e) {
         JButton botao = (JButton) e.getSource();
 

@@ -12,6 +12,14 @@ import javax.swing.border.EmptyBorder;
 
 import controller.MenuClienteController;
 
+/**
+ * Classe da view responsável visualizar o Menu para o usuário
+ * que se logou como Cliente
+ * 
+ * Essa mesma classe herda JFrame e implementa a interface ActionListener
+ * 
+ * @author Wesley Lira Carvalho
+ */
 public class MenuCliente extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -23,11 +31,22 @@ public class MenuCliente extends JFrame implements ActionListener{
 
 
 	/**
-	 * Essa é a classe Menu
-	 * ELa faz os chamados para cada uma das outras views que existem no programa.
+	 * JPanel para a visualização do Menu
 	 * 
-	 * Nela está presente os items dentro de um Menu menor, e também as telas restantes
-	 * dentro de cada botão
+	 * JPanel cria 3 tipos de botões dos quais possuem diferentes
+	 * funções, são eles:
+	 * 		(1) -> Visualizar Filmes: O botão gera um evento que te direciona
+	 * 		para o JPanel de VisualizarFilmes, onde pode escolher qual filme deseja
+	 * 		e qual ingresso, horário e sessão.
+	 * 		(2) -> Minha Conta: O botão gera um evento que te direciona para
+	 * 		a tela de Minha Conta, onde pode ver os dados que você cadastrou da sua conta
+	 * 		e ainda poder editar e excluir a conta.
+	 * 		(3) -> Sair: O botão gera um evento que te redireciona de volta para
+	 * 		a tela de Login
+	 * 
+	 * @see VisualizarFilmes
+	 * @see MinhaConta
+	 * @see Login
 	 */
 	public MenuCliente() {
 		
@@ -65,6 +84,11 @@ public class MenuCliente extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Executa o comando quando o botão é clicado
+	 * 
+	 * Implementa a interface ActionListener
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

@@ -17,6 +17,12 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarAlimentoController;
 
+/**
+ * Classe da view responsável para cadastrar os alimentos
+ * Essa mesma classe herda o JFrame e implementa o ActionListener
+ * 
+ * @author Cleber de Oliveira Brant
+ */
 public class CadastrarAlimento extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -33,17 +39,25 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 	private static final String COR_STRING = "Open Sans";
 
 	/**
-	 * Classe para o cadastro de Alimentos
+	 * JPanel para o cadastro de alimentos
+	 * 
+	 * JPanel cria um comboBox com os items Pipocas, Bebidas, 
+	 * Combos e Doces. Além disso, a JPanel cria diversos
+	 * JLabels para que possam ser utilizados para inserir as
+	 * informaçõs do Alimento.
+	 * 
+	 * A JPanel também cria dois botões, são eles e suas funções:
+	 * 		(1) -> Confirmar: o botão gera um evento e um JOptionPane
+	 * 		com a mensagem de que o cadastro do Alimento foi confirmado.
+	 * 		Depois disso ele te redireciona para o Menu
+	 * 		
+	 * 		(2) -> Voltar: o botão gera um evento que te redireciona de volta
+	 * 		para o Menu
+	 * 
+	 * @see Menu        
 	 */
 	public CadastrarAlimento() {
 		
-		/**
-		 * Necessário haver a comunicação entre a View
-		 * e o Controller, além também da classe Dados que
-		 * simula o banco de dados. O método iniciar()
-		 * é para que a classe possa usar os dados
-		 * pré-cadastrados no banco de dados
-		 */
 		controller = new CadastrarAlimentoController(this);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastrarAlimento.class.getResource("/view/images/favicon.png")));
@@ -113,6 +127,11 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 
 	}
 
+	/**
+	 * Executar o comando para o botão que foi selecionado
+	 * 
+	 * A implementação da interface ActionListener
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -143,7 +162,13 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 		return escolhaComboBox;
 	}
 
+	/**
+	 * Irá mostrar um JOptionPane, uma mensagem de
+	 * afirmação logo após o evento do botão Confirmar
+	 * @param mensagem que será mostrada de acordo como 
+	 * está no controller do CadastrarAlimento
+	 */
     public void mostrarMensagemAfirmativa(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
     }	
 }

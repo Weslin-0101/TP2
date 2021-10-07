@@ -17,6 +17,13 @@ import controller.LoginController;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Classe responsável pela visualização da tela de Login.
+ * 
+ * Essa mesma classe herda JFrame e implementa a interface ActionListener.
+ * 
+ * @author Cleber de Oliveira Brant.
+ */
 public class Login extends JFrame implements ActionListener{
 
     private final JLabel usernameJLabel;
@@ -30,24 +37,19 @@ public class Login extends JFrame implements ActionListener{
 
 
 
-    /* 
-    Classe Login para logar e se registrar
-
-    Conta Master cadastrada para ADMIN:
-
-    Foi adicionado um ícone na janela dessa View.
-
-    */
+    /**
+     * JPanel para o Login.
+     * 
+     * JPanel adiciona duas JLabels para inserir os dados de Usuário
+     * para se logar no sistema. Além de que também possui dois botões
+     * com funções diferentes, dos quais são eles:
+     *      (1) -> botão Entrar: direciona para a tela de Menu.
+     *      (2) -> botão Registrar-se: direcioa para a tela de Cadastro
+     * de Cliente.
+     */
     public Login() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/view/images/favicon.png")));
 
-        /**
-         * A classe View se comunica com o Controller dela mesma
-         * e com o método iniciar() da classe Dados, para que possa
-         * adicionar os dados pré-cadastrados ou aqueles que serão
-         * ainda cadastrados.
-         * 
-         */
 		controller = new LoginController(this);
 
 		this.setSize(425, 340);
@@ -91,6 +93,11 @@ public class Login extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
 	}
     
+    /**
+     * Executa um comando dependendo de qual botão foi clicado.
+     * 
+     * Implementação da interface ActionListener.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -98,12 +105,22 @@ public class Login extends JFrame implements ActionListener{
         
     }
 
+    /**
+     * Retorna um JOptionPane informando que os dados digitados são inválidos.
+     * 
+     * @param mensagem Mensagem informando que os dados digitados estão errados.
+     */
     public void mostrarMensagemLoginInvalido(String mensagem) {
-        JOptionPane.showMessageDialog(null, mensagem);
+        JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.ERROR_MESSAGE);
     }
 
+    /**
+     * Retorna um JOptionPane informando que os dados digitados são válidos.
+     * 
+     * @param mensagem Mensagem informando que os dados digitados estão certos.
+     */
     public void mostrarMensagemLoginValido(String mensagem) {
-        JOptionPane.showMessageDialog(null, mensagem);
+        JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
     }
 
     public JTextField getUsername() {

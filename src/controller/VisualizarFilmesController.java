@@ -15,6 +15,11 @@ import model.Filme;
 import model.Sala;
 import model.Sessao;
 
+/**
+ * Classe controller que contém toda a lógica por trás da classe VisualizarFilmes
+ * 
+ * @author Wesley Lira Carvalho
+ */
 public class VisualizarFilmesController {
     
     private VisualizarFilmes view;
@@ -25,10 +30,29 @@ public class VisualizarFilmesController {
     private CadastrarSalaController telaSala;
     private CadastrarSessaoController telaSessao;
 
+    /**
+     * Responsável pela inicialização da view.
+     * 
+     * @param view A tela de Visualizar Filmes
+     */
     public VisualizarFilmesController(VisualizarFilmes view) {
         this.view = view;
     }
 
+    /**
+     * Gera uma ação de acordo com qual botão foi clicado.
+     * 
+     * O método tem os seguintes casos:
+     *      (1) -> botão Voltar: retorna para a tela de Menu.
+     *      (2) -> botão Seguir Adiante: leva para a tela de
+     * Pagamento para cadastrar o método de pagamento
+     * 
+     * O método ainda implementa para que busque as informações do
+     * filme, sala e sessão selecionada para dentro da comboBox.
+     * 
+     * @param e Parâmetro em ActionEvent para capturar o evento
+     * quando ocorre um clique do mouse
+     */
     public void executarBotao(ActionEvent e) {
         Object botao = e.getSource();
 
@@ -53,7 +77,9 @@ public class VisualizarFilmesController {
 
 
     /**
-     * Método para que possa atualizar o ComboBox
+     * Método para que possa atualizar o ComboBox sempre
+     * quando um novo Filme é cadastrado
+     * 
      * @return um comboBox atualizado com a seleção de filmes
      */
     public DefaultComboBoxModel<String> atualizarCaixaFilmes() {
@@ -61,8 +87,10 @@ public class VisualizarFilmesController {
     }
 
     /**
-     * Retorna um novo Array de filmes
-     * @return
+     * Retorna um novo Array de filmes sempre quando um
+     * Filme é cadastrado
+     * 
+     * @return modelo da array atualizada com os filmes
      */
     public String[] arraysFilmes() {
         List<String> modelo = new ArrayList<>();
@@ -77,7 +105,8 @@ public class VisualizarFilmesController {
     /**
      * Nesse método ele busca pelo filme que foi selecionado
      * no ComboBox e imprime as informações dele
-     * @param name
+     * 
+     * @param name Nome do filme
      * @return null caso não encontre nada
      */
     public Filme buscarFilmeEscolhido(String name) {
@@ -91,15 +120,22 @@ public class VisualizarFilmesController {
     }
 
     /**
-     * Daqui em diante são apenas métodos idênticos
-     * porém para classes diferentes. A lógica é a mesma
-     * para todos
-     * @return um item novo para o ComboBox
+     * Atualiza sempre a ComboBox com as Salas cadastradas
+     * 
+     * @return Modelo novo da comboBox de Sala completamente
+     * atualizada com novos items quando são cadastrados
      */
     public DefaultComboBoxModel<String> atualizarSala() {
         return new DefaultComboBoxModel<>(arraysSala());
     }
 
+    /**
+     * Cria sempre um array de Salas, isso toda vez que 
+     * uma nova sala é cadastrada!
+     * 
+     * @return Modelo da array atualizada com a lista
+     * de Salas novas cadastradas.
+     */
     public String[] arraysSala() {
         List<String> modelo = new ArrayList<>();
 
@@ -110,6 +146,13 @@ public class VisualizarFilmesController {
         return modelo.toArray(new String[0]);
     }
 
+    /**
+     * Procura dentro da array de Salas cadastradas pelo número da sala;
+     * 
+     * @param num da sala do qual estamos procurando dentro da array.
+     * @return os dados da sala cadastrar ou então null para caso não
+     * encontrar a sala.
+     */
     public Sala buscarSalaEscolhida(String num) {
         for (Sala salaAgora : Dados.getSalas()) {
             if (Integer.toString(salaAgora.getNumeroDaSala()).equals(num)) {
@@ -120,10 +163,23 @@ public class VisualizarFilmesController {
         return null;
     }
 
+    /**
+     * Sempre que uma nova sessão for cadastrada, ela atualiza
+     * as informações na ComboBox.
+     * 
+     * @return um novo modelo da ComboBox levando como parâmentro
+     * a função arraysSessao.
+     */
     public DefaultComboBoxModel<String> atualizarSessao() {
         return new DefaultComboBoxModel<>(arraysSessao());
     }
 
+    /**
+     * Sempre vai criar uma nova array de sessão toda vez que
+     * uma nova sessão for cadastrada.
+     * 
+     * @return um modelo da array no formato String atualizada.
+     */
     public String[] arraysSessao() {
         List<String> modelo = new ArrayList<>();
 
@@ -134,6 +190,17 @@ public class VisualizarFilmesController {
         return modelo.toArray(new String[0]);
     }
 
+    /**
+     * Faz uma busca pelo array de sessões cadastradas para
+     * procurar a sessão específica que foi selecionada
+     * dentro da ComboBox.
+     * 
+     * @param horario é o parâmetro específico para procurar
+     * a sessão dentro da array.
+     * @return os dados da sessão, mais especificamente o horário
+     * da sessão, mas isso para caso encontrar, caso contrário
+     * ela retorna null.
+     */
     public Sessao buscarSessaoEscolhida(String horario) {
         for (Sessao sessaoAgora : Dados.getSessoes()) {
             if (sessaoAgora.getHorario().equals(horario)) {

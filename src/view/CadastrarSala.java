@@ -16,6 +16,12 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CadastrarSalaController;
 
+/**
+ * Classe responsável pela view do cadastro de Sala.
+ * Essa mesma classe herda o JFrame e implementa a interface ActionListener
+ * 
+ * @author Cleber de Oliveira Brant
+ */
 public class CadastrarSala extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -32,7 +38,9 @@ public class CadastrarSala extends JFrame implements ActionListener{
 
 
 	/**
-	 * Reponsável para a view do Cadastro de sala
+	 * JPanel para o cadastro da Sala.
+	 * 
+	 * 
 	 */
 	public CadastrarSala() {
 		

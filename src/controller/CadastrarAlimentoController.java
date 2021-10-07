@@ -5,16 +5,32 @@ import model.Dados;
 import view.CadastrarAlimento;
 import view.Menu;
 
+/**
+ * Classe controladora do Cadastro de Alimento que contém toda a lógica
+ * 
+ * @author Cleber de Oliveira Brant
+ */
 public class CadastrarAlimentoController {
     
     private final CadastrarAlimento view;
 
+    /**
+     * Responsável para que inicalize a view 
+     * 
+     * @param view a tela do CadastrarAlimento 
+     */
     public CadastrarAlimentoController(CadastrarAlimento view) {
         this.view = view;
     }
-
+    
     /**
-     * Método para cadastrar os alimentos
+     * Método void sem receber nenhum parâmetro
+     * 
+     * Reponsável para pegar os dados que foram digitados na view do
+     * CadastrarAlimentos e armazenar ele em uma arraylist dentro
+     * de Dados. Assim, esses dados estarão salvos para poderem serem
+     * vistos caso sejam chamados.
+     * @see Dados
      */
     public void cadastrarAlimento() {
         
@@ -25,6 +41,20 @@ public class CadastrarAlimentoController {
         Dados.getAlimentos().add(new Alimento(nome, preco, descricao));
     }
 
+    /**
+     * Vai executar uma ação de acordo com qual botão foi selecionado na view
+     * 
+     * Pode ocorrer os seguintes casos:
+     *      (1) -> botão Confirmar: cadastra as informações inseridas
+     * em uma arrayList e depois chama um JOptionPane com uma mensagem
+     * afirmando que o cadastro foi concluído, logo te direciona para o Menu
+     *      
+     *      (2) -> botão Voltar: te direciona para o Menu
+     * 
+     * @param botao Botão presente na view 
+     * 
+     * @see CadastrarAlimento
+     */
     public void executarBotao(Object botao) {
 
         if (botao == view.getConfirmarAlimentoBtn()) {

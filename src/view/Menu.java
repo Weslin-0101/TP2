@@ -15,6 +15,13 @@ import javax.swing.border.EmptyBorder;
 
 import controller.MenuController;
 
+/**
+ * Classe responsável para a visualização do Menu.
+ * 
+ * Esse mesma classe herda JFrame e implementa a interface ActionListener.
+ * 
+ * @author Cleber de Oliveira Brant.
+ */
 public class Menu extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -34,8 +41,21 @@ public class Menu extends JFrame implements ActionListener{
 	 * ELa faz os chamados para cada uma das outras views que existem no programa.
 	 * 
 	 * Nela está presente os items dentro de um Menu menor, e também as telas restantes
-	 * dentro de cada botão
-	 */
+	 * dentro de cada botão. Estão presentes:
+	 * 		(1) -> MenuBar: no MenuBar mostra 4 items que se clicados
+	 * te direciona para as suas telas de cadastro.
+	 * 		(2) -> botão VisualizarFilme: direciona para a tela de Visualizar Filmes.
+	 * 		(3) -> botão Minha Conta: direciona para a tela de Minha Conta.
+	 * 		(4) -> botão Sair: retorna para a tela de Login.
+	 * 
+	 * @see CadastrarFilme
+	 * @see CadastrarCinema
+	 * @see CadastrarSessao
+	 * @see CadastrarAlimento
+	 * @see VisualizarFilmes
+	 * @see MinhaConta
+	 * @see Login
+	 */ 
 	public Menu() {
 		
 		controller = new MenuController(this);
@@ -94,7 +114,12 @@ public class Menu extends JFrame implements ActionListener{
 
 		setLocationRelativeTo(null);
 	}
-
+	
+	/**
+	 * Executa um comando quando um botão é clicado.
+	 * 
+	 * Implementação da interface ActionListener.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -137,5 +162,5 @@ public class Menu extends JFrame implements ActionListener{
 	public JButton getSairBtn() {
 		return sairBtn;
 	}
-
+	
 }

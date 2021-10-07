@@ -9,16 +9,29 @@ import model.Filme;
 import view.CadastrarFilme;
 import view.Menu;
 
+/**
+ * Classe responsável pelo controle de toda a lógica por trás da classe
+ * CadastrarFilme
+ * 
+ * @author Wesley Lira Carvalho
+ */
 public class CadastrarFilmeController {
     
     private final CadastrarFilme view;
 
+    /**
+     * Responsável para a inicialização da view
+     * 
+     * @param view A tela de CadastrarFilme
+     */
     public CadastrarFilmeController(CadastrarFilme view) {
         this.view = view;
     }
 
     /**
-     * Método para o cadastro de filmes
+     * Responsável para capturar os dados inseridos e armazenar eles
+     * dentro de uma arraylist que foi instanciada na classe Dados, 
+     * a mesma que simula o banco de dados
      */
     public void cadastrarFilme() {
 
@@ -33,6 +46,18 @@ public class CadastrarFilmeController {
         Dados.getFilmes().add(new Filme(titulo, duracao, sinopse, genero, cartaz, atores, diretor));
     }
 
+    /**
+     * Vai executar uma ação de acordo com qual botão foi clicado.
+     * 
+     * Os casos são os seguintes:
+     *      (1) -> botão Confirmar: cadastrar os dados obtidos em uma arraylist
+     * de filmes e depois mostra uma mensagem confirmando o cadastro. Em seguida, ele te
+     * retorna para a tela de Menu
+     * 
+     *      (2) -> botão Voltar: Retornar para o Menu
+     * 
+     * @param e captura o evento do clique usando o ActionEvent
+     */
     public void executarBotao(ActionEvent e) {
         JButton botao = (JButton) e.getSource();
 

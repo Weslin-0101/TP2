@@ -18,6 +18,13 @@ import javax.swing.border.EtchedBorder;
 
 import controller.PagamentoController;
 
+/**
+ * Classe responsável pela visualização do cadastro de pagamento.
+ * 
+ * Essa mesma classe herda JFrame e implementa a interface ActionListener.
+ * 
+ * @author Cleber de Oliveira Brant.
+ */
 public class CadastrarPagamento extends JFrame implements ActionListener{
 
 	private final JPanel contentPane;
@@ -51,8 +58,20 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 	/**
 	 * Tela responsável para o cadastro de pagamento.
 	 * 
-	 * Nessa tela, foi adicionanda diversas labels, buttons e textFields. 
-	 * Além claro das bordas que aplicamos
+	 * JPanel adiciona um comboBox com a lista de cliente cadastrados
+	 * atualizada para que possa selecionar para dizer qual cliente está
+	 * adicionando o seu método de pagamento.
+	 * 
+	 * JPanel também cria diversos JLabels para inserir os dados e cadastrar
+	 * o Pagamento. Além disso, também apresenta três botões, são eles:
+	 * 		(1) -> botão AdicionarCartão: adiciona os dados inseridos dentro
+	 * da arrayList e retorna uma mensagem confirmando o cadastro.
+	 * 		(2) -> botão AdicionarPix: adiciona os dados inseridos dentro
+	 * da arrayList e retorna uma mensagem confirmando o cadastro.
+	 * 		(3) -> botão Confirmar: retorna uma mensagem confirmando o cadastro
+	 * e a compra do Ingresso.
+	 * 
+	 * @see Menu
 	 */
 	public CadastrarPagamento() {
 		
@@ -199,12 +218,23 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Retorna um JOptionPane para quando for adicionado algum Pagamento.
+	 * 
+	 * @param mensagem Mensagem confirmando que o método de pagamento
+	 * foi adicionado.
+	 */
 	public void mostrarMensagemPagamento(String mensagem) {
-		JOptionPane.showConfirmDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	/**
+	 * Retorna um JOptionPane para quando confirmar a compra do Ingresso.
+	 * 
+	 * @param mensagem Mensagem confirmando a compra do Ingresso.
+	 */
 	public void mostrarMensagemConfirmacao(String mensagem) {
-		JOptionPane.showMessageDialog(null, mensagem);
+		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public JComboBox<String> getClientesComboBox() {
@@ -299,6 +329,11 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 		return emailPixField;
 	}
 
+	/**
+	 * Executa um comando de acordo com qual botão foi clicado.
+	 * 
+	 * Implementa a interface ActionListener.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

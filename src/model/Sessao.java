@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe para armazenar as Sessões
+ * 
+ * @author Wesley Lira Carvalho
+ */
 public class Sessao {
     
     private String dataDaSessao;
@@ -10,6 +15,13 @@ public class Sessao {
 
     private ArrayList<Sala> salas;
     
+    /**
+     * Construtor responsável para armazenas as informações da sessão
+     * O construtor recebe também uma arraylist em branco da Sala
+     * 
+     * @param dataDaSessao data da sessão que vai ser cadastrada
+     * @param horario horário da sessão que vai ser cadastrada
+     */
     public Sessao(String dataDaSessao, String horario) {
         this.dataDaSessao = dataDaSessao;
         this.horario = horario;

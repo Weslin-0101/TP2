@@ -1,5 +1,10 @@
 package model; 
 
+/**
+ * Classe que armazena as informações de um Alimento
+ * 
+ * @author Cleber de Oliveira Brant
+ */
 public class Alimento{
     
     private String nome;
@@ -10,9 +15,22 @@ public class Alimento{
     private Double preco;
     private String descricao;
     
-    public Alimento() {} //default
+    /**
+     * Construtor default
+     */
+    public Alimento() {}
     
-    //construtor sobrecarregado
+    /**
+     * Construtor sobrecarregado para gerar um novo Alimento com as seguintes informações:
+     * 
+     * @param nome nome do alimento que será cadastrado
+     * @param combos combos para caso o Alimento seja um tipo Combo
+     * @param pipocas pipoca para caso o Alimento seja um tipo Pipoca
+     * @param bebidas bebidas para caso o Alimento seja um tipo Bebidas
+     * @param doces doce para caso o Alimento seja um tipo Doces
+     * @param preco preço que vai ser de cada Alimento cadastrado
+     * @param descricao descrição para detalhar ou resumir o Alimento
+     */
     public Alimento(String nome, String combos, String pipocas, String bebidas, String doces, Double preco,
             String descricao) {
         this.nome = nome;
@@ -24,13 +42,20 @@ public class Alimento{
         this.descricao = descricao;
     }
 
+    /**
+     * Construtor para armazenar as informações do Alimento dentro da view
+     * de CadastrarAlimento
+     * 
+     * @param nome nome do Alimento que vai ser cadastrado
+     * @param preco preço do Alimento que vai ser cadastrado
+     * @param descricao descrição do Alimento que vai ser cadastrado
+     */
     public Alimento(String nome, Double preco, String descricao) {
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
     }
 
-    //metodos de acesso - getters - setter
     public String getNome() {
         return nome;
     }
@@ -87,7 +112,10 @@ public class Alimento{
         this.descricao = descricao;
     }
     
-    //métodos da classe
+    /**
+     * ToString para poder printar as informações do Alimento cadastrado
+     * ou selecionado
+     */
     @Override
     public String toString(){
         return "Nome: "+getNome()+" /"+" Combos: "+getCombos()+" /"+" Pipocas: "+getPipocas()+" /"+" Bebidas: "

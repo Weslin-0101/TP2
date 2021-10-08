@@ -68,7 +68,7 @@ public class Menu extends JFrame implements ActionListener{
 
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-
+		
 		cadastroMenu = new JMenu("Cadastro");
 		cadastroMenu.setFont(new Font("Open Sans", Font.PLAIN, 12));
 		menuBar.add(cadastroMenu);

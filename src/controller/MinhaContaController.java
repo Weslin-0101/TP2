@@ -1,8 +1,14 @@
 package controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+
 import model.Cliente;
 import model.Dados;
+import view.Login;
 import view.Menu;
 import view.MinhaConta;
 
@@ -15,7 +21,9 @@ import view.MinhaConta;
 public class MinhaContaController {
     
     private final MinhaConta view;
-    private Cliente cliente;
+    private Login login;
+    private Cliente clienteBusca;
+    private CadastrarClienteController telaCliente;
 
     /**
      * Responsável pela inicialização da view
@@ -41,28 +49,37 @@ public class MinhaContaController {
     public void executaBotao(Object botao) {
 
         if (botao == view.getExcluirBtn()) {
-            excluirCliente(cliente);
-            view.mostrarMensagemExcluido("A sua conta foi excluída! Você voltara para a tela de Login");
+            excluirCliente((String)view.getBuscarClientesComboBox().getSelectedItem());
             this.view.dispose();
             new Menu().setVisible(true);
         } else if (botao == view.getVoltarBtn()) {
             this.view.dispose();
             new Menu().setVisible(true);
         } else if (botao == view.getMostrarDetalhes()) {
-            
+            view.getInformacoesTable().setText(((this.buscarClienteEscolhido((String)view.getBuscarClientesComboBox().getSelectedItem())).toString()));
+            view.getInformacoesTable().updateUI();
+        } else {
+            clienteBusca = buscarClienteEscolhido(view.getBuscarClientesComboBox().getSelectedItem().toString());
+
+            Cliente modelo = telaCliente.pegarModelo();
         }
     }
 
+    
     /**
-     * Deleta um objeto do banco de dados pelo nome do cliente
+     * Realiza uma busca pelos clientes cadastrados em Dados. Passa por uma verificação
+     * pelo if, puxando o método sãoIguais, que do qual vai comparar o parâmetro do
+     * nome do cliente com os que já estão cadastrados.
      * 
-     * @param cliente
-     * @return true para excluir ou false para o caso de não conseguir excluir
+     * @param name Nome do cliente
+     * @return Retorna true se a comparação for verdadeira ou false se caso não for
+     * verdadeira.
      */
-    public boolean excluirCliente(Cliente cliente) {
+    public boolean excluirCliente(String name) {
         for (Cliente clienteLista : Dados.getClientes()) {
-            if (saoIguais(clienteLista, cliente)) {
+            if (saoIguais(name)) {
                 Dados.getClientes().remove(clienteLista);
+                view.mostrarMensagemExcluido("A sua conta foi excluída! Você voltara para a tela de Login");
                 return true;
             }
         }
@@ -72,14 +89,20 @@ public class MinhaContaController {
     }
 
     /**
-     * Compara se os dois objetos tem o nome igual
+     * Compara se o nome do cliente bate com algum dentro de Dados.
      * 
-     * @param cliente
-     * @param clienteAComparar
-     * @return true se tiver o nome igual ou false, caso o nome não seja igual
+     * @param name Nome do cliente
+     * @return Retorna true se a comparação for um sucesso ou
+     * um false caso a comparação não bata.
      */
-    private boolean saoIguais(Cliente cliente, Cliente clienteAComparar) {
-        return cliente.getNome().equals(clienteAComparar.getNome());
+    private boolean saoIguais(String name) {
+        for (Cliente cliente : Dados.getClientes()) {
+            if (cliente.getNome().equals(name)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -98,5 +121,31 @@ public class MinhaContaController {
         }
 
         return null;
+    }
+
+    /**
+     * Sempre atualizar o comboBox de clientes
+     * quando um novo cliente for cadastrado
+     * 
+     * @return um novo comboBox atualizado
+     */
+    public DefaultComboBoxModel<String> atualizarClientes() {
+        return new DefaultComboBoxModel<>(arraysClientes());
+    }
+
+    /**
+     * Gera sempre uma array nova de clientes
+     * quando um novo cliente é cadastrado
+     * 
+     * @return array atualizada de clientes
+     */
+    public String[] arraysClientes() {
+        List<String> modelo = new ArrayList<>();
+
+        for (Cliente cliente : Dados.getClientes()) {
+            modelo.add(cliente.getNome());
+        }
+
+        return modelo.toArray(new String[0]);
     }
 }

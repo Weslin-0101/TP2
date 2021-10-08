@@ -77,7 +77,7 @@ public class Cliente extends Pessoa {
             + "Email: " 
             + getEmail() + "\n"
             + "\n" 
-            + "Senha:" 
+            + "Senha: " 
             + getSenha() + "\n"
             + "\n";
     }

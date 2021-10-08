@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,10 +23,11 @@ import model.Cliente;
  * 
  * @author Cleber de Oliveira Brant.
  */
-public class MinhaConta extends JFrame implements ActionListener{
+public class MinhaConta extends JFrame implements ActionListener {
 
 	private final JPanel contentPane;
 	private final JTextArea informacoesTable;
+	private final JComboBox<String> buscarClientesComboBox;
 	private final JButton excluirBtn;
 	private final JButton voltarBtn;
 	private final JButton editarBtn;
@@ -36,20 +38,19 @@ public class MinhaConta extends JFrame implements ActionListener{
 	/**
 	 * JPanel para a Minha Conta.
 	 * 
-	 * JPanel insere um JTextArea que mostra as informações
-	 * do cliente que se logou.
+	 * JPanel insere um JTextArea que mostra as informações do cliente que se
+	 * logou.
 	 * 
-	 * Além disso, possui alguns botões com diferentes funções, são elas:
-	 * 		(1) -> botão Mostrar Detalhes: mostra na JTextArea as informações
-	 * de cadastro do Cliente logado.
-	 * 		(2) -> botão Excluir: exclui a conta do Cliente logado.
-	 * 		(3) -> botão Editar: edita as informações do cliente Logado.
-	 * 		(4) -> botão Voltar: retorna para a tela de Menu.
+	 * Além disso, possui alguns botões com diferentes funções, são elas: (1)
+	 * -> botão Mostrar Detalhes: mostra na JTextArea as informações de cadastro
+	 * do Cliente logado. (2) -> botão Excluir: exclui a conta do Cliente logado.
+	 * (3) -> botão Editar: edita as informações do cliente Logado. (4) -> botão
+	 * Voltar: retorna para a tela de Menu.
 	 * 
 	 * @see Menu
 	 */
 	public MinhaConta() {
-		
+
 		Cliente cliente = new Cliente("", "", "", "", "");
 		controller = new MinhaContaController(this);
 
@@ -91,8 +92,14 @@ public class MinhaConta extends JFrame implements ActionListener{
 		editarBtn.addActionListener(this);
 		editarBtn.setBounds(393, 286, 102, 39);
 		contentPane.add(editarBtn);
+
+		buscarClientesComboBox = new JComboBox<>();
+		buscarClientesComboBox.setBounds(219, 227, 170, 22);
+		buscarClientesComboBox.setModel(controller.atualizarClientes());
+		contentPane.add(buscarClientesComboBox);
+		buscarClientesComboBox.addItem("Selecionar Clientes");
 	}
-	
+
 	/**
 	 * Executa um comando quando um botão é clicado.
 	 * 
@@ -106,14 +113,16 @@ public class MinhaConta extends JFrame implements ActionListener{
 
 	/**
 	 * Retorna um JOptionPane informando que a conta foi excluída.
-	 * @param mensagem	Mensagem que aparece dentro da JOptionPane.
+	 * 
+	 * @param mensagem Mensagem que aparece dentro da JOptionPane.
 	 */
 	public void mostrarMensagemExcluido(String mensagem) {
 		JOptionPane.showMessageDialog(null, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
 	/**
 	 * Retorna um JPiotnPane informando que ocorreu algum erro.
+	 * 
 	 * @param mensagem Mensagem que aparece dentro da JOPtionPane.
 	 */
 	public void mostrarMensagemErro(String mensagem) {
@@ -143,5 +152,8 @@ public class MinhaConta extends JFrame implements ActionListener{
 	public MinhaContaController getController() {
 		return controller;
 	}
-	
+
+	public JComboBox<String> getBuscarClientesComboBox() {
+		return buscarClientesComboBox;
+	}
 }

@@ -1,8 +1,5 @@
 package model;
 
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  * Classe abstrata para que possa ser herdada pelas classes Cliente e Administração
  * @see Cliente

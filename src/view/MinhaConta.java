@@ -139,4 +139,9 @@ public class MinhaConta extends JFrame implements ActionListener{
 	public JButton getMostrarDetalhes() {
 		return mostrarDetalhes;
 	}
+
+	public MinhaContaController getController() {
+		return controller;
+	}
+	
 }

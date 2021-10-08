@@ -247,4 +247,9 @@ public class CadastrarFilme extends JFrame implements ActionListener{
 	public JButton getVoltarBtn() {
 		return voltarBtn;
 	}
+
+	public CadastrarFilmeController getController() {
+		return controller;
+	}
+	
 }

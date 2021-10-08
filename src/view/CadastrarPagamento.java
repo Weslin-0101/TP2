@@ -329,6 +329,10 @@ public class CadastrarPagamento extends JFrame implements ActionListener{
 		return emailPixField;
 	}
 
+	public PagamentoController getController() {
+		return controller;
+	}
+
 	/**
 	 * Executa um comando de acordo com qual botão foi clicado.
 	 * 

@@ -244,4 +244,9 @@ public class CadastrarCinema extends JFrame implements ActionListener{
 	public JComboBox<Object> getCapacidadeComboBox() {
 		return capacidadeComboBox;
 	}
+
+	public CadastrarCinemaController getController() {
+		return controller;
+	}
+	
 }

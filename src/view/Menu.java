@@ -162,5 +162,9 @@ public class Menu extends JFrame implements ActionListener{
 	public JButton getSairBtn() {
 		return sairBtn;
 	}
+
+	public MenuController getController() {
+		return controller;
+	}
 	
 }

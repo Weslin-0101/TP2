@@ -161,5 +161,9 @@ public class CadastrarSessao extends JFrame implements ActionListener{
 		return salaComboBox;
 	}
 
+	public CadastrarSessaoController getController() {
+		return controller;
+	}
+
 	
 }

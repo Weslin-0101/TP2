@@ -214,4 +214,9 @@ public class CadastrarCliente extends JFrame implements ActionListener{
 	public JButton getVoltarBtn() {
 		return voltarBtn;
 	}
+
+	public CadastrarClienteController getController() {
+		return controller;
+	}
+	
 }

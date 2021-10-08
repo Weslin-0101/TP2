@@ -202,4 +202,10 @@ public class VisualizarFilmes extends JFrame implements ActionListener{
 	public JButton getVoltarBtn() {
 		return voltarBtn;
 	}
+
+	public VisualizarFilmesController getController() {
+		return controller;
+	}
+	
+	
 }

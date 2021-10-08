@@ -147,4 +147,9 @@ public class CadastrarSala extends JFrame implements ActionListener{
 		return voltarBtn;
 	}
 
+	public CadastrarSalaController getController() {
+		return controller;
+	}
+	
+	
 }

@@ -161,6 +161,10 @@ public class CadastrarAlimento extends JFrame implements ActionListener{
 	public JComboBox<String> getEscolhaComboBox() {
 		return escolhaComboBox;
 	}
+	
+	public CadastrarAlimentoController getController() {
+		return controller;
+	}
 
 	/**
 	 * Irá mostrar um JOptionPane, uma mensagem de

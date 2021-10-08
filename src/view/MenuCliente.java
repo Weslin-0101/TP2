@@ -112,4 +112,8 @@ public class MenuCliente extends JFrame implements ActionListener{
 		return sairBtn;
 	}
 
+	public MenuClienteController getController() {
+		return controller;
+	}
+
 }

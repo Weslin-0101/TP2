@@ -138,4 +138,8 @@ public class Login extends JFrame implements ActionListener{
     public JButton getRegisterBtn() {
         return registerBtn;
     }
+
+	public LoginController getController() {
+		return controller;
+	}
 }

@@ -98,6 +98,8 @@ public class MinhaConta extends JFrame implements ActionListener {
 		buscarClientesComboBox.setModel(controller.atualizarClientes());
 		contentPane.add(buscarClientesComboBox);
 		buscarClientesComboBox.addItem("Selecionar Clientes");
+
+		setLocationRelativeTo(null);
 	}
 
 	/**

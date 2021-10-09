@@ -37,7 +37,7 @@ public class CadastrarClienteController {
 
         String name = view.getNameField().getText();
         String date = view.getDateField().getText();
-        String cpf = view.getDateField().getText();
+        String cpf = view.getCpfField().getText();
         String email = view.getEmailField().getText();
         String password = view.getSenhaField().getText();
 
@@ -81,7 +81,7 @@ public class CadastrarClienteController {
 
         String name = view.getNameField().getText();
         String date = view.getDateField().getText();
-        String cpf = view.getDateField().getText();
+        String cpf = view.getCpfField().getText();
         String email = view.getEmailField().getText();
         String password = view.getSenhaField().getText();
 

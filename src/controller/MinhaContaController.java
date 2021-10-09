@@ -8,6 +8,8 @@ import javax.swing.DefaultComboBoxModel;
 
 import model.Cliente;
 import model.Dados;
+import view.CadastrarCliente;
+import view.EditarCliente;
 import view.Login;
 import view.Menu;
 import view.MinhaConta;
@@ -23,6 +25,7 @@ public class MinhaContaController {
     private final MinhaConta view;
     private Login login;
     private Cliente clienteBusca;
+    private CadastrarCliente cadastrarCliente;
     private CadastrarClienteController telaCliente;
 
     /**
@@ -51,13 +54,16 @@ public class MinhaContaController {
         if (botao == view.getExcluirBtn()) {
             excluirCliente((String)view.getBuscarClientesComboBox().getSelectedItem());
             this.view.dispose();
-            new Menu().setVisible(true);
+            new Login().setVisible(true);
         } else if (botao == view.getVoltarBtn()) {
             this.view.dispose();
             new Menu().setVisible(true);
         } else if (botao == view.getMostrarDetalhes()) {
             view.getInformacoesTable().setText(((this.buscarClienteEscolhido((String)view.getBuscarClientesComboBox().getSelectedItem())).toString()));
             view.getInformacoesTable().updateUI();
+        } else if (botao == view.getEditarBtn()) {
+            new EditarCliente(buscarClienteEscolhido(view.getBuscarClientesComboBox().getSelectedItem().toString())).setVisible(true);
+            this.view.dispose();
         } else {
             clienteBusca = buscarClienteEscolhido(view.getBuscarClientesComboBox().getSelectedItem().toString());
 
